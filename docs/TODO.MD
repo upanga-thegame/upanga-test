@@ -15,7 +15,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 ## Ch.1 Features (v0.1.0 Pre-Alpha)
 
-- [~] Implement autosave functions. Display message "Saving..." whenever switching screens
+- [X] Implement autosave functions. Display message "Saving..." whenever switching screens
       save the current game state.
 - [ ] Create cinematic cutscene: Game launch
 - [ ] Create cinematic cutscene: New game
@@ -28,25 +28,30 @@ Upanga: The Soul Blade - TODO + Dev Tracker
       transparent. Fills as parts of the blade are completed.
 - [ ] Work on storyboards, hero origin stories
 - [~] Implement flash encounter on TravelMap. Bandit attack. New NPCs: Bandit, Bandit Leader
-- [~] Revamp how box frames are used, remove sprite frames use native godot systems will
+- [X] Revamp how box frames are used, remove sprite frames use native godot systems will
       help improve performance.
+- [X] Implement diagonal movement & attack.
+- [X] Created Skeleton Witchdoctor replaces Skeleton Mage
 
 
 ## Ch.1 Fixes (v0.1.0 Pre-Alpha)
 
 - [ ] After leaving Chief hut on Kraal map, cant click right in front of hut to move
 - [ ] On TravelMap after leaving Kraal box confirming entry pops up, should not.
-- [ ] Pre&Post Crypt Dialogue boxes need text adjustments, runs into frame.
+- [X] Pre&Post Crypt Dialogue boxes need text adjustments, runs into frame.
 - [ ] Add Zombie profile picture to npc status bar
 - [ ] Update thanks for playing box with more info.
+- [ ] Adjust so anywhere in the map is clickable except regions like water, mountains
+      remove the rigid path
 
 ## Ch.1 Polish (v0.1.0 Pre-Alpha)
 
 - [ ] Redo Kishi voiceovers, don't like how they sound. Kishi werehyena is ok.
-- [ ] Do something with end button either skin it or make it bigger.
+- [X] Do something with end button either skin it or make it bigger.
 - [ ] Make sure game autosaves in between CryptBattle maps
 - [ ] Create an indicator over region with status completion
-- [ ] Add a time based system for map completion, keep track of best time.
+- [X] Add a time based system for map completion, keep track of best time.
+- [~] Refactoring the icon movement on the travelmap, adding animation movement.
 
 ## Ch.1 Testing (v0.1.0 Pre-Alpha)
 
