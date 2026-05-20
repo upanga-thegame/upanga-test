@@ -27,3 +27,14 @@ sprite images and use godot Layered PanelContainer / ColorRect nodes for the out
 frame, inner groove, and inset content area. StyleBoxFlat borders for the thick 
 pixel frame and dark interior. This should hopefully also improve performance
 with less assets being loaded on the screen. 
+
+## 2026-05-20 10:52 AM - Todays updates
+
+I've made a lot of progress the last couple of days. After some trial & error
+was able to export a working Android build to my mobile device. I discovered
+immediately that the UI was way too small & the text was barely readable.
+I addded a new settings menu feature to adjust the UI scale from normal-extra
+large. I updated the dynamic dialogue boxes to reflect the increased font size
+changes. I wrote a standalone build tool powershell script that executes a 
+headless build without loading Godot. It uninstalls/re-installs the APK to my
+mobile if it is connected. 

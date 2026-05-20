@@ -5,7 +5,6 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 ## Ch.1 Priorities (v0.1.0 Pre-Alpha)
 
-- [ ] Build & export first Android apk. Check how game looks & plays on mobile. 
 - [ ] Design JungleBattleMaps
 - [ ] Design PyramidBattleMaps
 - [ ] Design SwampBattleMaps
@@ -25,6 +24,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [ ] Create cinematic cutscene: After LaplassBattleMap
 - [ ] Work on storyboards, hero origin stories
 - [~] Implement flash encounter on TravelMap. Bandit attack. New NPCs: Bandit, Bandit Leader
+- [ ] Add a spinning arrow quest icon for tip. 
 
 
 ## Ch.1 Fixes (v0.1.0 Pre-Alpha)
@@ -41,8 +41,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 - [~] Test core gameplay loop.
 - [~] Test scene transitions.
-- [~] Test save/load or persistence behavior, if applicable.
-- [ ] Test export/build flow.
+- [~] Test export/build flow. Continue to test on mobile after new builds. 
 
 
 ## Ch.1 Ideas (v0.1.0 Pre-Alpha)
@@ -112,7 +111,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [X] Design CryptBattleMaps (3). 
 - [X] Design Kraal map (1)
 - [X] Design 2nd & 3rd Map for CryptBattleMap. New NPC miniboss: Bess
-
+- [X] Build & export first Android apk. Check how game looks & plays on mobile. 
 
 ## Ch.1 Features (v0.1.0 Pre-Alpha)
 
@@ -163,9 +162,9 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [X] Add a day cycle 1hr real world 24 game time, cycle tints of the map
 
 
+## Ch.1 Testing (v0.1.0 Pre-Alpha)
 
-
-
+- [X] Test save/load or persistence behavior, if applicable.
 
 ## Ch.1 Fixes (v0.1.0 Pre-Alpha)
 
@@ -199,8 +198,6 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [X] Ruins should be locked at start of game until after chief dialog
       make ghost smaller on 2nd cryptbattle when respawn
 
-
-
 ## Ch.1 Polish (v0.1.0 Pre-Alpha)
 
 - [X] Add shadow effects under all character sprites.
@@ -225,8 +222,6 @@ Upanga: The Soul Blade - TODO + Dev Tracker
       - [X] Do something with end button either skin it or make it bigger.
 - [X] Make sure game autosaves in between CryptBattle maps
 - [X] Add a time based system for map completion, keep track of best time.
-
-
 
 ## Ch.1 Ideas (v0.1.0 Pre-Alpha)
 
