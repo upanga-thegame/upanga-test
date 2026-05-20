@@ -5,6 +5,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 ## Ch.1 Priorities (v0.1.0 Pre-Alpha)
 
+- [ ] Build & export first Android apk. Check how game looks & plays on mobile. 
 - [ ] Design JungleBattleMaps
 - [ ] Design PyramidBattleMaps
 - [ ] Design SwampBattleMaps
@@ -15,8 +16,6 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 ## Ch.1 Features (v0.1.0 Pre-Alpha)
 
-- [X] Implement autosave functions. Display message "Saving..." whenever switching screens
-      save the current game state.
 - [ ] Create cinematic cutscene: Game launch
 - [ ] Create cinematic cutscene: New game
 - [ ] Create cinematic cutscene: After CryptBattleMap
@@ -24,33 +23,18 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [ ] Create cinematic cutscene: After RuinsBattleMap
 - [ ] Create cinematic cutscene: After PyramidBattleMap
 - [ ] Create cinematic cutscene: After LaplassBattleMap
-- [ ] Create Soul Blade graphic to display on TravelMap. Starts out
-      transparent. Fills as parts of the blade are completed.
 - [ ] Work on storyboards, hero origin stories
 - [~] Implement flash encounter on TravelMap. Bandit attack. New NPCs: Bandit, Bandit Leader
-- [X] Revamp how box frames are used, remove sprite frames use native godot systems will
-      help improve performance.
-- [X] Implement diagonal movement & attack.
-- [X] Created Skeleton Witchdoctor replaces Skeleton Mage
 
 
 ## Ch.1 Fixes (v0.1.0 Pre-Alpha)
 
 - [ ] After leaving Chief hut on Kraal map, cant click right in front of hut to move
-- [ ] On TravelMap after leaving Kraal box confirming entry pops up, should not.
-- [X] Pre&Post Crypt Dialogue boxes need text adjustments, runs into frame.
-- [ ] Add Zombie profile picture to npc status bar
-- [ ] Update thanks for playing box with more info.
-- [ ] Adjust so anywhere in the map is clickable except regions like water, mountains
-      remove the rigid path
 
 ## Ch.1 Polish (v0.1.0 Pre-Alpha)
 
-- [ ] Redo Kishi voiceovers, don't like how they sound. Kishi werehyena is ok.
-- [X] Do something with end button either skin it or make it bigger.
-- [ ] Make sure game autosaves in between CryptBattle maps
 - [ ] Create an indicator over region with status completion
-- [X] Add a time based system for map completion, keep track of best time.
+- [ ] Redo Kishi voiceovers, don't like how they sound. Kishi werehyena is ok.
 - [~] Refactoring the icon movement on the travelmap, adding animation movement.
 
 ## Ch.1 Testing (v0.1.0 Pre-Alpha)
@@ -59,14 +43,11 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [~] Test scene transitions.
 - [~] Test save/load or persistence behavior, if applicable.
 - [ ] Test export/build flow.
-- [ ] Build & export first Android apk. Check how game looks & plays on mobile. 
 
 
 ## Ch.1 Ideas (v0.1.0 Pre-Alpha)
 
 - [ ] Work on a web demo version of a BattleMap to showcase the gameplay.
-- [ ] Create an indicator over region with status completion 
-- [X] Add a day cycle 1hr real world 24 game time, cycle tints of the map
 - [ ] Create new portrait pics for different emotions for story cards. 
 
 ## Ch.1 Notes (v0.1.0 Pre-Alpha)
@@ -173,6 +154,16 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [X] Improve combat mechanics. Maybe add an interupt system based off of avail AP.
 - [X] Add Difficulty level to the game, add to settings. Easy, Med, Hard. Increase npc 
       HP to scale difficulty. 
+- [X] Implement autosave functions. Display message "Saving..." whenever switching screens
+      save the current game state.
+- [X] Revamp how box frames are used, remove sprite frames use native godot systems will
+      help improve performance.
+- [X] Implement diagonal movement & attack.
+- [X] Created Skeleton Witchdoctor replaces Skeleton Mage
+- [X] Add a day cycle 1hr real world 24 game time, cycle tints of the map
+
+
+
 
 
 
@@ -198,6 +189,16 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [X] Fix sprite shadow effect not showing again
 - [X] Fix target boxes for npcs too low
 - [X] Fix Nganga idle animation bounces around, pixel foot off
+- [X] On TravelMap after leaving Kraal box confirming entry pops up, should not.
+- [X] Pre&Post Crypt Dialogue boxes need text adjustments, runs into frame.
+- [X] Add Zombie profile picture to npc status bar
+- [X] Update thanks for playing box with more info.
+- [X] Adjust so anywhere in the map is clickable except regions like water, mountains
+      remove the rigid path
+- [X] Movement dial cant be moved
+- [X] Ruins should be locked at start of game until after chief dialog
+      make ghost smaller on 2nd cryptbattle when respawn
+
 
 
 ## Ch.1 Polish (v0.1.0 Pre-Alpha)
@@ -221,6 +222,10 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [X] Revisit the entire combat system. Have it based on closeness to the
       the target instead of cell location. if the spites are close enough
       allow combat for melee.
+      - [X] Do something with end button either skin it or make it bigger.
+- [X] Make sure game autosaves in between CryptBattle maps
+- [X] Add a time based system for map completion, keep track of best time.
+
 
 
 ## Ch.1 Ideas (v0.1.0 Pre-Alpha)
