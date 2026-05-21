@@ -23,7 +23,6 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [ ] Create cinematic cutscene: After PyramidBattleMap
 - [ ] Create cinematic cutscene: After LaplassBattleMap
 - [ ] Work on storyboards, hero origin stories
-- [~] Implement flash encounter on TravelMap. Bandit attack. New NPCs: Bandit, Bandit Leader
 - [ ] Add a spinning arrow quest icon for tip. 
 
 
@@ -34,7 +33,6 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 ## Ch.1 Polish (v0.1.0 Pre-Alpha)
 
 - [ ] Create an indicator over region with status completion
-- [ ] Redo Kishi voiceovers, don't like how they sound. Kishi werehyena is ok.
 - [~] Refactoring the icon movement on the travelmap, adding animation movement.
 
 ## Ch.1 Testing (v0.1.0 Pre-Alpha)
@@ -160,6 +158,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [X] Implement diagonal movement & attack.
 - [X] Created Skeleton Witchdoctor replaces Skeleton Mage
 - [X] Add a day cycle 1hr real world 24 game time, cycle tints of the map
+- [X] Implement flash encounter on TravelMap. Bandit attack. New NPCs: Bandit, Bandit Leader
 
 
 ## Ch.1 Testing (v0.1.0 Pre-Alpha)
@@ -222,6 +221,8 @@ Upanga: The Soul Blade - TODO + Dev Tracker
       - [X] Do something with end button either skin it or make it bigger.
 - [X] Make sure game autosaves in between CryptBattle maps
 - [X] Add a time based system for map completion, keep track of best time.
+- [X] Redo Kishi voiceovers, don't like how they sound. Kishi werehyena is ok.
+
 
 ## Ch.1 Ideas (v0.1.0 Pre-Alpha)
 
