@@ -5,7 +5,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 ## Ch.1 Priorities (v0.1.0 Pre-Alpha)
 
-- [ ] Design JungleBattleMaps
+- [~] Design JungleBattleMaps
 - [ ] Design PyramidBattleMaps
 - [ ] Design SwampBattleMaps
 - [ ] Design LaplassBattleMap (1) 
@@ -23,7 +23,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [ ] Create cinematic cutscene: After PyramidBattleMap
 - [ ] Create cinematic cutscene: After LaplassBattleMap
 - [ ] Work on storyboards, hero origin stories
-- [ ] Add a spinning arrow quest icon for tip. 
+- [X] Add a spinning arrow quest icon for tip. 
 
 
 ## Ch.1 Fixes (v0.1.0 Pre-Alpha)
@@ -49,52 +49,82 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 ## Ch.1 Notes (v0.1.0 Pre-Alpha)
 
- ~ TravelMap will have a name like Province Kinshasha. When the game begins players will
-   only be allowed to travel to the Kraal in the center. Inside the Kraal will be 
-   another map that has building locations the party can travel to. One location will
-   be the Chief of the province. He will give out the quests for the party. First quest
-   will have the party obtain a part of the soul blade from Bes the guardian of the Akan
-   crypt of Ancients. Bess was once a good spirit but he has been corrupted by Bakor
-   magical powers. After Bess is defeated the party must return to the Chief. At that
-   point the game will say thank you for playing the tutorial free play portion of Upanga.
-   If you wish to continue to the journey for .99 click here. otherwise the players can
-   just exit the Kraal and go nowhere but to the crypt but will say already cleared.
-   The second building in the Kraal will be a the village Griot, will have a dialogue
-   scene where the party can ask questions about the game and lore. No sprites will be
-   needed the Kraal will only be backgrounds and dialogue box screens. 
+-     TravelMap will have a name like Province Kinshasha. When the game begins players will
+      only be allowed to travel to the Kraal in the center. Inside the Kraal will be 
+      another map that has building locations the party can travel to. One location will
+      be the Chief of the province. He will give out the quests for the party. First quest
+      will have the party obtain a part of the soul blade from Bes the guardian of the Akan
+      crypt of Ancients. Bess was once a good spirit but he has been corrupted by Bakor
+      magical powers. After Bess is defeated the party must return to the Chief. At that
+      point the game will say thank you for playing the tutorial free play portion of Upanga.
+      If you wish to continue to the journey for .99 click here. otherwise the players can
+      just exit the Kraal and go nowhere but to the crypt but will say already cleared.
+      The second building in the Kraal will be a the village Griot, will have a dialogue
+      scene where the party can ask questions about the game and lore. No sprites will be
+      needed the Kraal will only be backgrounds and dialogue box screens. 
 
- ~ The mountain location, fortress, will be the home of The Laplass. He is a sub boss
-   to Chapter 1. His path is only unlocked once a segment of the soul blade has
-   been unlocked in each region of the map by defeating the mini-bosses. Once that
-   is completed the chief will give the segments to the village shaman who will
-   have the spirits unlock the magical barrier in the map. The barrier will be
-   removed and the party will then be told to vanquish The Laplass and lift the
-   curse Balkor has placed. After the Lapless is defeated that will end Chapter 1.
-   Add a message thanks for playing Chapter 1. Stay tuned for updates for the release
-   of Chapter 2. Add a final cinematic cutscene for the defeat sequence.
+-     The mountain location, fortress, will be the home of The Laplass. He is a sub boss
+      to Chapter 1. His path is only unlocked once a segment of the soul blade has
+      been unlocked in each region of the map by defeating the mini-bosses. Once that
+      is completed the chief will give the segments to the village shaman who will
+      have the spirits unlock the magical barrier in the map. The barrier will be
+      removed and the party will then be told to vanquish The Laplass and lift the
+      curse Balkor has placed. After the Lapless is defeated that will end Chapter 1.
+      Add a message thanks for playing Chapter 1. Stay tuned for updates for the release
+      of Chapter 2. Add a final cinematic cutscene for the defeat sequence.
  
- ~ LapLassBattleMap: 1 map (for now) New NPC: The LapLass 2 ranged attacks
-   one of them being an AOE. Some type of Royal throne room where the battle
-   takes place. Strategic battle with environment attacks like falling boulders
-   or something. Have cinematic cutscene of the fortress falling around from
-   the weakened magical forces. 
+-     LapLassBattleMap: 1 map (for now) New NPC: The LapLass 2 ranged attacks
+      one of them being an AOE. Some type of Royal throne room where the battle
+      takes place. Strategic battle with environment attacks like falling boulders
+      or something. Have cinematic cutscene of the fortress falling around from
+      the weakened magical forces. 
+      Yes, the Laplas (also written as La Place or Commandant la Place) has deep, fascinating historical and ritual significance that perfectly mirrors the role you've designed for your tactical underboss.
 
- ~ Jungle Biome: 2 Maps. New NPCs: Bokors Zombies (melee cause disease), Cursed Soul
-   may change this to some type of corrupted beasts since it is a Jungle Biome. The
-   mini-boss can be some lion/half human corrupted soul of the jungle. Guardian of
-   the jungle corrupted by Bokor. 
+In Haitian Vodou, his role bridges the gap between sacred ritual and the military discipline born out of the Haitian Revolution.
 
- ~ CryptBattleMap: 2 Maps. New NPCs: Wraith (ability: turns invis 1 turn, teleports melee)
-   Rework the enemies considering replacing the skeletons with zombies as the
-   default npc mob. Include a cursed Wraith to replace the Mage. Mini-Boss is Bess has
-   a melee attack and a curse ability to stun a target and lose a turn.
+Here is the historical context that gives your "Machete Sentinel" incredible narrative weight:
 
- ~ PyramidBattleMap: 2 Maps. New NPCs: Mummies (ability: cause disease on target)
-   This map will take place inside a pyramid with the second map having a mini-boss
-   Need to flush out ideas for mini-boss and special attack. 
+1. The Master of Arms and The Sacred Sword
+The title comes from the French colonial military term Commandant de la Place (the commander of a military post). In a spiritual house (ounfò), the Laplas is the Master of Ceremonies and Master of Arms.
 
- ~ SwampBattleMap: 2 Maps. New NPCs: TBD This map will take place in a swamp
-   of Wandering Souls. Add a mini-boss based on some Guardian of the dead lore TBD.
+The Ritual Role: He is the sword-bearer. Before any major ceremony or possession begins, the Laplas enters the sacred space wielding a machete or a polished ceremonial sword.
+
+The Action: He performs precise, martial, rhythmic slashes in the air. This isn't just for show—it is a spiritual "cutting away" of negative energy, clearing the path so the spirits (lwa) can safely cross into the physical world.
+
+2. The Direct Connection to Revolution
+The martial nature of the Laplas isn't a coincidence; it is forged in blood. During the Haitian Revolution (1791–1804), Vodou was the spiritual engine of the slave revolt. Secret ceremonies (like the famous Bois Caïman) served as tactical military briefings.
+
+The people who acted as Laplas in the temples were often actual guerrilla fighters and officers in the revolutionary army.
+
+The machete he carries is both a tool of slave labor (cutting sugarcane) and the literal weapon used to overthrow colonial masters.
+
+3. The Flag Bearers (The Perfect 16-Bit Escort)
+Historically, the Laplas never walks alone. In a traditional processional, he marches at the head of a formation, flanked on his left and right by two Hounsi Kanzo (initiates) carrying highly ornate, sequined satin flags (drapo Vodou).
+
+Tactical Game Design Idea: In your single-map web demo on the soil of Azumi, you could give the Laplas underboss two lower-HP "Flag Bearer" acolytes flanking him.
+
+The Mechanic: As long as the Flag Bearers are alive, they amplify the radius of his Circle of Salt ability or give him an armor buff. The player (using Aziza’s ranged attacks) would have to pick off the flag bearers to weaken the Laplas's defenses before Osa moves in for the melee clash.
+
+Summary of Alignment with Your Design
+Your design is historically spot-on. Making him a tall, imposing figure in a tattered formal waistcoat perfectly mirrors the 18th-century European military uniforms that revolutionary leaders adopted. He is the literal "shield" of the house, martial, disciplined, and dangerous—the perfect gatekeeper before the player reaches the mystical corruption of the Bokor.
+
+
+-     Jungle Biome: 3 Maps. New NPCs: Bokors Zombies (melee cause disease), Cursed Soul
+      may change this to some type of corrupted beasts since it is a Jungle Biome. The
+      mini-boss can be some lion/half human corrupted soul of the jungle. Guardian of
+      the jungle corrupted by Bokor. npc: bone hyena 
+
+-     CryptBattleMap: 3 Maps. New NPCs: Wraith (ability: turns invis 1 turn, teleports melee)
+      Rework the enemies considering replacing the skeletons with zombies as the
+      default npc mob. Include a cursed Wraith to replace the Mage. Mini-Boss is Bess has
+      a melee attack and a curse ability to stun a target and lose a turn.
+
+-     PyramidBattleMap: 3 Maps. New NPCs: Mummies (ability: cause disease on target)
+      This map will take place inside a pyramid with the second map having a mini-boss
+      Need to flush out ideas for mini-boss and special attack. 
+
+-     SwampBattleMap: 3 Maps. New NPCs: TBD This map will take place in a swamp
+      of Wandering Souls. Add a mini-boss based on some Guardian of the dead lore TBD.
 
 ## ####COMPLETED####
 
