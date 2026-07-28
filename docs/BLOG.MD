@@ -38,3 +38,11 @@ large. I updated the dynamic dialogue boxes to reflect the increased font size
 changes. I wrote a standalone build tool powershell script that executes a 
 headless build without loading Godot. It uninstalls/re-installs the APK to my
 mobile if it is connected. 
+
+## 2026-07-28 4:00 PM - Long awaited update
+
+Numerous updates since my last post. About 90% of the code is completed, I am
+currently reworking some of the backend systems that handle dialog to make it
+easier to make story line changes. I still have a lot of work to do for the
+cinematic cut scenes and flushing out the story points. I am still ahead of 
+schedule for the planned Fall release.

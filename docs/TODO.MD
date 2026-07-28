@@ -6,8 +6,8 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 ## Ch.1 Priorities (v0.1.0 Pre-Alpha)
 
 - [~] Design JungleBattleMaps
-- [ ] Design PyramidBattleMaps
-- [ ] Design SwampBattleMaps
+- [~] Design PyramidBattleMaps
+- [~] Design SwampBattleMaps
 - [ ] Design LaplassBattleMap (1) 
 - [~] Paywall after completion of the Crypt. 
 
@@ -28,12 +28,13 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 ## Ch.1 Fixes (v0.1.0 Pre-Alpha)
 
-- [ ] After leaving Chief hut on Kraal map, cant click right in front of hut to move
+- [X] After leaving Chief hut on Kraal map, cant click right in front of hut to move
 
 ## Ch.1 Polish (v0.1.0 Pre-Alpha)
 
-- [ ] Create an indicator over region with status completion
-- [~] Refactoring the icon movement on the travelmap, adding animation movement.
+- [X] Create an indicator over region with status completion
+- [X] Refactoring the icon movement on the travelmap, adding animation movement.
+- [~]  
 
 ## Ch.1 Testing (v0.1.0 Pre-Alpha)
 
