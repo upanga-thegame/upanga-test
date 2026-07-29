@@ -3,7 +3,7 @@
 Upanga: The Soul Blade - TODO + Dev Tracker
 
 
-## Ch.1 Priorities (v0.1.0 Pre-Alpha)
+## Ch.1 Priorities (v0.2.0 Pre-Alpha)
 
 - [~] Design JungleBattleMaps
 - [~] Design PyramidBattleMaps
@@ -13,7 +13,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 
 
-## Ch.1 Features (v0.1.0 Pre-Alpha)
+## Ch.1 Features (v0.2.0 Pre-Alpha)
 
 - [ ] Create cinematic cutscene: Game launch
 - [ ] Create cinematic cutscene: New game
@@ -26,29 +26,29 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [X] Add a spinning arrow quest icon for tip. 
 
 
-## Ch.1 Fixes (v0.1.0 Pre-Alpha)
+## Ch.1 Fixes (v0.2.0 Pre-Alpha)
 
 - [X] After leaving Chief hut on Kraal map, cant click right in front of hut to move
 
-## Ch.1 Polish (v0.1.0 Pre-Alpha)
+## Ch.1 Polish (v0.2.0 Pre-Alpha)
 
 - [X] Create an indicator over region with status completion
 - [X] Refactoring the icon movement on the travelmap, adding animation movement.
 - [~]  
 
-## Ch.1 Testing (v0.1.0 Pre-Alpha)
+## Ch.1 Testing (v0.2.0 Pre-Alpha)
 
 - [~] Test core gameplay loop.
 - [~] Test scene transitions.
 - [~] Test export/build flow. Continue to test on mobile after new builds. 
 
 
-## Ch.1 Ideas (v0.1.0 Pre-Alpha)
+## Ch.1 Ideas (v0.2.0 Pre-Alpha)
 
 - [ ] Work on a web demo version of a BattleMap to showcase the gameplay.
 - [ ] Create new portrait pics for different emotions for story cards. 
 
-## Ch.1 Notes (v0.1.0 Pre-Alpha)
+## Ch.1 Notes (v0.2.0 Pre-Alpha)
 
 -     TravelMap will have a name like Province Kinshasha. When the game begins players will
       only be allowed to travel to the Kraal in the center. Inside the Kraal will be 
@@ -129,7 +129,7 @@ Your design is historically spot-on. Making him a tall, imposing figure in a tat
 
 ## ####COMPLETED####
 
-## Ch.1 Priorities (v0.1.0 Pre-Alpha)
+## Ch.1 Priorities (v0.2.0 Pre-Alpha)
 
 - [X] Priorities: Create turn based system no manual selection of heroes
 - [X] Priorities: Balance out attack, hp, damage, scales
@@ -142,7 +142,7 @@ Your design is historically spot-on. Making him a tall, imposing figure in a tat
 - [X] Design 2nd & 3rd Map for CryptBattleMap. New NPC miniboss: Bess
 - [X] Build & export first Android apk. Check how game looks & plays on mobile. 
 
-## Ch.1 Features (v0.1.0 Pre-Alpha)
+## Ch.1 Features (v0.2.0 Pre-Alpha)
 
 - [X] Create trap animation for Aziza and update code.
 - [X] Create shield bash animation for Osa and update code.
@@ -192,11 +192,11 @@ Your design is historically spot-on. Making him a tall, imposing figure in a tat
 - [X] Implement flash encounter on TravelMap. Bandit attack. New NPCs: Bandit, Bandit Leader
 
 
-## Ch.1 Testing (v0.1.0 Pre-Alpha)
+## Ch.1 Testing (v0.2.0 Pre-Alpha)
 
 - [X] Test save/load or persistence behavior, if applicable.
 
-## Ch.1 Fixes (v0.1.0 Pre-Alpha)
+## Ch.1 Fixes (v0.2.0 Pre-Alpha)
 
 - [X] Fix bug: Nganga cannot cast disease twice on same target
 - [X] Fix bug: Nganga Disease and Heal skill cost 2 AP 
@@ -228,7 +228,7 @@ Your design is historically spot-on. Making him a tall, imposing figure in a tat
 - [X] Ruins should be locked at start of game until after chief dialog
       make ghost smaller on 2nd cryptbattle when respawn
 
-## Ch.1 Polish (v0.1.0 Pre-Alpha)
+## Ch.1 Polish (v0.2.0 Pre-Alpha)
 
 - [X] Add shadow effects under all character sprites.
 - [X] Update character status field with a graphic or texture map.
@@ -255,5 +255,5 @@ Your design is historically spot-on. Making him a tall, imposing figure in a tat
 - [X] Redo Kishi voiceovers, don't like how they sound. Kishi werehyena is ok.
 
 
-## Ch.1 Ideas (v0.1.0 Pre-Alpha)
+## Ch.1 Ideas (v0.2.0 Pre-Alpha)
 
