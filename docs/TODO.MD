@@ -23,8 +23,8 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [ ] Create cinematic cutscene: After PyramidBattleMap
 - [ ] Create cinematic cutscene: After LaplassBattleMap
 - [ ] Work on storyboards, hero origin stories
-- [ ] Implement a death system + resurrection shrine at the shamans hut
-- [ ] Add ambient sound effects to the maps, like jungle sounds
+- [~] Implement a death system + resurrection shrine at the shamans hut
+- [~] Add ambient sound effects to the maps, like jungle sounds
 
 
 ## Ch.1 Fixes (v0.2.0 Pre-Alpha)
