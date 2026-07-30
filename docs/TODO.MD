@@ -25,6 +25,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [ ] Work on storyboards, hero origin stories
 - [~] Implement a death system + resurrection shrine at the shamans hut
 - [~] Add ambient sound effects to the maps, like jungle sounds
+- [~] Add new scenes for shaman hut & chieftan instead of stale dialog boxes
 
 
 ## Ch.1 Fixes (v0.2.0 Pre-Alpha)
