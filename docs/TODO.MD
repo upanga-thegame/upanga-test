@@ -3,7 +3,7 @@
 Upanga: The Soul Blade - TODO + Dev Tracker
 
 
-## Ch.1 Priorities (v0.2.0 Pre-Alpha)
+## Ch.1 Priorities (v0.2.1 Pre-Alpha)
 
 - [~] Design JungleBattleMaps
 - [~] Design PyramidBattleMaps
@@ -13,7 +13,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 
 
-## Ch.1 Features (v0.2.0 Pre-Alpha)
+## Ch.1 Features (v0.2.1 Pre-Alpha)
 
 - [ ] Create cinematic cutscene: Game launch
 - [ ] Create cinematic cutscene: New game
@@ -28,25 +28,46 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [~] Add new scenes for shaman hut & chieftan instead of stale dialog boxes
 
 
-## Ch.1 Fixes (v0.2.0 Pre-Alpha)
+## Ch.1 Fixes (v0.2.1 Pre-Alpha)
 
-## Ch.1 Polish (v0.2.0 Pre-Alpha)
+## Ch.1 Polish (v0.2.1 Pre-Alpha)
 
-## Ch.1 Testing (v0.2.0 Pre-Alpha)
+- [ ] Re-do the Kraal Map, re-use the group icon from TravelMap
+- [ ] Completely Revamp the dialog system, implement Griot with some decision tree logic
+- [ ] Add buttons to certain text like: Enter the Kraal
+
+## Ch.1 Testing (v0.2.1 Pre-Alpha)
 
 - [~] Test core gameplay loop.
 - [~] Test scene transitions.
 - [~] Test export/build flow. Continue to test on mobile after new builds. 
 
-## Ch.1 Ideas (v0.2.0 Pre-Alpha)
+## Ch.1 Ideas (v0.2.1 Pre-Alpha)
 
 - [ ] Work on a web demo version of a BattleMap to showcase the gameplay.
 - [ ] Create new portrait pics for different emotions for story cards. 
 
-## Ch.1 Notes (v0.2.0 Pre-Alpha)
+## Ch.1 Notes (v0.2.1 Pre-Alpha)
 
 
 ## ####COMPLETED####
+
+## Ch.1 Priorities (v0.2.1 Pre-Alpha)
+
+- [X] Implement new continuous movement system
+
+
+## Ch.1 Features (v0.2.1 Pre-Alpha)
+
+## Ch.1 Fixes (v0.2.1 Pre-Alpha)
+
+## Ch.1 Polish (v0.2.1 Pre-Alpha)
+
+## Ch.1 Testing (v0.2.1 Pre-Alpha)
+
+## Ch.1 Ideas (v0.2.1 Pre-Alpha)
+
+## Ch.1 Notes (v0.2.1 Pre-Alpha)
 
 ## Ch.1 Priorities (v0.2.0 Pre-Alpha)
 
