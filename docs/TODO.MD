@@ -30,11 +30,14 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 ## Ch.1 Fixes (v0.2.1 Pre-Alpha)
 
+- [ ] Kishi walk animation is not working
+
 ## Ch.1 Polish (v0.2.1 Pre-Alpha)
 
 - [ ] Re-do the Kraal Map, re-use the group icon from TravelMap
 - [ ] Completely Revamp the dialog system, implement Griot with some decision tree logic
 - [ ] Add buttons to certain text like: Enter the Kraal
+- [ ] Add some deeper intelligence to npc logic pathing targeting etc
 
 ## Ch.1 Testing (v0.2.1 Pre-Alpha)
 
