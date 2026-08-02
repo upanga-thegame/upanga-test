@@ -3,17 +3,11 @@
 Upanga: The Soul Blade - TODO + Dev Tracker
 
 
-## Ch.1 Priorities (v0.2.1 Pre-Alpha)
+## Ch.1 Priorities (v0.3.0 Alpha)
 
-- [~] Design JungleBattleMaps
-- [~] Design PyramidBattleMaps
-- [~] Design SwampBattleMaps
-- [~] Design Final Boss Map 
 - [~] Paywall after completion of the Crypt. 
 
-
-
-## Ch.1 Features (v0.2.1 Pre-Alpha)
+## Ch.1 Features (v0.3.0 Alpha)
 
 - [ ] Create cinematic cutscene: Game launch
 - [ ] Create cinematic cutscene: New game
@@ -23,34 +17,30 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [ ] Create cinematic cutscene: After PyramidBattleMap
 - [ ] Create cinematic cutscene: After LaplassBattleMap
 - [ ] Work on storyboards, hero origin stories
-- [~] Implement a death system + resurrection shrine at the shamans hut
-- [~] Add ambient sound effects to the maps, like jungle sounds
-- [~] Add new scenes for shaman hut & chieftan instead of stale dialog boxes
+- [ ] Add victory celebration scene for Kraal after defeat of Bida
+- [ ] Add Soul blade to travelmap that files as areas are completed
 
+## Ch.1 Fixes (v0.3.0 Alpha)
 
-## Ch.1 Fixes (v0.2.1 Pre-Alpha)
+## Ch.1 Polish (v0.3.0 Alpha)
 
-- [ ] Kishi walk animation is not working
-
-## Ch.1 Polish (v0.2.1 Pre-Alpha)
-
-- [ ] Re-do the Kraal Map, re-use the group icon from TravelMap
-- [ ] Completely Revamp the dialog system, implement Griot with some decision tree logic
 - [ ] Add buttons to certain text like: Enter the Kraal
 - [ ] Add some deeper intelligence to npc logic pathing targeting etc
+- [ ] Add flicker effects to torches on battlemaps
+- [ ] Redo settings menu, add graphical UI for it fit on 1 page
+- [ ] Deep dive into difficulty systems, adjustments needed with new death system
+- [ ] Clean up Kraal scene, less people walking better pathing
 
-## Ch.1 Testing (v0.2.1 Pre-Alpha)
+## Ch.1 Testing (v0.3.0 Alpha)
 
 - [~] Test core gameplay loop.
 - [~] Test scene transitions.
 - [~] Test export/build flow. Continue to test on mobile after new builds. 
 
-## Ch.1 Ideas (v0.2.1 Pre-Alpha)
+## Ch.1 Ideas (v0.3.0 Alpha)
 
-- [ ] Work on a web demo version of a BattleMap to showcase the gameplay.
-- [ ] Create new portrait pics for different emotions for story cards. 
 
-## Ch.1 Notes (v0.2.1 Pre-Alpha)
+## Ch.1 Notes (v0.3.0 Alpha)
 
 
 ## ####COMPLETED####
@@ -58,17 +48,38 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 ## Ch.1 Priorities (v0.2.1 Pre-Alpha)
 
 - [X] Implement new continuous movement system
+- [X] Design JungleBattleMaps
+- [X] Design PyramidBattleMaps
+- [X] Design SwampBattleMaps
+- [X] Design Final Boss Map 
+- [X] Bida Lair completion
 
 
 ## Ch.1 Features (v0.2.1 Pre-Alpha)
 
+- [X] Implement a death system + resurrection shrine at the shamans hut
+- [X] Add ambient sound effects to the maps, like jungle sounds
+- [X] Add new scenes for shaman hut & chieftan instead of stale dialogue boxes
+- [X] Add Griot hut
+- [X] Flush out more Shaman abilities, buff before each battle of their choosing
+
+
 ## Ch.1 Fixes (v0.2.1 Pre-Alpha)
 
+- [X] Kishi walk animation is not working
+
+
 ## Ch.1 Polish (v0.2.1 Pre-Alpha)
+
+- [X] Re-do the Kraal Map, re-use the group icon from TravelMap
+- [X] Completely Revamp the dialogue system, implement Griot with some decision tree logic
+
 
 ## Ch.1 Testing (v0.2.1 Pre-Alpha)
 
 ## Ch.1 Ideas (v0.2.1 Pre-Alpha)
+
+- [X] Create new portrait pics for different emotions for story cards. 
 
 ## Ch.1 Notes (v0.2.1 Pre-Alpha)
 
@@ -106,7 +117,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [X] Update the buttons at the end of the Victory/Defeat Scenes. Victory: Replay Mission, Continue, Main Menu.
 	  Continue (long term) will trigger autosave progress. Defeat: Replay Mission, Exit Map, Main Menu. Exit
 	  map takes player back to party travel map (to be implemented)
-- [X] Using the portrait images create cut scenes of dialog from each character about the starting encounter. box
+- [X] Using the portrait images create cut scenes of dialogue from each character about the starting encounter. box
       with portrait and text being printed across. maybe have their mouth moving like they are talking. 
 - [X] Finished addding new attack/skill button features
 - [X] Add new portrait image in player status for kishi in wolf form
@@ -164,13 +175,13 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [X] Fix target boxes for npcs too low
 - [X] Fix Nganga idle animation bounces around, pixel foot off
 - [X] On TravelMap after leaving Kraal box confirming entry pops up, should not.
-- [X] Pre&Post Crypt Dialogue boxes need text adjustments, runs into frame.
+- [X] Pre&Post Crypt dialogue boxes need text adjustments, runs into frame.
 - [X] Add Zombie profile picture to npc status bar
 - [X] Update thanks for playing box with more info.
 - [X] Adjust so anywhere in the map is clickable except regions like water, mountains
       remove the rigid path
 - [X] Movement dial cant be moved
-- [X] Ruins should be locked at start of game until after chief dialog
+- [X] Ruins should be locked at start of game until after chief dialogue
       make ghost smaller on 2nd cryptbattle when respawn
 
 ## Ch.1 Polish (v0.2.0 Pre-Alpha)
@@ -204,3 +215,33 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 ## Ch.1 Ideas (v0.2.0 Pre-Alpha)
 
+## Ch.1 Notes (v0.2.1 Pre-Alpha)
+
+### Upanga: The Soul Blade — The Broken Roads of Bomende
+
+Chief Akende introduces himself as the ruler of Bomende and asks the heroes for help. The kingdoms are being divided by supernatural corruption: roads disappear, rivers refuse to cross old borders, forests attack travelers, and the dead guard paths once shared with the living. If this isolation continues, the kingdoms will collapse without Bida ever having to invade them.
+
+Long ago, the kingdoms forged the Soul Blade as a symbol of their unity. Together, they used it to establish a covenant with Bida: the serpent would bring prosperity and protection, but the kingdoms would provide a terrible human tribute. When the people finally rejected the sacrifice, war erupted between Bida and the united kingdoms.
+
+Unable to destroy Bida, the first bearer of the Soul Blade used it to imprison him. The act shattered the weapon into four pieces, which were entrusted to regional guardians and carried to the far ends of Bomende. Without the Soul Blade, the alliance between the kingdoms slowly weakened, and the four great roads connecting their people fell into neglect.
+
+Now Bida has awakened and corrupted the guardians protecting the fragments. He uses their power to sever the roads completely, ensuring the kingdoms remain isolated and cannot unite against him again.
+
+Each region restores one great road and recovers one piece of the Soul Blade:
+
+- The Crypt holds the blade’s hilt and restores the Ancestral Road, reconnecting the living with the wisdom of those who fought Bida before.
+- The Swamp holds part of the blade’s edge and restores the Water Road, allowing rivers, supplies, and travelers to move between kingdoms.
+- The Jungle holds the second part of the blade’s edge and restores the Forest Road, reopening access to food, medicine, and distant communities.
+- The Pyramid holds the blade’s core and restores the Royal Road, revealing the complete history of Bida, the tribute, and the Soul Blade’s first bearer.
+
+Bess, Sobekus, Sasabonsam, and the Pyramid Keeper are not merely Bida’s servants. Each was entrusted with protecting a piece of the blade and the road surrounding it. Bida has twisted their duty into obsession, causing them to imprison the dead, hoard the water, close the forest, and bury the truth. The heroes must defeat or redeem them before recovering each fragment.
+
+After the Swamp is liberated and the Jungle road opens, Bida sends frightened mercenaries to ambush the heroes. Their orders are to prevent the fragments from being joined and stop the kingdoms from discovering that resistance is possible.
+
+As each fragment is recovered, the corresponding kingdom renews its alliance with Chief Akende. By the time the final piece is taken from the Pyramid, the four roads converge at the Kraal and representatives from every kingdom gather to reforge the Soul Blade.
+
+The restored weapon does more than open Bida’s magical barrier. It proves that the kingdoms have become united again. The blade’s power comes from their shared purpose, meaning no single ruler or warrior can command it alone.
+
+Armed with the reforged Soul Blade, the heroes enter Bida’s lair. Bida argues that the kingdoms betrayed him first and that their prosperity was built upon a covenant they willingly accepted. The heroes acknowledge the betrayal but reject any bargain maintained through the sacrifice of someone who had no choice.
+
+The final battle determines whether the kingdoms will return to fear and division or build a new future together. When Bida is defeated, the Soul Blade remains as a symbol of unity rather than conquest: no kingdom will purchase its prosperity with another person’s suffering, and no guardian will ever stand alone over the roads of Bomende again.
