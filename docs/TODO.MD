@@ -25,10 +25,10 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 ## Ch.1 Polish (v0.3.0 Alpha)
 
 - [ ] Add buttons to certain text like: Enter the Kraal
-- [ ] Add some deeper intelligence to npc logic pathing targeting etc
+- [X] Add some deeper intelligence to npc logic pathing targeting etc
 - [ ] Add flicker effects to torches on battlemaps
 - [ ] Redo settings menu, add graphical UI for it fit on 1 page
-- [ ] Deep dive into difficulty systems, adjustments needed with new death system
+- [~] Deep dive into difficulty systems, adjustments needed with new death system
 - [ ] Clean up Kraal scene, less people walking better pathing
 
 ## Ch.1 Testing (v0.3.0 Alpha)
