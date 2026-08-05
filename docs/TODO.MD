@@ -3,11 +3,11 @@
 Upanga: The Soul Blade - TODO + Dev Tracker
 
 
-## Ch.1 Priorities (v0.3.0 Alpha)
+## Ch.1 Priorities (v0.4.0 Alpha)
 
 - [~] Paywall after completion of the Crypt. 
 
-## Ch.1 Features (v0.3.0 Alpha)
+## Ch.1 Features (v0.4.0 Alpha)
 
 - [ ] Create cinematic cutscene: Game launch
 - [ ] Create cinematic cutscene: New game
@@ -15,35 +15,65 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [ ] Create cinematic cutscene: After JungleBattleMap
 - [ ] Create cinematic cutscene: After RuinsBattleMap
 - [ ] Create cinematic cutscene: After PyramidBattleMap
-- [ ] Create cinematic cutscene: After LaplassBattleMap
+- [ ] Create cinematic cutscene: After FortressBattleMap
+- [ ] Create game trailer, game play
 - [ ] Work on storyboards, hero origin stories
 - [ ] Add victory celebration scene for Kraal after defeat of Bida
 - [ ] Add Soul blade to travelmap that files as areas are completed
 
-## Ch.1 Fixes (v0.3.0 Alpha)
+## Ch.1 Fixes (v0.4.0 Alpha)
 
-## Ch.1 Polish (v0.3.0 Alpha)
+
+## Ch.1 Polish (v0.4.0 Alpha)
 
 - [ ] Add buttons to certain text like: Enter the Kraal
-- [X] Add some deeper intelligence to npc logic pathing targeting etc
 - [ ] Add flicker effects to torches on battlemaps
 - [ ] Redo settings menu, add graphical UI for it fit on 1 page
-- [~] Deep dive into difficulty systems, adjustments needed with new death system
-- [ ] Clean up Kraal scene, less people walking better pathing
+- [~] Clean up Kraal scene, less people walking better pathing
+- [ ] Bida death, make him sink in the ground earthquake effects rumble cloud sand 
+- [ ] Remove come back later on nodes not opened just have them do nothing
 
-## Ch.1 Testing (v0.3.0 Alpha)
+## Ch.1 Testing (v0.4.0 Alpha)
 
 - [~] Test core gameplay loop.
 - [~] Test scene transitions.
 - [~] Test export/build flow. Continue to test on mobile after new builds. 
 
-## Ch.1 Ideas (v0.3.0 Alpha)
+## Ch.1 Ideas (v0.4.0 Alpha)
 
 
-## Ch.1 Notes (v0.3.0 Alpha)
+## Ch.1 Notes (v0.4.0 Alpha)
+
+
 
 
 ## ####COMPLETED####
+
+## Ch.1 Priorities (v0.3.0 Alpha)
+
+## Ch.1 Features (v0.3.0 Alpha)
+
+## Ch.1 Fixes (v0.3.0 Alpha)
+
+- [X] When hero has order to attack target behind them they walk backwards, they should turn then walk then attack
+- [X] Kishi and Nganga animations seem jerky, idle etc
+- [X] Jungle map 1 npcs too bunched up adjust melee range
+- [X] When boss dies any adds should also die
+- [X] heros shouldnt walk backwards
+
+## Ch.1 Polish (v0.3.0 Alpha)
+
+- [X] Add some deeper intelligence to npc logic pathing targeting etc
+- [X] Deep dive into difficulty systems, adjustments needed with new death system
+- [X] Deep map dive cleanup, tuning, npc balancing.
+- [X] Make sure all npcs have idle breathing. correct shadows anchored to ground matching sprite
+- [X] Performance audit
+
+## Ch.1 Testing (v0.3.0 Alpha)
+
+## Ch.1 Ideas (v0.3.0 Alpha)
+
+## Ch.1 Notes (v0.3.0 Alpha)
 
 ## Ch.1 Priorities (v0.2.1 Pre-Alpha)
 
