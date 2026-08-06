@@ -20,10 +20,12 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [ ] Work on storyboards, hero origin stories
 - [ ] Add victory celebration scene for Kraal after defeat of Bida
 - [X] Add Soul blade to travelmap that files as areas are completed
+- [ ] Cant scroll dialogue options on mobile in Balla
 
 ## Ch.1 Fixes (v0.4.0 Alpha)
 
-- [~] Fix Kraal flames not on wood
+- [X] Fix Kraal flames not on wood
+- [ ] Scrolls of Ancients too small on mobile also not aligned on mobile
 
 ## Ch.1 Polish (v0.4.0 Alpha)
 
@@ -31,6 +33,8 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [~] Clean up Kraal scene, less people walking better pathing
 - [ ] Bida death, make him sink in the ground earthquake effects rumble cloud sand 
 - [X] Remove come back later on nodes not opened just have them do nothing
+- [ ] Increase font size for dialogue hard to read on mobile
+- [ ] Balla dialogue does not have to repeat his intro every time
 
 ## Ch.1 Testing (v0.4.0 Alpha)
 
