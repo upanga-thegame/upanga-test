@@ -27,6 +27,7 @@ permissions:
 
 concurrency:
   group: "pages"
+  # Keep only the newest Pages deployment attempt active.
   cancel-in-progress: true
 
 jobs:
