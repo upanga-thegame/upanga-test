@@ -24,6 +24,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 ## Ch.1 Fixes (v0.4.0 Alpha)
 
+
 - [X] Fix Kraal flames not on wood
 - [ ] Scrolls of Ancients too small on mobile also not aligned on mobile
 
