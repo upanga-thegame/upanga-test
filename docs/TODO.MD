@@ -2,6 +2,13 @@
 
 Upanga: The Soul Blade - TODO + Dev Tracker
 
+## Latest Updates (2026-08-06)
+
+- [X] Refresh the main menu artwork and apply selective tint effects.
+- [X] Refine Kraal services and Travel Map interface flow.
+- [X] Add Soul Blade progression and Scrolls of the Ancients library UI.
+- [X] Update story dialogue across the ambush, Bess boss, Chief, and Crypt scenes.
+
 
 ## Ch.1 Priorities (v0.4.0 Alpha)
 
