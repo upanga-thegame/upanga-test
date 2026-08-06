@@ -1,23 +1,6 @@
 name: Deploy Upanga Webpage
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "index.html"
-      - "styles.css"
-      - "script.js"
-      - "docs/TODO.MD"
-      - "docs/FAQ.MD"
-      - "docs/BLOG.MD"
-      - "scripts/**"
-      - "assets/**"
-      - "images/**"
-      - "privacy.html"
-      - "terms.html"
-      - "data-deletion.html"
-      - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
 permissions:
