@@ -19,19 +19,18 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [ ] Create game trailer, game play
 - [ ] Work on storyboards, hero origin stories
 - [ ] Add victory celebration scene for Kraal after defeat of Bida
-- [ ] Add Soul blade to travelmap that files as areas are completed
+- [X] Add Soul blade to travelmap that files as areas are completed
 
 ## Ch.1 Fixes (v0.4.0 Alpha)
 
+- [~] Fix Kraal flames not on wood
 
 ## Ch.1 Polish (v0.4.0 Alpha)
 
-- [ ] Add buttons to certain text like: Enter the Kraal
-- [ ] Add flicker effects to torches on battlemaps
-- [ ] Redo settings menu, add graphical UI for it fit on 1 page
+- [X] Redo settings menu, add graphical UI for it fit on 1 page
 - [~] Clean up Kraal scene, less people walking better pathing
 - [ ] Bida death, make him sink in the ground earthquake effects rumble cloud sand 
-- [ ] Remove come back later on nodes not opened just have them do nothing
+- [X] Remove come back later on nodes not opened just have them do nothing
 
 ## Ch.1 Testing (v0.4.0 Alpha)
 
