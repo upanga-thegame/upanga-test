@@ -259,7 +259,8 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    .blade-art img, .blade-aura { animation: none !important; will-change: auto; }
     .reveal { opacity: 1; transform: none; }
 }
 
