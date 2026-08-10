@@ -16,33 +16,31 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 ## Ch.1 Features (v0.4.0 Alpha)
 
-- [ ] Create cinematic cutscene: Game launch
-- [ ] Create cinematic cutscene: New game
-- [ ] Create cinematic cutscene: After CryptBattleMap
-- [ ] Create cinematic cutscene: After JungleBattleMap
-- [ ] Create cinematic cutscene: After RuinsBattleMap
-- [ ] Create cinematic cutscene: After PyramidBattleMap
+- [X] Create cinematic cutscene: Game launch
+- [X] Create cinematic cutscene: New game
 - [ ] Create cinematic cutscene: After FortressBattleMap
 - [ ] Create game trailer, game play
-- [ ] Work on storyboards, hero origin stories
+- [X] Work on storyboards, hero origin stories
 - [ ] Add victory celebration scene for Kraal after defeat of Bida
 - [X] Add Soul blade to travelmap that files as areas are completed
-- [ ] Cant scroll dialogue options on mobile in Balla
+- [X] Cant scroll dialogue options on mobile in Balla
 
 ## Ch.1 Fixes (v0.4.0 Alpha)
 
 
 - [X] Fix Kraal flames not on wood
-- [ ] Scrolls of Ancients too small on mobile also not aligned on mobile
+- [X] Scrolls of Ancients too small on mobile also not aligned on mobile
 
 ## Ch.1 Polish (v0.4.0 Alpha)
 
 - [X] Redo settings menu, add graphical UI for it fit on 1 page
-- [~] Clean up Kraal scene, less people walking better pathing
-- [ ] Bida death, make him sink in the ground earthquake effects rumble cloud sand 
 - [X] Remove come back later on nodes not opened just have them do nothing
-- [ ] Increase font size for dialogue hard to read on mobile
-- [ ] Balla dialogue does not have to repeat his intro every time
+- [X] Increase font size for dialogue hard to read on mobile
+- [X] Balla dialogue does not have to repeat his intro every time
+- [ ] Skip to end dialogue 
+- [ ] animate take my leave or highlight it when all options are used.
+- [ ] first time add animation effect around new buttons for first time like attack
+- [X] Rename Bess to something more recognizable
 
 ## Ch.1 Testing (v0.4.0 Alpha)
 
@@ -258,31 +256,4 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 
 ## Ch.1 Notes (v0.2.1 Pre-Alpha)
 
-### Upanga: The Soul Blade — The Broken Roads of Bomende
 
-Chief Akende introduces himself as the ruler of Bomende and asks the heroes for help. The kingdoms are being divided by supernatural corruption: roads disappear, rivers refuse to cross old borders, forests attack travelers, and the dead guard paths once shared with the living. If this isolation continues, the kingdoms will collapse without Bida ever having to invade them.
-
-Long ago, the kingdoms forged the Soul Blade as a symbol of their unity. Together, they used it to establish a covenant with Bida: the serpent would bring prosperity and protection, but the kingdoms would provide a terrible human tribute. When the people finally rejected the sacrifice, war erupted between Bida and the united kingdoms.
-
-Unable to destroy Bida, the first bearer of the Soul Blade used it to imprison him. The act shattered the weapon into four pieces, which were entrusted to regional guardians and carried to the far ends of Bomende. Without the Soul Blade, the alliance between the kingdoms slowly weakened, and the four great roads connecting their people fell into neglect.
-
-Now Bida has awakened and corrupted the guardians protecting the fragments. He uses their power to sever the roads completely, ensuring the kingdoms remain isolated and cannot unite against him again.
-
-Each region restores one great road and recovers one piece of the Soul Blade:
-
-- The Crypt holds the blade’s hilt and restores the Ancestral Road, reconnecting the living with the wisdom of those who fought Bida before.
-- The Swamp holds part of the blade’s edge and restores the Water Road, allowing rivers, supplies, and travelers to move between kingdoms.
-- The Jungle holds the second part of the blade’s edge and restores the Forest Road, reopening access to food, medicine, and distant communities.
-- The Pyramid holds the blade’s core and restores the Royal Road, revealing the complete history of Bida, the tribute, and the Soul Blade’s first bearer.
-
-Bess, Sobekus, Sasabonsam, and the Pyramid Keeper are not merely Bida’s servants. Each was entrusted with protecting a piece of the blade and the road surrounding it. Bida has twisted their duty into obsession, causing them to imprison the dead, hoard the water, close the forest, and bury the truth. The heroes must defeat or redeem them before recovering each fragment.
-
-After the Swamp is liberated and the Jungle road opens, Bida sends frightened mercenaries to ambush the heroes. Their orders are to prevent the fragments from being joined and stop the kingdoms from discovering that resistance is possible.
-
-As each fragment is recovered, the corresponding kingdom renews its alliance with Chief Akende. By the time the final piece is taken from the Pyramid, the four roads converge at the Kraal and representatives from every kingdom gather to reforge the Soul Blade.
-
-The restored weapon does more than open Bida’s magical barrier. It proves that the kingdoms have become united again. The blade’s power comes from their shared purpose, meaning no single ruler or warrior can command it alone.
-
-Armed with the reforged Soul Blade, the heroes enter Bida’s lair. Bida argues that the kingdoms betrayed him first and that their prosperity was built upon a covenant they willingly accepted. The heroes acknowledge the betrayal but reject any bargain maintained through the sacrifice of someone who had no choice.
-
-The final battle determines whether the kingdoms will return to fear and division or build a new future together. When Bida is defeated, the Soul Blade remains as a symbol of unity rather than conquest: no kingdom will purchase its prosperity with another person’s suffering, and no guardian will ever stand alone over the roads of Bomende again.
