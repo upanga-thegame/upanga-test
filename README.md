@@ -1,7 +1,8 @@
 # Upanga: The Soul Blade — temporary website
 
 This is the separate design and content workspace for the temporary Upanga
-website at `upangatest.dev`. The live `upanga-web` repository and
+website. It is currently served from the GitHub Pages project URL; a custom
+domain can be added later without changing the live site. The live `upanga-web` repository and
 `upanga-game.com` deployment are not changed by this project.
 
 The site intentionally keeps the same low-dependency GitHub Pages setup as the
