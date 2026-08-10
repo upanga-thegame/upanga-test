@@ -19,7 +19,7 @@ Upanga: The Soul Blade - TODO + Dev Tracker
 - [X] Create cinematic cutscene: Game launch
 - [X] Create cinematic cutscene: New game
 - [ ] Create cinematic cutscene: After FortressBattleMap
-- [ ] Create game trailer, game play
+- [~] Create game trailer, game play
 - [X] Work on storyboards, hero origin stories
 - [ ] Add victory celebration scene for Kraal after defeat of Bida
 - [X] Add Soul blade to travelmap that files as areas are completed
