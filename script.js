@@ -45,11 +45,77 @@
         }
     }
 
-    if (window.gsap && window.ScrollTrigger && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
         window.gsap.registerPlugin(window.ScrollTrigger);
         window.gsap.utils.toArray('[data-speed]').forEach((node) => {
             window.gsap.to(node, { yPercent: Number(node.dataset.speed) * -100, ease: 'none', scrollTrigger: { trigger: node, scrub: true } });
         });
+
+        const hero = document.querySelector('.hero-section');
+        const heroVideo = hero?.querySelector('.hero-media video');
+        if (hero && heroVideo) {
+            window.gsap.to(heroVideo, {
+                scale: 1.18,
+                xPercent: 3,
+                yPercent: 8,
+                filter: 'saturate(1) contrast(1.18) brightness(.78)',
+                ease: 'none',
+                scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true }
+            });
+            window.gsap.to(hero.querySelector('.hero-copy'), {
+                yPercent: -16,
+                opacity: .45,
+                ease: 'none',
+                scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true }
+            });
+        }
+
+        const journey = document.querySelector('.scroll-journey');
+        const journeyVideos = [...document.querySelectorAll('[data-journey-video]')];
+        const journeySteps = [...document.querySelectorAll('[data-journey-step]')];
+        const journeyProgress = document.querySelector('.journey-progress span');
+        const journeyCounter = document.querySelector('.journey-counter strong');
+        let activeJourneyStep = 0;
+
+        const playJourneyVideo = (video) => {
+            if (!video) return;
+            video.play().catch(() => {});
+        };
+
+        const setJourneyStep = (index) => {
+            activeJourneyStep = index;
+            journeyVideos.forEach((video, videoIndex) => {
+                const active = videoIndex === index;
+                video.classList.toggle('is-active', active);
+                if (active) playJourneyVideo(video);
+                else video.pause();
+                window.gsap.to(video, { opacity: active ? .82 : 0, duration: .7, ease: 'power2.out' });
+            });
+            journeySteps.forEach((step, stepIndex) => step.classList.toggle('is-active', stepIndex === index));
+            if (journeyCounter) journeyCounter.textContent = String(index + 1).padStart(2, '0');
+        };
+
+        if (journey && journeyVideos.length && journeySteps.length) {
+            setJourneyStep(0);
+            window.ScrollTrigger.create({
+                trigger: journey,
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: true,
+                onUpdate: (trigger) => {
+                    const progress = Math.min(.9999, Math.max(0, trigger.progress));
+                    const stepPosition = progress * journeySteps.length;
+                    const nextStep = Math.min(journeySteps.length - 1, Math.floor(stepPosition));
+                    const localProgress = stepPosition - nextStep;
+                    if (nextStep !== activeJourneyStep) setJourneyStep(nextStep);
+                    const activeVideo = journeyVideos[nextStep];
+                    window.gsap.to(activeVideo, { scale: 1.08 - localProgress * .08, xPercent: (localProgress - .5) * 2.5, duration: .25, overwrite: true });
+                    if (journeyProgress) window.gsap.set(journeyProgress, { scaleX: Math.max(.02, progress) });
+                }
+            });
+        }
     }
 
     const renderChangelog = (data) => {
