@@ -46,6 +46,67 @@
     }
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const journey = document.querySelector('.scroll-journey');
+    const journeyVideos = [...document.querySelectorAll('[data-journey-video]')];
+    const journeySteps = [...document.querySelectorAll('[data-journey-step]')];
+    const journeyProgress = document.querySelector('.journey-progress span');
+    const journeyCounter = document.querySelector('.journey-counter strong');
+    let activeJourneyStep = -1;
+
+    const playJourneyVideo = (video) => {
+        if (!video) return;
+        video.muted = true;
+        video.play().catch(() => {});
+    };
+
+    const setJourneyStep = (index) => {
+        activeJourneyStep = index;
+        journeyVideos.forEach((video, videoIndex) => {
+            const active = videoIndex === index;
+            video.classList.toggle('is-active', active);
+            if (active) playJourneyVideo(video);
+            else video.pause();
+            if (window.gsap) {
+                window.gsap.to(video, { opacity: active ? .82 : 0, duration: .7, ease: 'power2.out' });
+            } else {
+                video.style.opacity = active ? '.82' : '0';
+            }
+        });
+        journeySteps.forEach((step, stepIndex) => step.classList.toggle('is-active', stepIndex === index));
+        if (journeyCounter) journeyCounter.textContent = String(index + 1).padStart(2, '0');
+    };
+
+    const updateJourneyFromProgress = (rawProgress, animate = false) => {
+        if (!journeyVideos.length || !journeySteps.length) return;
+        const progress = Math.min(.9999, Math.max(0, rawProgress));
+        const stepPosition = progress * journeySteps.length;
+        const nextStep = Math.min(journeySteps.length - 1, Math.floor(stepPosition));
+        const localProgress = stepPosition - nextStep;
+        if (nextStep !== activeJourneyStep) setJourneyStep(nextStep);
+        const activeVideo = journeyVideos[nextStep];
+        const scale = 1.08 - localProgress * .08;
+        const xPercent = (localProgress - .5) * 2.5;
+        if (animate && window.gsap) {
+            window.gsap.to(activeVideo, { scale, xPercent, duration: .25, overwrite: true });
+            if (journeyProgress) window.gsap.set(journeyProgress, { scaleX: Math.max(.02, progress) });
+        } else {
+            activeVideo.style.transform = `translate3d(${xPercent}%, 0, 0) scale(${scale})`;
+            if (journeyProgress) journeyProgress.style.transform = `scaleX(${Math.max(.02, progress)})`;
+        }
+    };
+
+    const updateNativeJourney = () => {
+        if (!journey || !journeyVideos.length || !journeySteps.length) return;
+        const start = journey.offsetTop;
+        const end = start + journey.offsetHeight - window.innerHeight;
+        const progress = (window.scrollY - start) / Math.max(1, end - start);
+        updateJourneyFromProgress(progress, false);
+    };
+
+    if (journey && journeyVideos.length && journeySteps.length) {
+        setJourneyStep(0);
+        window.addEventListener('scroll', () => playJourneyVideo(journeyVideos[activeJourneyStep] || journeyVideos[0]), { passive: true });
+    }
 
     if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
         window.gsap.registerPlugin(window.ScrollTrigger);
@@ -72,50 +133,21 @@
             });
         }
 
-        const journey = document.querySelector('.scroll-journey');
-        const journeyVideos = [...document.querySelectorAll('[data-journey-video]')];
-        const journeySteps = [...document.querySelectorAll('[data-journey-step]')];
-        const journeyProgress = document.querySelector('.journey-progress span');
-        const journeyCounter = document.querySelector('.journey-counter strong');
-        let activeJourneyStep = 0;
-
-        const playJourneyVideo = (video) => {
-            if (!video) return;
-            video.play().catch(() => {});
-        };
-
-        const setJourneyStep = (index) => {
-            activeJourneyStep = index;
-            journeyVideos.forEach((video, videoIndex) => {
-                const active = videoIndex === index;
-                video.classList.toggle('is-active', active);
-                if (active) playJourneyVideo(video);
-                else video.pause();
-                window.gsap.to(video, { opacity: active ? .82 : 0, duration: .7, ease: 'power2.out' });
-            });
-            journeySteps.forEach((step, stepIndex) => step.classList.toggle('is-active', stepIndex === index));
-            if (journeyCounter) journeyCounter.textContent = String(index + 1).padStart(2, '0');
-        };
-
         if (journey && journeyVideos.length && journeySteps.length) {
-            setJourneyStep(0);
             window.ScrollTrigger.create({
                 trigger: journey,
                 start: 'top top',
                 end: 'bottom bottom',
                 scrub: true,
                 onUpdate: (trigger) => {
-                    const progress = Math.min(.9999, Math.max(0, trigger.progress));
-                    const stepPosition = progress * journeySteps.length;
-                    const nextStep = Math.min(journeySteps.length - 1, Math.floor(stepPosition));
-                    const localProgress = stepPosition - nextStep;
-                    if (nextStep !== activeJourneyStep) setJourneyStep(nextStep);
-                    const activeVideo = journeyVideos[nextStep];
-                    window.gsap.to(activeVideo, { scale: 1.08 - localProgress * .08, xPercent: (localProgress - .5) * 2.5, duration: .25, overwrite: true });
-                    if (journeyProgress) window.gsap.set(journeyProgress, { scaleX: Math.max(.02, progress) });
+                    updateJourneyFromProgress(trigger.progress, true);
                 }
             });
         }
+    } else if (journey && journeyVideos.length && journeySteps.length) {
+        updateNativeJourney();
+        window.addEventListener('resize', updateNativeJourney);
+        window.addEventListener('scroll', updateNativeJourney, { passive: true });
     }
 
     const renderChangelog = (data) => {
