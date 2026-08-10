@@ -5,9 +5,8 @@ on:
     branches:
       - main
     paths:
-      - "docs/TODO.MD"
+      - "docs/CHANGELOG.MD"
       - "docs/FAQ.MD"
-      - "docs/BLOG.MD"
       - "scripts/**"
   workflow_dispatch:
 
@@ -30,9 +29,8 @@ jobs:
 
       - name: Generate website data
         run: |
-          node scripts/generate-dev-tracker.mjs
+          node scripts/generate-changelog.mjs
           node scripts/generate-faq.mjs
-          node scripts/generate-blog.mjs
 
       - name: Commit generated data
         run: |

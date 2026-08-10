@@ -1,282 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-page="home">
 <head>
-    <!-- GitHub Pages branch publishing enabled. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0d0c">
+    <meta name="description" content="Upanga: The Soul Blade — a tactical turn-based RPG set in the fractured kingdoms of Bomende.">
     <title>Upanga: The Soul Blade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="home-page">
+    <div class="site-grain" aria-hidden="true"></div>
+    <canvas id="scene-canvas" class="scene-canvas" aria-hidden="true"></canvas>
 
-    <!-- =================================================== -->
-    <!-- ============== HEADER & NAVIGATION ============== -->
-    <!-- =================================================== -->
-    <header class="header">
-        <nav class="navbar">
-            <a href="#home" class="nav-logo">Upanga: The Soul Blade</a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="index.html#story" class="nav-link">Story</a></li>
-                <li class="nav-item"><a href="index.html#heroes" class="nav-link">Heroes</a></li>
-                <li class="nav-item"><a href="index.html#screenshots" class="nav-link">Screenshots</a></li>
-                <li class="nav-item"><a href="index.html#dev-tracker" class="nav-link">Dev Tracker</a></li>
-                <li class="nav-item"><a href="index.html#devblog" class="nav-link">DevBlog</a></li>
-                <li class="nav-item"><a href="index.html#faq" class="nav-link">FAQ</a></li>
-                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
+    <header class="site-header">
+        <a class="brand-lockup" href="index.html" aria-label="Upanga home"><span class="brand-mark">U</span><span class="brand-name">UPANGA</span></a>
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation"><a href="index.html" data-nav="home">Home</a><a href="gallery.html" data-nav="gallery">Gallery</a><a href="changelog.html" data-nav="changelog">Changelog</a><a href="faq.html" data-nav="faq">FAQ</a></nav>
+        <a class="header-social" href="https://x.com/upangadev" target="_blank" rel="noreferrer">Follow <span>↗</span></a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span class="sr-only">Toggle menu</span></button>
     </header>
 
     <main>
-        <!-- =================================================== -->
-        <!-- ================== HERO SECTION =================== -->
-        <!-- =================================================== -->
-        <section id="home" class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">Upanga<span class="hero-title-sub">The Soul Blade</span></h1>
-                <p class="hero-subtitle">A tactical turn-based RPG inspired by the early classics. Battle foes & unite the kingdom! </p>
-                <p class="hero-description">Command four heroes across isometric battlefields, restore the broken Soul Blade, and face Bokor the Corrupted.</p>
-                <div class="hero-cta">
-                    <a href="#dev-tracker" class="btn btn-primary">View Dev Tracker</a>
-                    <a href="#screenshots" class="btn btn-secondary">See Screenshots</a>
-                </div>
-                <span class="release-badge">Coming to Android: Fall 2026</span>
+        <section class="hero-section" id="home">
+            <div class="hero-media" aria-hidden="true"><video autoplay muted loop playsinline poster="images/hero-poster.png"><source src="media/hero-preview.mp4" type="video/mp4"></video><div class="hero-media-wash"></div></div>
+            <div class="hero-frame section-frame">
+                <div class="hero-kicker reveal">A tactical turn-based RPG / Fall 2026</div>
+                <div class="hero-copy reveal"><p class="eyebrow">The kingdoms of Bomende are losing their way.</p><h1><span>The blade</span><em>remembers.</em></h1><p class="hero-lede">Four heroes. Four broken roads. One Soul Blade that can only be restored when the kingdoms stand together.</p><div class="hero-actions"><a class="button button-primary" href="gallery.html">Enter the world <span>↗</span></a><a class="text-link" href="https://x.com/upangadev" target="_blank" rel="noreferrer">Follow the journey <span>↗</span></a></div></div>
+                <div class="hero-footer reveal"><div class="release-line"><span class="status-dot"></span> Coming Fall 2026</div><div class="platforms" id="release" aria-label="Planned platforms"><div class="platform-chip"><span class="platform-mark platform-mark-android" aria-hidden="true"></span><span>Android</span></div><div class="platform-chip"><span class="platform-mark platform-mark-apple" aria-hidden="true"></span><span>Apple</span></div><div class="platform-chip"><span class="platform-mark platform-mark-steam" aria-hidden="true"></span><span>Steam</span></div></div></div>
             </div>
+            <a class="scroll-cue" href="#signal"><span>Scroll to explore</span><i></i></a>
         </section>
 
-        <div class="section-divider"></div>
+        <section class="signal-section section-pad" id="signal"><div class="section-frame signal-grid"><div class="section-label reveal"><span>01</span><span>The signal</span></div><div class="signal-copy reveal"><p class="eyebrow">A kingdom split along old roads</p><h2>Prosperity had a price. <span>Unity has one now.</span></h2><p>Bomende was once joined by four roads and one council. When the Soul Blade shattered, the roads closed with it. The dead rose. The guardians turned. Every kingdom started to blame the next.</p><p class="muted-copy">Upanga is a compact, story-led RPG about tactics, consequence, and what it takes to share power again.</p></div><div class="signal-art reveal" data-speed="0.08"><img src="images/travel-map.png" alt="The travel map of Bomende"><span class="map-caption">BOMENDE / THE TRAVEL MAP</span></div></div></section>
 
-        <!-- =================================================== -->
-        <!-- ================== STORY SECTION ================== -->
-        <!-- =================================================== -->
-        <section id="story" class="content-section bg-dark">
-            <div class="container">
-                <h2>The Shattered Soul Blade</h2>
-                <p class="section-intro">Upanga, the Soul Blade, is a mystical blade forged by ancestral spirits at the beginning of time. It has been shattered by the evil witchdoctor - Bokor the Corrupted and split into four fragments. The fragments are corrupting the land and dividing the once united Kingdoms of Azuma. You must gather the fragments, reforge the blade and unite the Kingdoms.</p>
-            </div>
-        </section>
+        <section class="blade-section section-pad section-dark"><div class="section-frame blade-grid"><div class="blade-art reveal" data-speed="0.12"><div class="blade-aura"></div><img src="images/soul-blade.png" alt="The restored Soul Blade"><span class="blade-coordinate">04° / 13° / 26°</span></div><div class="blade-copy reveal"><div class="section-label"><span>02</span><span>The relic</span></div><h2>It was never meant to belong to one ruler.</h2><p>The Soul Blade was forged by the kingdoms together, then broken under the force of imprisoning Bida. Its four pieces are guarded across the Crypt, Swamp, Kwae, and Pyramid.</p><a class="text-link" href="gallery.html#regions">See the regions <span>↗</span></a></div></div></section>
 
-        <div class="section-divider"></div>
+        <section class="heroes-section section-pad"><div class="section-frame"><div class="section-heading reveal"><div class="section-label"><span>03</span><span>The party</span></div><h2>Four ways to meet the dark.</h2><a class="text-link" href="gallery.html#heroes">Meet the heroes <span>↗</span></a></div><div class="hero-strip"><article class="hero-tile reveal"><img src="images/osa.png" alt="Osa, the Warrior"><div><span>01 / Osa</span><strong>The Warrior</strong></div></article><article class="hero-tile reveal"><img src="images/aziza.png" alt="Aziza, the Scout"><div><span>02 / Aziza</span><strong>The Scout</strong></div></article><article class="hero-tile reveal"><img src="images/nganga.png" alt="Nganga, the Shaman"><div><span>03 / Nganga</span><strong>The Shaman</strong></div></article><article class="hero-tile reveal"><img src="images/kishi.png" alt="Kishi, the Shapeshifter"><div><span>04 / Kishi</span><strong>The Shapeshifter</strong></div></article></div></div></section>
 
-        <!-- =================================================== -->
-        <!-- ================ FEATURES SECTION ================= -->
-        <!-- =================================================== -->
-        <section id="features" class="features-section">
-            <div class="container">
-                <h2>Features</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h3>Turn-Based Tactical Combat</h3>
-                        <p>Engage in strategic battles on an isometric grid. Every decision matters.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Four Hero Party</h3>
-                        <p>Control a party of four unique heroes, each with their own abilities and playstyle.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>African Diaspora Fantasy Style</h3>
-                        <p>An aesthetic inspired by African mythical, spiritual & mystic traditions</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Unique Enemies & Boss Battles</h3>
-                        <p>Face a variety of enemies and challenging bosses, led by the necromancer Bokor.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Throwback RPG Style</h3>
-                        <p>Experience a throwback RPG style game with simple but challenging mechanics.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Exciting Rich Story</h3>
-                        <p>A classic story of good vs evil. Compelling dialogue sequences, enjoyment for the entire family.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- =================================================== -->
-        <!-- ================== HEROES SECTION ================= -->
-        <!-- =================================================== -->
-        <section id="heroes" class="content-section bg-dark">
-            <div class="container">
-                <h2>The Four Heroes</h2>
-                <p class="section-intro">Four heroes, bound by fate, are all that stand against Bokor's corruption.</p>
-                <div class="heroes-grid">
-                    <div class="hero-card" data-bio="Osa is the last of the royal guard, a warrior whose spirit is as unbreakable as his shield. He seeks to restore his honor by reforging the Soul Blade. Abilities: Sword Slash & Shield Bash">
-                        <div class="hero-title-container">
-                            <h3>Osa</h3>
-                            <h4>The Warrior</h4>
-                        </div>
-                        <div class="hero-placeholder"><img src="images/osa.png" alt="Osa the Warrior"></div>
-                        <p>A stalwart defender whose duty is to protect the innocent. He is bound by honor. </p>
-                        <p class="details-text">Press for details</p>
-                    </div>
-                    <div class="hero-card" data-bio="Cursed with an insatiable hunger, Kishi is an outcast who has learned to control his shapeshifting abilities. He sees the Soul-Blade as his only path to redemption. Abilities: Shapeshift">
-                        <div class="hero-title-container">
-                            <h3>Kishi</h3>
-                            <h4>The Shapeshifter</h4>
-                        </div>
-                        <div class="hero-placeholder"><img src="images/kishi.png" alt="Kishi the Shapeshifter"></div>
-                        <p>A mysterious being who has the ability to transform into a fearsome Werehyena</p>
-                        <p class="details-text">Press for details</p>
-                    </div>
-                    <div class="hero-card" data-bio="Aziza moves like a shadow, a master of traps and secrets. She believes the shattered Soul Blade holds the key to a truth that was stolen from her people. Abilities: Trap">
-                        <div class="hero-title-container">
-                            <h3>Aziza</h3>
-                            <h4>The Scout</h4>
-                        </div>
-                        <div class="hero-placeholder"><img src="images/aziza.png" alt="Aziza the Scout"></div>
-                        <p>A nimble skirmisher who wields an ancient sling & moves through shadows to strike at the heart of the enemy.</p>
-                        <p class="details-text">Press for details</p>
-                    </div>
-                    <div class="hero-card" data-bio="Nganga is a wise shaman who communes with ancestral spirits of Azuma. He joins the quest to prevent Bokor from corrupting the spirit world permanently. Abilities: Disease & Heal">
-                        <div class="hero-title-container">
-                            <h3>Nganga</h3>
-                            <h4>The Shaman</h4>
-                        </div>
-                        <div class="hero-placeholder"><img src="images/nganga.png" alt="Nganga the Shaman"></div>
-                        <p>A powerful mystic who communes with spirits to heal allies and curse enemies.</p>
-                        <p class="details-text">Press for details</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- =================================================== -->
-        <!-- =============== DEV TRACKER SECTION =============== -->
-        <!-- =================================================== -->
-        <section id="dev-tracker" class="dev-tracker-section">
-            <div class="container">
-                <h2>Dev Tracker</h2>
-                <p class="dev-build-version">Development Build: v0.2.0 Pre-Alpha</p>
-                <p class="last-updated" id="dev-tracker-last-updated"></p>
-                <div id="dev-tracker-summary"></div>
-                <div id="dev-tracker-list">
-                    <p class="tracker-loading">Loading Dev Tracker Data...</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- =================================================== -->
-        <!-- ================= DEVBLOG SECTION ================= -->
-        <!-- =================================================== -->
-        <section id="devblog" class="devblog-section bg-dark">
-            <div class="container">
-                <h2>DevBlog</h2>
-                <p class="section-intro">Updates on the development of Upanga: The Soul-Blade.</p>
-                <div id="devblog-list">
-                    <p class="devblog-loading">Loading DevBlog...</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- =================================================== -->
-        <!-- =============== SCREENSHOTS SECTION =============== -->
-        <!-- =================================================== -->
-        <section id="screenshots" class="screenshots-section bg-dark">
-            <div class="container">
-                <h2>Screenshots</h2>
-                <div class="screenshot-grid">
-                    <div class="screenshot-card"><img src="images/splash_prototype.png" alt="Splash screen prototype"></div>
-                    <div class="screenshot-card"><img src="images/main_map.png" alt="Main map screen"></div>
-                    <div class="screenshot-card"><img src="images/battle_map.png" alt="Battle map screen"></div>
-                    <div class="screenshot-card"><img src="images/bess.png" alt="Bess character screenshot"></div>
-                    <div class="screenshot-card"><img src="images/kraal.png" alt="Kraal screenshot"></div>
-                    <div class="screenshot-card"><img src="images/chooseparty.png" alt="Choose party screen"></div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- =================================================== -->
-        <!-- =================== FAQ SECTION =================== -->
-        <!-- =================================================== -->
-        <section id="faq" class="faq-section">
-            <div class="container">
-                <h2>Frequently Asked Questions</h2>
-                <p class="section-intro">Answers about Upanga: The Soul-Blade, development progress, gameplay, release plans, and support.</p>
-                <div id="faq-list">
-                    <p class="faq-loading">Loading FAQ...</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- =================================================== -->
-        <!-- ================= CONTACT SECTION ================= -->
-        <!-- =================================================== -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <p>For inquiries, please reach out via email or follow the project on GitHub.</p>
-                        <p><strong>Email:</strong> <a href="mailto:upangadev@zohomail.com">upangadev@zohomail.com</a></p>
-                        <p><strong>GitHub:</strong> <a href="https://github.com/upanga-thegame/upanga-web" target="_blank">https://github.com/upanga-thegame/upanga-web</a></p>
-                        <p><a href="https://x.com/upangadev" target="_blank" class="social-link"><img src="images/xbadge.png" alt="X Profile" class="social-icon"> @upangadev</a></p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="release-section section-pad section-accent"><div class="section-frame release-grid"><div class="section-label reveal"><span>04</span><span>The horizon</span></div><div class="release-copy reveal"><p class="eyebrow">The first road opens in</p><h2>Fall<br><span>2026</span></h2><p>Upanga: The Soul Blade is planned for Android, Apple, and Steam. Follow along for new captures, world notes, and release news.</p><div class="release-platforms"><span class="release-platform"><i class="platform-mark platform-mark-android"></i>Android</span><span class="release-platform"><i class="platform-mark platform-mark-apple"></i>Apple</span><span class="release-platform"><i class="platform-mark platform-mark-steam"></i>Steam</span></div><a class="button button-dark" href="https://x.com/upangadev" target="_blank" rel="noreferrer">Follow @upangadev <span>↗</span></a></div></div></section>
     </main>
 
-    <!-- =================================================== -->
-    <!-- ===================== FOOTER ====================== -->
-    <!-- =================================================== -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="#dev-tracker">Dev Tracker</a>
-                <a href="index.html#devblog">DevBlog</a>
-                <a href="#screenshots">Screenshots</a>
-                <a href="index.html#faq">FAQ</a>
-                <a href="#contact">Contact</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Use</a>
-                <a href="data-deletion.html">Data Deletion</a>
-            </div>
-            <div class="footer-contact">
-                <p>Support/Contact: <a href="mailto:upangadev@zohomail.com">upangadev@zohomail.com</a></p>
-            </div>
-            <div class="footer-copyright">
-                <p>&copy; 2026 Upanga: The Soul Blade</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- =================================================== -->
-    <!-- =================== HERO MODAL ==================== -->
-    <!-- =================================================== -->
-    <div id="hero-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <h3 id="modal-hero-name"></h3>
-            <p id="modal-hero-bio"></p>
-        </div>
-    </div>
-
-    <!-- Screenshot Modal -->
-    <div id="screenshot-modal" class="modal">
-        <span class="modal-close screenshot-close">&times;</span>
-        <img class="modal-content" id="screenshot-modal-img">
-    </div>
-
-    <script src="script.js"></script>
+    <footer class="site-footer"><div class="section-frame footer-grid"><a class="brand-lockup" href="index.html"><span class="brand-mark">U</span><span class="brand-name">UPANGA</span></a><p>© <span data-year></span> Upanga: The Soul Blade</p><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="data-deletion.html">Data deletion</a></div><a class="footer-social" href="mailto:upangadev@zohomail.com">upangadev@zohomail.com <span>↗</span></a></div></footer>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script><script src="script.js"></script><script type="module" src="scripts/scene.js"></script>
 </body>
 </html>
