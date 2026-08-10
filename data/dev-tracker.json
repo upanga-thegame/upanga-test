@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-10T02:55:34.534Z",
+  "generatedAt": "2026-08-10T13:51:06.580Z",
   "summary": {
     "total": 153,
     "complete": 143,
-    "inProgress": 4,
-    "planned": 6,
+    "inProgress": 5,
+    "planned": 5,
     "blocked": 0,
     "open": 10
   },
@@ -29,7 +29,7 @@
         },
         {
           "title": "Create game trailer, game play",
-          "status": "Planned",
+          "status": "In Progress",
           "group": "Ch.1 Features (v0.4.0 Alpha)"
         },
         {
