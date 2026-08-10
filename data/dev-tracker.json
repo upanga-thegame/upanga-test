@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-06T13:33:46.714Z",
+  "generatedAt": "2026-08-10T02:55:34.534Z",
   "summary": {
-    "total": 159,
-    "complete": 135,
-    "inProgress": 5,
-    "planned": 19,
+    "total": 153,
+    "complete": 143,
+    "inProgress": 4,
+    "planned": 6,
     "blocked": 0,
-    "open": 24
+    "open": 10
   },
   "groups": [
     {
@@ -23,36 +23,6 @@
       "title": "Ch.1 Features (v0.4.0 Alpha)",
       "items": [
         {
-          "title": "Create cinematic cutscene: Game launch",
-          "status": "Planned",
-          "group": "Ch.1 Features (v0.4.0 Alpha)"
-        },
-        {
-          "title": "Create cinematic cutscene: New game",
-          "status": "Planned",
-          "group": "Ch.1 Features (v0.4.0 Alpha)"
-        },
-        {
-          "title": "Create cinematic cutscene: After CryptBattleMap",
-          "status": "Planned",
-          "group": "Ch.1 Features (v0.4.0 Alpha)"
-        },
-        {
-          "title": "Create cinematic cutscene: After JungleBattleMap",
-          "status": "Planned",
-          "group": "Ch.1 Features (v0.4.0 Alpha)"
-        },
-        {
-          "title": "Create cinematic cutscene: After RuinsBattleMap",
-          "status": "Planned",
-          "group": "Ch.1 Features (v0.4.0 Alpha)"
-        },
-        {
-          "title": "Create cinematic cutscene: After PyramidBattleMap",
-          "status": "Planned",
-          "group": "Ch.1 Features (v0.4.0 Alpha)"
-        },
-        {
           "title": "Create cinematic cutscene: After FortressBattleMap",
           "status": "Planned",
           "group": "Ch.1 Features (v0.4.0 Alpha)"
@@ -63,29 +33,9 @@
           "group": "Ch.1 Features (v0.4.0 Alpha)"
         },
         {
-          "title": "Work on storyboards, hero origin stories",
-          "status": "Planned",
-          "group": "Ch.1 Features (v0.4.0 Alpha)"
-        },
-        {
           "title": "Add victory celebration scene for Kraal after defeat of Bida",
           "status": "Planned",
           "group": "Ch.1 Features (v0.4.0 Alpha)"
-        },
-        {
-          "title": "Cant scroll dialogue options on mobile in Balla",
-          "status": "Planned",
-          "group": "Ch.1 Features (v0.4.0 Alpha)"
-        }
-      ]
-    },
-    {
-      "title": "Ch.1 Fixes (v0.4.0 Alpha)",
-      "items": [
-        {
-          "title": "Scrolls of Ancients too small on mobile also not aligned on mobile",
-          "status": "Planned",
-          "group": "Ch.1 Fixes (v0.4.0 Alpha)"
         }
       ]
     },
@@ -93,22 +43,17 @@
       "title": "Ch.1 Polish (v0.4.0 Alpha)",
       "items": [
         {
-          "title": "Clean up Kraal scene, less people walking better pathing",
-          "status": "In Progress",
-          "group": "Ch.1 Polish (v0.4.0 Alpha)"
-        },
-        {
-          "title": "Bida death, make him sink in the ground earthquake effects rumble cloud sand",
+          "title": "Skip to end dialogue",
           "status": "Planned",
           "group": "Ch.1 Polish (v0.4.0 Alpha)"
         },
         {
-          "title": "Increase font size for dialogue hard to read on mobile",
+          "title": "animate take my leave or highlight it when all options are used.",
           "status": "Planned",
           "group": "Ch.1 Polish (v0.4.0 Alpha)"
         },
         {
-          "title": "Balla dialogue does not have to repeat his intro every time",
+          "title": "first time add animation effect around new buttons for first time like attack",
           "status": "Planned",
           "group": "Ch.1 Polish (v0.4.0 Alpha)"
         }
@@ -131,31 +76,6 @@
           "title": "Test export/build flow. Continue to test on mobile after new builds.",
           "status": "In Progress",
           "group": "Ch.1 Testing (v0.4.0 Alpha)"
-        }
-      ]
-    },
-    {
-      "title": "Upanga: The Soul Blade — The Broken Roads of Bomende",
-      "items": [
-        {
-          "title": "The Crypt holds the blade’s hilt and restores the Ancestral Road, reconnecting the living with the wisdom of those who fought Bida before.",
-          "status": null,
-          "group": "Upanga: The Soul Blade — The Broken Roads of Bomende"
-        },
-        {
-          "title": "The Swamp holds part of the blade’s edge and restores the Water Road, allowing rivers, supplies, and travelers to move between kingdoms.",
-          "status": null,
-          "group": "Upanga: The Soul Blade — The Broken Roads of Bomende"
-        },
-        {
-          "title": "The Jungle holds the second part of the blade’s edge and restores the Forest Road, reopening access to food, medicine, and distant communities.",
-          "status": null,
-          "group": "Upanga: The Soul Blade — The Broken Roads of Bomende"
-        },
-        {
-          "title": "The Pyramid holds the blade’s core and restores the Royal Road, revealing the complete history of Bida, the tribute, and the Soul Blade’s first bearer.",
-          "status": null,
-          "group": "Upanga: The Soul Blade — The Broken Roads of Bomende"
         }
       ]
     }
@@ -190,7 +110,27 @@
       "title": "Ch.1 Features (v0.4.0 Alpha)",
       "items": [
         {
+          "title": "Create cinematic cutscene: Game launch",
+          "status": "Complete",
+          "group": "Ch.1 Features (v0.4.0 Alpha)"
+        },
+        {
+          "title": "Create cinematic cutscene: New game",
+          "status": "Complete",
+          "group": "Ch.1 Features (v0.4.0 Alpha)"
+        },
+        {
+          "title": "Work on storyboards, hero origin stories",
+          "status": "Complete",
+          "group": "Ch.1 Features (v0.4.0 Alpha)"
+        },
+        {
           "title": "Add Soul blade to travelmap that files as areas are completed",
+          "status": "Complete",
+          "group": "Ch.1 Features (v0.4.0 Alpha)"
+        },
+        {
+          "title": "Cant scroll dialogue options on mobile in Balla",
           "status": "Complete",
           "group": "Ch.1 Features (v0.4.0 Alpha)"
         }
@@ -201,6 +141,11 @@
       "items": [
         {
           "title": "Fix Kraal flames not on wood",
+          "status": "Complete",
+          "group": "Ch.1 Fixes (v0.4.0 Alpha)"
+        },
+        {
+          "title": "Scrolls of Ancients too small on mobile also not aligned on mobile",
           "status": "Complete",
           "group": "Ch.1 Fixes (v0.4.0 Alpha)"
         }
@@ -216,6 +161,21 @@
         },
         {
           "title": "Remove come back later on nodes not opened just have them do nothing",
+          "status": "Complete",
+          "group": "Ch.1 Polish (v0.4.0 Alpha)"
+        },
+        {
+          "title": "Increase font size for dialogue hard to read on mobile",
+          "status": "Complete",
+          "group": "Ch.1 Polish (v0.4.0 Alpha)"
+        },
+        {
+          "title": "Balla dialogue does not have to repeat his intro every time",
+          "status": "Complete",
+          "group": "Ch.1 Polish (v0.4.0 Alpha)"
+        },
+        {
+          "title": "Rename Bess to something more recognizable",
           "status": "Complete",
           "group": "Ch.1 Polish (v0.4.0 Alpha)"
         }
