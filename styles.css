@@ -573,8 +573,8 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 }
 
 .hero-archive-section .section-heading { grid-template-columns: .65fr 1.2fr 1fr; margin-bottom: 64px; }
-.hero-archive-section .hero-section-heading { display: flex; width: 100%; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
-.hero-section-heading .section-label { justify-content: center; }
+.hero-archive-section .hero-section-heading { display: flex; width: 100%; flex-direction: column; align-items: flex-start; gap: 18px; text-align: left; }
+.hero-section-heading .section-label { justify-content: flex-start; }
 .hero-section-heading h2 { margin: 0; }
 .hero-archive-section .section-heading .section-label, .hero-archive-section .section-heading h2 { color: var(--paper); }
 .hero-archive-section .section-heading .section-label span:first-child, .hero-archive-section .section-heading .section-label span:last-child { color: var(--archive-tint); }
@@ -680,8 +680,8 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 }
 .npc-field-guide::before { content: ""; position: absolute; inset: 0; opacity: .22; pointer-events: none; background-image: linear-gradient(rgba(201,243,106,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(201,243,106,.06) 1px, transparent 1px); background-size: 5rem 5rem; mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent); }
 .guardian-archive-section { --archive-tint: #db8062; }
-.guardian-archive-section .guardian-section-heading { display: flex; width: 100%; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
-.guardian-section-heading .section-label { justify-content: center; }
+.guardian-archive-section .guardian-section-heading { display: flex; width: 100%; flex-direction: column; align-items: flex-start; gap: 18px; text-align: left; }
+.guardian-section-heading .section-label { justify-content: flex-start; }
 .guardian-section-heading h2 { margin: 0; }
 .guardian-archive-section .section-heading .section-label span:first-child, .guardian-archive-section .section-heading .section-label span:last-child { color: var(--archive-tint); }
 .guardian-archive .hero-archive-chapter { justify-content: flex-start; padding-top: 30px; }
@@ -695,8 +695,8 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 .guardian-archive .hero-archive-stage { border-color: color-mix(in srgb, var(--archive-tint) 55%, transparent); }
 
 .npc-guide-heading { grid-template-columns: .7fr 1.25fr 1fr; margin-bottom: 34px; }
-.npc-guide-heading.npc-section-heading { display: flex; width: 100%; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
-.npc-section-heading .section-label { justify-content: center; }
+.npc-guide-heading.npc-section-heading { display: flex; width: 100%; flex-direction: column; align-items: flex-start; gap: 18px; text-align: left; }
+.npc-section-heading .section-label { justify-content: flex-start; }
 .npc-section-heading h2 { margin: 0; }
 .npc-guide-heading .section-label, .npc-guide-heading h2 { color: var(--paper); }
 .npc-guide-heading .section-label span:first-child, .npc-guide-heading .section-label span:last-child { color: var(--npc-tint); }
