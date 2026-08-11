@@ -340,10 +340,6 @@
         const npcCards = [...npcGuide.querySelectorAll('[data-npc-id]')];
         const npcFilters = [...npcGuide.querySelectorAll('[data-npc-filter]')];
         const npcCounter = npcGuide.querySelector('[data-npc-count]');
-        const npcDetailIndex = npcGuide.querySelector('[data-npc-detail-index]');
-        const npcDetailRole = npcGuide.querySelector('[data-npc-detail-role]');
-        const npcDetailName = npcGuide.querySelector('[data-npc-detail-name]');
-        const npcDetailDescription = npcGuide.querySelector('[data-npc-detail-description]');
         const npcTotal = npcCards.length;
         let activeNpcId = '';
 
@@ -360,10 +356,6 @@
             });
             npcGuide.style.setProperty('--npc-tint', card.dataset.npcRole === 'Ranged' ? '#8be1c1' : '#c9f36a');
             if (npcCounter) npcCounter.textContent = String(index).padStart(2, '0');
-            if (npcDetailIndex) npcDetailIndex.textContent = `${String(index).padStart(2, '0')} / ${String(npcTotal).padStart(2, '0')}`;
-            if (npcDetailRole) npcDetailRole.textContent = (card.dataset.npcRole || '').toUpperCase();
-            if (npcDetailName) npcDetailName.textContent = card.dataset.npcName || '';
-            if (npcDetailDescription) npcDetailDescription.textContent = card.dataset.npcDescription || '';
             if (userInitiated) card.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'nearest', inline: 'center' });
         };
 
