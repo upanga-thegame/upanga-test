@@ -408,6 +408,28 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
     .hero-profile-bio { margin-bottom: 26px; }
 }
 
+/* Homepage handoff to the single canonical hero archive */
+.party-link-section { min-height: 68vh; background: #0e1411; color: var(--paper); }
+.party-link-grid { display: grid; grid-template-columns: .65fr 1.2fr 1fr; gap: 42px; align-items: start; }
+.party-link-grid > .section-label { color: rgba(238,240,232,.5); }
+.party-link-grid > .section-label span:first-child { color: var(--acid); }
+.party-link-copy { max-width: 560px; }
+.party-link-copy h2 { margin-bottom: 28px; font-size: clamp(58px, 8vw, 118px); }
+.party-link-copy h2 span { color: var(--acid); }
+.party-link-copy > p:not(.eyebrow) { max-width: 450px; margin-bottom: 32px; color: rgba(238,240,232,.68); font-size: 15px; line-height: 1.7; }
+.party-link-signal { display: grid; align-content: end; min-height: 340px; padding: 22px; border: 1px solid rgba(201,243,106,.28); background: linear-gradient(145deg, rgba(201,243,106,.08), transparent 52%), rgba(8,16,12,.6); }
+.party-link-signal span { color: var(--acid); font: 10px var(--mono); letter-spacing: .13em; }
+.party-link-signal strong { max-width: 220px; margin-top: auto; color: var(--paper); font: 500 clamp(28px, 4vw, 55px)/.95 var(--display); letter-spacing: -.07em; }
+.party-link-signal i { display: block; width: 100%; height: 1px; margin-top: 26px; background: linear-gradient(90deg, var(--acid), transparent); }
+.home-page .signal-copy h2 span { color: var(--acid); }
+.home-page .signal-section .eyebrow { color: #667331; }
+.home-page .signal-section .muted-copy { color: #667067; }
+
+@media (max-width: 900px) {
+    .party-link-grid { grid-template-columns: 1fr; gap: 30px; }
+    .party-link-signal { min-height: 230px; }
+}
+
 /* Cinematic hero archive */
 .hero-archive-section {
     --archive-tint: var(--acid);
