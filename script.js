@@ -13,14 +13,23 @@
     const menuButton = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.site-nav');
     if (menuButton && nav) {
+        const closeNav = () => {
+            nav.classList.remove('open');
+            menuButton.setAttribute('aria-expanded', 'false');
+        };
+
         menuButton.addEventListener('click', () => {
             const open = nav.classList.toggle('open');
             menuButton.setAttribute('aria-expanded', String(open));
         });
-        nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-            nav.classList.remove('open');
-            menuButton.setAttribute('aria-expanded', 'false');
-        }));
+        nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeNav();
+        });
+        document.addEventListener('pointerdown', (event) => {
+            if (!nav.classList.contains('open')) return;
+            if (!nav.contains(event.target) && !menuButton.contains(event.target)) closeNav();
+        });
     }
 
     const reveals = document.querySelectorAll('.reveal');
@@ -259,6 +268,8 @@
     const journeySteps = [...document.querySelectorAll('[data-journey-step]')];
     const journeyProgress = document.querySelector('.journey-progress span');
     const journeyCounter = document.querySelector('.journey-counter strong');
+    const mobileJourney = window.matchMedia('(max-width: 560px)').matches;
+    const journeyVideoOpacity = mobileJourney ? .96 : .82;
     let activeJourneyStep = -1;
 
     const playJourneyVideo = (video) => {
@@ -275,9 +286,9 @@
             if (active) playJourneyVideo(video);
             else video.pause();
             if (window.gsap) {
-                window.gsap.to(video, { opacity: active ? .82 : 0, duration: .7, ease: 'power2.out' });
+                window.gsap.to(video, { opacity: active ? journeyVideoOpacity : 0, duration: .7, ease: 'power2.out' });
             } else {
-                video.style.opacity = active ? '.82' : '0';
+                video.style.opacity = active ? String(journeyVideoOpacity) : '0';
             }
         });
         journeySteps.forEach((step, stepIndex) => step.classList.toggle('is-active', stepIndex === index));
