@@ -263,6 +263,72 @@
         activateArchiveHero('osa');
     }
 
+    const npcGuide = document.querySelector('[data-npc-guide]');
+    if (npcGuide) {
+        const npcCards = [...npcGuide.querySelectorAll('[data-npc-id]')];
+        const npcFilters = [...npcGuide.querySelectorAll('[data-npc-filter]')];
+        const npcCounter = npcGuide.querySelector('[data-npc-count]');
+        const npcDetailIndex = npcGuide.querySelector('[data-npc-detail-index]');
+        const npcDetailRole = npcGuide.querySelector('[data-npc-detail-role]');
+        const npcDetailName = npcGuide.querySelector('[data-npc-detail-name]');
+        const npcDetailDescription = npcGuide.querySelector('[data-npc-detail-description]');
+        const npcTotal = npcCards.length;
+        let activeNpcId = '';
+
+        const setNpc = (card, userInitiated = false) => {
+            if (!card || card.hidden) return;
+            const npcId = card.dataset.npcId || '';
+            if (npcId === activeNpcId && !userInitiated) return;
+            activeNpcId = npcId;
+            const index = npcCards.indexOf(card) + 1;
+            npcCards.forEach((item) => {
+                const active = item === card;
+                item.classList.toggle('is-active', active);
+                item.setAttribute('aria-pressed', String(active));
+            });
+            npcGuide.style.setProperty('--npc-tint', card.dataset.npcRole === 'Ranged' ? '#8be1c1' : '#c9f36a');
+            if (npcCounter) npcCounter.textContent = String(index).padStart(2, '0');
+            if (npcDetailIndex) npcDetailIndex.textContent = `${String(index).padStart(2, '0')} / ${String(npcTotal).padStart(2, '0')}`;
+            if (npcDetailRole) npcDetailRole.textContent = (card.dataset.npcRole || '').toUpperCase();
+            if (npcDetailName) npcDetailName.textContent = card.dataset.npcName || '';
+            if (npcDetailDescription) npcDetailDescription.textContent = card.dataset.npcDescription || '';
+            if (userInitiated) card.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'nearest', inline: 'center' });
+        };
+
+        const applyNpcFilter = (filter) => {
+            npcFilters.forEach((button) => {
+                const active = button.dataset.npcFilter === filter;
+                button.classList.toggle('is-active', active);
+                button.setAttribute('aria-selected', String(active));
+            });
+            npcCards.forEach((card) => {
+                card.hidden = filter !== 'all' && card.dataset.npcRegion !== filter;
+            });
+            const visibleCards = npcCards.filter((card) => !card.hidden);
+            const activeCard = visibleCards.find((card) => card.dataset.npcId === activeNpcId) || visibleCards[0];
+            setNpc(activeCard, true);
+        };
+
+        npcCards.forEach((card, index) => {
+            card.setAttribute('aria-pressed', 'false');
+            card.addEventListener('pointerenter', () => setNpc(card));
+            card.addEventListener('focus', () => setNpc(card));
+            card.addEventListener('click', () => setNpc(card, true));
+            card.addEventListener('keydown', (event) => {
+                if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+                event.preventDefault();
+                const visibleCards = npcCards.filter((item) => !item.hidden);
+                const visibleIndex = visibleCards.indexOf(card);
+                const direction = event.key === 'ArrowRight' ? 1 : -1;
+                const nextCard = visibleCards[(visibleIndex + direction + visibleCards.length) % visibleCards.length];
+                nextCard.focus();
+                setNpc(nextCard, true);
+            });
+        });
+        npcFilters.forEach((button) => button.addEventListener('click', () => applyNpcFilter(button.dataset.npcFilter || 'all')));
+        setNpc(npcCards[0]);
+    }
+
     const journey = document.querySelector('.scroll-journey');
     const journeyBackdrop = document.querySelector('.journey-backdrop');
     const journeyBackdropNext = document.querySelector('.journey-backdrop-next');

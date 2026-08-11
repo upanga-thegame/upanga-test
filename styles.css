@@ -645,3 +645,76 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
     .hero-archive-video { display: none; }
     .hero-archive-image, .hero-archive-chapter, .hero-archive-select { transition: none; }
 }
+
+/* Compact non-boss NPC field guide */
+.npc-field-guide {
+    --npc-tint: var(--acid);
+    position: relative;
+    overflow: clip;
+    color: var(--paper);
+    background: radial-gradient(circle at 78% 16%, rgba(201,243,106,.08), transparent 28rem), #08100c;
+}
+.npc-field-guide::before { content: ""; position: absolute; inset: 0; opacity: .22; pointer-events: none; background-image: linear-gradient(rgba(201,243,106,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(201,243,106,.06) 1px, transparent 1px); background-size: 5rem 5rem; mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent); }
+.npc-guide-heading { grid-template-columns: .7fr 1.25fr 1fr; margin-bottom: 34px; }
+.npc-guide-heading .section-label, .npc-guide-heading h2 { color: var(--paper); }
+.npc-guide-heading .section-label span:first-child, .npc-guide-heading .section-label span:last-child { color: var(--npc-tint); }
+.npc-guide-intro { max-width: 320px; margin: 0; color: rgba(238,240,232,.62); font-size: 14px; line-height: 1.65; }
+.npc-guide { position: relative; z-index: 1; }
+.npc-guide-toolbar { display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-top: 1px solid rgba(238,240,232,.18); color: rgba(238,240,232,.5); font: 10px var(--mono); letter-spacing: .11em; text-transform: uppercase; }
+.npc-guide-toolbar p { margin: 0; }
+.npc-guide-count { color: rgba(238,240,232,.45); }
+.npc-guide-count strong { color: var(--npc-tint); font-size: 17px; font-weight: 400; }
+.npc-guide-filters { display: flex; gap: 7px; margin-bottom: 8px; overflow-x: auto; scrollbar-width: none; }
+.npc-guide-filters::-webkit-scrollbar { display: none; }
+.npc-guide-filter { flex: 0 0 auto; padding: 7px 10px; border: 1px solid rgba(238,240,232,.16); background: transparent; color: rgba(238,240,232,.52); cursor: pointer; font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; transition: color .25s ease, background .25s ease, border-color .25s ease; }
+.npc-guide-filter:hover, .npc-guide-filter:focus-visible, .npc-guide-filter.is-active { border-color: rgba(201,243,106,.55); background: rgba(201,243,106,.1); color: var(--paper); outline: none; }
+.npc-guide-rail-wrap { overflow: hidden; }
+.npc-guide-rail { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 60px) / 6); gap: 12px; padding: 16px 0 26px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-behavior: smooth; scroll-snap-type: x proximity; scrollbar-color: rgba(201,243,106,.58) rgba(238,240,232,.12); scrollbar-width: thin; }
+.npc-card { position: relative; min-width: 0; height: 230px; padding: 0; overflow: hidden; isolation: isolate; border: 1px solid rgba(238,240,232,.18); background: #0a110d; color: var(--paper); text-align: left; cursor: pointer; scroll-snap-align: start; transition: transform .45s cubic-bezier(.16,1,.3,1), border-color .3s ease, box-shadow .35s ease, opacity .3s ease; }
+.npc-card[hidden] { display: none; }
+.npc-card img, .npc-card-wash { position: absolute; inset: 0; width: 100%; height: 100%; }
+.npc-card img { z-index: 0; object-fit: cover; object-position: center top; filter: saturate(.68) contrast(1.08) brightness(.78); transition: transform .6s cubic-bezier(.16,1,.3,1), filter .35s ease; }
+.npc-card-wash { z-index: 1; background: linear-gradient(180deg, rgba(4,8,6,.04) 18%, rgba(4,8,6,.22) 48%, rgba(4,8,6,.96) 100%); pointer-events: none; }
+.npc-card::before { content: ""; position: absolute; z-index: 3; inset: 12px 12px auto auto; width: 16px; height: 16px; border: 1px solid var(--npc-tint); border-width: 1px 1px 0 0; opacity: .65; pointer-events: none; }
+.npc-card-index { position: absolute; z-index: 4; top: 13px; left: 13px; color: var(--npc-tint); font: 9px var(--mono); letter-spacing: .1em; }
+.npc-card-copy { position: absolute; z-index: 4; right: 12px; bottom: 11px; left: 12px; display: grid; gap: 5px; }
+.npc-card-copy strong { font: 500 24px/.9 var(--display); letter-spacing: -.055em; }
+.npc-card-copy small { color: var(--npc-tint); font: 9px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.npc-card-copy em { max-height: 0; overflow: hidden; opacity: 0; color: rgba(238,240,232,.72); font-size: 11px; font-style: normal; line-height: 1.45; transition: max-height .45s ease, opacity .35s ease; }
+.npc-card:hover, .npc-card:focus-visible, .npc-card.is-active { border-color: rgba(201,243,106,.78); outline: none; box-shadow: 0 22px 50px rgba(0,0,0,.3), 0 0 0 1px rgba(201,243,106,.14); transform: translateY(8px); }
+.npc-card:hover img, .npc-card:focus-visible img, .npc-card.is-active img { filter: saturate(.95) contrast(1.1) brightness(.9); transform: scale(1.05) translateY(-5px); }
+.npc-card:hover .npc-card-copy em, .npc-card:focus-visible .npc-card-copy em, .npc-card.is-active .npc-card-copy em { max-height: 52px; opacity: 1; }
+.npc-guide-detail { min-height: 150px; padding: 20px 0 0; border-top: 1px solid rgba(238,240,232,.18); }
+.npc-guide-detail-index { display: flex; justify-content: space-between; gap: 20px; color: rgba(238,240,232,.44); font: 10px var(--mono); letter-spacing: .11em; text-transform: uppercase; }
+.npc-guide-detail-index span:first-child { color: var(--npc-tint); }
+.npc-guide-detail-index span:last-child { display: inline-flex; align-items: center; gap: 8px; }
+.npc-guide-detail-index i { width: 6px; height: 6px; border-radius: 50%; background: var(--npc-tint); box-shadow: 0 0 0 3px rgba(201,243,106,.12); }
+.npc-guide-detail-copy { display: grid; grid-template-columns: minmax(170px,.7fr) minmax(120px,.3fr) minmax(260px,1.5fr); gap: 22px; align-items: end; padding: 26px 0 0; }
+.npc-guide-detail-copy p { margin: 0; color: rgba(238,240,232,.7); font-size: 13px; line-height: 1.55; }
+.npc-guide-detail-copy p:first-child { color: var(--npc-tint); font: 10px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.npc-guide-detail-copy h3 { margin: 0; color: var(--paper); font: 500 clamp(38px,4vw,58px)/.88 var(--display); letter-spacing: -.07em; }
+
+@media (max-width: 900px) {
+    .npc-guide-heading { grid-template-columns: 1fr 1.5fr; gap: 20px; }
+    .npc-guide-intro { grid-column: 2; }
+    .npc-guide-rail { grid-auto-columns: calc((100% - 36px) / 4); }
+}
+
+@media (max-width: 560px) {
+    .npc-guide-heading { grid-template-columns: 1fr; gap: 16px; }
+    .npc-guide-heading .section-label { order: 1; }
+    .npc-guide-heading h2 { order: 2; }
+    .npc-guide-intro { grid-column: auto; order: 3; }
+    .npc-guide-toolbar { align-items: flex-start; gap: 12px; }
+    .npc-guide-toolbar p { max-width: 210px; line-height: 1.4; }
+    .npc-guide-rail { grid-auto-columns: calc((100% - 12px) / 2); gap: 12px; padding-top: 12px; }
+    .npc-card { height: 226px; }
+    .npc-card-copy strong { font-size: 21px; }
+    .npc-guide-detail-copy { grid-template-columns: 1fr 1fr; gap: 13px 18px; padding-top: 20px; }
+    .npc-guide-detail-copy p:last-child { grid-column: 1 / -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .npc-guide-rail { scroll-behavior: auto; }
+    .npc-card, .npc-card img, .npc-card-copy em { transition: none; }
+}
