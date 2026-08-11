@@ -263,9 +263,12 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
 .footer-links a:hover, .footer-social:hover { color: var(--acid); }
 .footer-social { justify-self: end; }
-.inner-page { background: var(--paper); color: var(--ink); }
+.inner-page { background: #0e1411; color: var(--paper); }
 .inner-page .site-header { color: var(--paper); }
 .inner-page .site-grain { opacity: .08; }
+.inner-content-section { min-height: calc(100svh - 174px); padding-top: 150px; background: radial-gradient(circle at 76% 8%, rgba(201,243,106,.07), transparent 30rem), #0e1411; }
+.inner-content-section .section-label { color: var(--muted); }
+.inner-content-section .section-label span:first-child { color: var(--acid); }
 .page-hero { padding-top: 190px; padding-bottom: 160px; background: var(--paper); }
 .page-hero-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; }
 .page-hero-copy { max-width: 800px; }
