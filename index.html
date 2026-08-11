@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=square-journey-1">
+    <link rel="stylesheet" href="styles.css?v=scroll-cards-1">
 </head>
 <body class="home-page">
     <div class="site-grain" aria-hidden="true"></div>
@@ -35,20 +35,37 @@
 
         <section class="scroll-journey section-dark" id="journey">
             <div class="journey-sticky">
-                <div class="journey-media-frame">
-                    <div class="journey-background" aria-hidden="true">
-                        <div class="journey-grid-lines"></div>
-                        <img class="journey-poster is-active" data-journey-poster="0" src="images/swamp-poster.png" alt="">
-                        <img class="journey-poster" data-journey-poster="1" src="images/crypt-poster.png" alt="">
-                        <img class="journey-poster" data-journey-poster="2" src="images/jungle-poster.png" alt="">
-                        <img class="journey-poster" data-journey-poster="3" src="images/pyramid-poster.png" alt="">
-                        <img class="journey-poster" data-journey-poster="4" src="images/fortress-poster.png" alt="">
-                        <video class="journey-video is-active" data-journey-video="0" autoplay muted loop playsinline preload="metadata" poster="images/swamp-poster.png"><source src="media/swamp-select.mp4" type="video/mp4"></video>
-                        <video class="journey-video" data-journey-video="1" autoplay muted loop playsinline preload="metadata" poster="images/crypt-poster.png"><source src="media/crypt-select.mp4" type="video/mp4"></video>
-                        <video class="journey-video" data-journey-video="2" autoplay muted loop playsinline preload="metadata" poster="images/jungle-poster.png"><source src="media/jungle-select.mp4" type="video/mp4"></video>
-                        <video class="journey-video" data-journey-video="3" autoplay muted loop playsinline preload="metadata" poster="images/pyramid-poster.png"><source src="media/pyramid-select.mp4" type="video/mp4"></video>
-                        <video class="journey-video" data-journey-video="4" autoplay muted loop playsinline preload="metadata" poster="images/fortress-poster.png"><source src="media/fortress-select.mp4" type="video/mp4"></video>
-                        <div class="journey-wash"></div>
+                <div class="journey-scene" aria-hidden="true">
+                    <div class="journey-backdrop"></div>
+                    <div class="journey-backdrop journey-backdrop-next"></div>
+                    <div class="journey-backdrop-wash"></div>
+                    <div class="journey-grid-lines"></div>
+                    <div class="journey-media-track">
+                        <article class="journey-card is-active" data-journey-card="0" data-backdrop="images/swamp-poster.png">
+                            <img class="journey-card-poster" src="images/swamp-poster.png" alt="">
+                            <video class="journey-video" data-journey-video="0" muted loop playsinline preload="metadata" poster="images/swamp-poster.png"><source src="media/swamp-select.mp4" type="video/mp4"></video>
+                            <span class="journey-card-index">01 / 05</span>
+                        </article>
+                        <article class="journey-card" data-journey-card="1" data-backdrop="images/crypt-poster.png">
+                            <img class="journey-card-poster" src="images/crypt-poster.png" alt="">
+                            <video class="journey-video" data-journey-video="1" muted loop playsinline preload="metadata" poster="images/crypt-poster.png"><source src="media/crypt-select.mp4" type="video/mp4"></video>
+                            <span class="journey-card-index">02 / 05</span>
+                        </article>
+                        <article class="journey-card" data-journey-card="2" data-backdrop="images/jungle-poster.png">
+                            <img class="journey-card-poster" src="images/jungle-poster.png" alt="">
+                            <video class="journey-video" data-journey-video="2" muted loop playsinline preload="metadata" poster="images/jungle-poster.png"><source src="media/jungle-select.mp4" type="video/mp4"></video>
+                            <span class="journey-card-index">03 / 05</span>
+                        </article>
+                        <article class="journey-card" data-journey-card="3" data-backdrop="images/pyramid-poster.png">
+                            <img class="journey-card-poster" src="images/pyramid-poster.png" alt="">
+                            <video class="journey-video" data-journey-video="3" muted loop playsinline preload="metadata" poster="images/pyramid-poster.png"><source src="media/pyramid-select.mp4" type="video/mp4"></video>
+                            <span class="journey-card-index">04 / 05</span>
+                        </article>
+                        <article class="journey-card" data-journey-card="4" data-backdrop="images/fortress-poster.png">
+                            <img class="journey-card-poster" src="images/fortress-poster.png" alt="">
+                            <video class="journey-video" data-journey-video="4" muted loop playsinline preload="metadata" poster="images/fortress-poster.png"><source src="media/fortress-select.mp4" type="video/mp4"></video>
+                            <span class="journey-card-index">05 / 05</span>
+                        </article>
                     </div>
                 </div>
                 <div class="section-frame journey-frame">
@@ -186,6 +203,6 @@
     </main>
 
     <footer class="site-footer"><div class="section-frame footer-grid"><a class="brand-lockup" href="index.html"><span class="brand-mark">U</span><span class="brand-name">UPANGA</span></a><p>© <span data-year></span> Upanga: The Soul Blade</p><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="data-deletion.html">Data deletion</a></div><a class="footer-social" href="mailto:upangadev@zohomail.com">upangadev@zohomail.com <span>↗</span></a></div></footer>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script><script src="script.js?v=square-journey-1"></script><script type="module" src="scripts/scene.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script><script src="script.js?v=scroll-cards-1"></script><script type="module" src="scripts/scene.js"></script>
 </body>
 </html>

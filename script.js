@@ -264,69 +264,129 @@
     }
 
     const journey = document.querySelector('.scroll-journey');
+    const journeyBackdrop = document.querySelector('.journey-backdrop');
+    const journeyBackdropNext = document.querySelector('.journey-backdrop-next');
+    const journeyCards = [...document.querySelectorAll('[data-journey-card]')];
     const journeyVideos = [...document.querySelectorAll('[data-journey-video]')];
-    const journeyPosters = [...document.querySelectorAll('[data-journey-poster]')];
     const journeySteps = [...document.querySelectorAll('[data-journey-step]')];
     const journeyProgress = document.querySelector('.journey-progress span');
     const journeyCounter = document.querySelector('.journey-counter strong');
     const mobileJourney = window.matchMedia('(max-width: 560px)').matches;
-    const journeyVideoOpacity = mobileJourney ? .78 : .82;
+    const journeyVideoOpacity = mobileJourney ? .78 : .9;
     let activeJourneyStep = -1;
 
+    const lerp = (from, to, amount) => from + ((to - from) * amount);
+
     const playJourneyVideo = (video) => {
-        if (!video) return;
+        if (!video || prefersReducedMotion) return;
         video.muted = true;
         video.play().catch(() => {});
     };
 
     const setJourneyStep = (index) => {
         activeJourneyStep = index;
+        const activeCard = journeyCards[index];
         journeyVideos.forEach((video, videoIndex) => {
             const active = videoIndex === index;
-            video.classList.toggle('is-active', active);
             if (active) playJourneyVideo(video);
             else video.pause();
-            if (window.gsap) {
-                window.gsap.to(video, { opacity: active ? journeyVideoOpacity : 0, duration: .7, ease: 'power2.out' });
-            } else {
-                video.style.opacity = active ? String(journeyVideoOpacity) : '0';
-            }
+            video.style.opacity = active ? String(journeyVideoOpacity) : '0';
         });
-        journeyPosters.forEach((poster, posterIndex) => poster.classList.toggle('is-active', posterIndex === index));
+        journeyCards.forEach((card, cardIndex) => card.classList.toggle('is-active', cardIndex === index));
+        if (journeyBackdrop && activeCard?.dataset.backdrop) {
+            const nextBackdrop = activeJourneyStep % 2 === 0 ? journeyBackdrop : journeyBackdropNext;
+            const currentBackdrop = activeJourneyStep % 2 === 0 ? journeyBackdropNext : journeyBackdrop;
+            if (nextBackdrop && currentBackdrop) {
+                nextBackdrop.style.backgroundImage = `url("${activeCard.dataset.backdrop}")`;
+                nextBackdrop.style.opacity = '.34';
+                currentBackdrop.style.opacity = '0';
+            } else {
+                journeyBackdrop.style.backgroundImage = `url("${activeCard.dataset.backdrop}")`;
+            }
+        }
         journeySteps.forEach((step, stepIndex) => step.classList.toggle('is-active', stepIndex === index));
         if (journeyCounter) journeyCounter.textContent = String(index + 1).padStart(2, '0');
     };
 
-    const updateJourneyFromProgress = (rawProgress, animate = false) => {
-        if (!journeyVideos.length || !journeySteps.length) return;
+    const updateJourneyCards = (activeIndex, localProgress, progress) => {
+        journeyCards.forEach((card, cardIndex) => {
+            let x = 0;
+            let y = 0;
+            let scale = .54;
+            let rotate = 0;
+            let opacity = 0;
+            let zIndex = 1;
+
+            if (cardIndex === activeIndex) {
+                x = lerp(-3, 30, localProgress);
+                y = lerp(10, -14, localProgress);
+                scale = lerp(1, .72, localProgress);
+                rotate = lerp(-3, 6, localProgress);
+                opacity = lerp(1, .16, localProgress);
+                zIndex = 20;
+            } else if (cardIndex === activeIndex + 1) {
+                x = lerp(36, -3, localProgress);
+                y = lerp(-28, 10, localProgress);
+                scale = lerp(.58, 1, localProgress);
+                rotate = lerp(8, -3, localProgress);
+                opacity = lerp(.2, 1, localProgress);
+                zIndex = 21;
+            } else if (cardIndex === activeIndex - 1) {
+                x = 32;
+                y = -14;
+                scale = .72;
+                rotate = 6;
+                opacity = .16;
+                zIndex = 10;
+            } else if (cardIndex > activeIndex + 1) {
+                x = 48;
+                y = -28;
+                rotate = 12;
+            } else {
+                x = -44;
+                y = 24;
+                rotate = -8;
+            }
+
+            card.style.opacity = String(opacity);
+            card.style.zIndex = String(zIndex);
+            card.style.transform = `translate3d(calc(-50% + ${x}vw), calc(-50% + ${y}vh), 0) scale(${scale}) rotate(${rotate}deg)`;
+        });
+
+        if (journeyBackdrop) {
+            const backdropScale = 1.06 + (progress * .06);
+            const backdropY = progress * -8;
+            const backdropTransform = `translate3d(0, ${backdropY}vh, 0) scale(${backdropScale})`;
+            journeyBackdrop.style.transform = backdropTransform;
+            if (journeyBackdropNext) journeyBackdropNext.style.transform = backdropTransform;
+        }
+    };
+
+    const updateJourneyFromProgress = (rawProgress) => {
+        if (!journeyCards.length || !journeySteps.length) return;
         const progress = Math.min(.9999, Math.max(0, rawProgress));
         const stepPosition = progress * journeySteps.length;
         const nextStep = Math.min(journeySteps.length - 1, Math.floor(stepPosition));
         const localProgress = stepPosition - nextStep;
         if (nextStep !== activeJourneyStep) setJourneyStep(nextStep);
-        const activeVideo = journeyVideos[nextStep];
-        const scale = 1.08 - localProgress * .08;
-        const xPercent = (localProgress - .5) * 2.5;
-        if (animate && window.gsap) {
-            window.gsap.to(activeVideo, { scale, xPercent, duration: .25, overwrite: true });
-            if (journeyProgress) window.gsap.set(journeyProgress, { scaleX: Math.max(.02, progress) });
-        } else {
-            activeVideo.style.transform = `translate3d(${xPercent}%, 0, 0) scale(${scale})`;
-            if (journeyProgress) journeyProgress.style.transform = `scaleX(${Math.max(.02, progress)})`;
-        }
+        updateJourneyCards(nextStep, localProgress, progress);
+        if (journeyProgress) journeyProgress.style.transform = `scaleX(${Math.max(.02, progress)})`;
     };
 
     const updateNativeJourney = () => {
-        if (!journey || !journeyVideos.length || !journeySteps.length) return;
+        if (!journey || !journeyCards.length || !journeySteps.length) return;
         const start = journey.offsetTop;
         const end = start + journey.offsetHeight - window.innerHeight;
         const progress = (window.scrollY - start) / Math.max(1, end - start);
-        updateJourneyFromProgress(progress, false);
+        updateJourneyFromProgress(progress);
     };
 
-    if (journey && journeyVideos.length && journeySteps.length) {
+    if (journey && journeyCards.length && journeySteps.length) {
         setJourneyStep(0);
-        window.addEventListener('scroll', () => playJourneyVideo(journeyVideos[activeJourneyStep] || journeyVideos[0]), { passive: true });
+        updateJourneyFromProgress(0);
+        if (!prefersReducedMotion) {
+            window.addEventListener('scroll', () => playJourneyVideo(journeyVideos[activeJourneyStep] || journeyVideos[0]), { passive: true });
+        }
     }
 
     if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
@@ -354,18 +414,18 @@
             });
         }
 
-        if (journey && journeyVideos.length && journeySteps.length) {
+        if (journey && journeyCards.length && journeySteps.length) {
             window.ScrollTrigger.create({
                 trigger: journey,
                 start: 'top top',
                 end: 'bottom bottom',
                 scrub: true,
                 onUpdate: (trigger) => {
-                    updateJourneyFromProgress(trigger.progress, true);
+                    updateJourneyFromProgress(trigger.progress);
                 }
             });
         }
-    } else if (journey && journeyVideos.length && journeySteps.length) {
+    } else if (journey && journeyCards.length && journeySteps.length && !prefersReducedMotion) {
         updateNativeJourney();
         window.addEventListener('resize', updateNativeJourney);
         window.addEventListener('scroll', updateNativeJourney, { passive: true });
