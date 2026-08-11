@@ -60,7 +60,7 @@
         const profileFaction = heroDossier.querySelector('[data-hero-profile-faction]');
         const profileBio = heroDossier.querySelector('[data-hero-profile-bio]');
         const profileStatus = heroDossier.querySelector('[data-hero-profile-status]');
-        const abilitiesRoot = heroDossier.querySelector('[data-hero-abilities]');
+        const abilitiesRoot = heroDossier.querySelector('.hero-ability-list[data-hero-abilities]');
         const statNames = ['force', 'guard', 'range', 'focus'];
         let activeHeroId = '';
 
