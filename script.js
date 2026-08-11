@@ -315,7 +315,7 @@
             selector.addEventListener('focus', () => activateGuardian(guardianId));
             selector.addEventListener('click', () => {
                 activateGuardian(guardianId);
-                chapters[index]?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
+                chapters.find((chapter) => chapter.dataset.guardianChapter === guardianId)?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
             });
             selector.addEventListener('keydown', (event) => {
                 if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
