@@ -484,7 +484,9 @@
     const updateRegionsFromProgress = (rawProgress) => {
         if (!regionsAtlas || !regionCards.length || !regionSteps.length) return;
         const progress = Math.min(.9999, Math.max(0, rawProgress));
-        const stepPosition = progress * (regionSteps.length - 1);
+        // Give every region its own interval so the final stop can become
+        // active and hold before the atlas releases into the next section.
+        const stepPosition = progress * regionSteps.length;
         const nextStep = Math.min(regionSteps.length - 1, Math.floor(stepPosition));
         const localProgress = stepPosition - nextStep;
         if (nextStep !== activeRegionStep) setRegionStep(nextStep);
