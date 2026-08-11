@@ -157,6 +157,103 @@
         setHeroProfile(heroButtons[0]);
     }
 
+    const heroArchive = document.querySelector('[data-hero-archive]');
+    if (heroArchive) {
+        const selectors = [...heroArchive.querySelectorAll('[data-hero-archive-select]')];
+        const chapters = [...heroArchive.querySelectorAll('[data-hero-archive-chapter]')];
+        const stage = heroArchive.querySelector('[data-hero-archive-stage]');
+        const stageImage = heroArchive.querySelector('[data-hero-archive-image]');
+        const stageVideo = heroArchive.querySelector('[data-hero-archive-video]');
+        const stageIndex = heroArchive.querySelector('[data-hero-archive-index]');
+        const stageName = heroArchive.querySelector('[data-hero-archive-name]');
+        const stageRole = heroArchive.querySelector('[data-hero-archive-role]');
+        const stageTitle = heroArchive.querySelector('[data-hero-archive-title]');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let activeHeroId = '';
+
+        const heroData = {
+            osa: { name: 'Osa', role: 'THE WARRIOR', title: 'Duty is a blade that cuts both ways.', image: 'images/osa.png', video: 'images/hero-videos/osa.mp4', tint: '#c9f36a' },
+            aziza: { name: 'Aziza', role: 'THE SCOUT', title: 'Move like a shadow. Strike like a secret.', image: 'images/aziza.png', video: 'images/hero-videos/aziza.mp4', tint: '#a8bd62' },
+            nganga: { name: 'Nganga', role: 'THE SHAMAN', title: 'The living are never far from the spirits.', image: 'images/nganga.png', video: 'images/hero-videos/nganga.mp4', tint: '#7be3b2' },
+            kishi: { name: 'Kishi', role: 'THE SHAPESHIFTER', title: 'The beast is not the end of the story.', image: 'images/kishi.png', video: 'images/hero-videos/kishi.mp4', tint: '#db8062' }
+        };
+
+        const playArchiveVideo = () => {
+            if (!stageVideo || reducedMotion) return;
+            stageVideo.muted = true;
+            stageVideo.play().catch(() => {});
+        };
+
+        const activateArchiveHero = (heroId) => {
+            const data = heroData[heroId];
+            if (!data || activeHeroId === heroId) return;
+            activeHeroId = heroId;
+            const order = selectors.findIndex((selector) => selector.dataset.heroArchiveSelect === heroId) + 1;
+
+            heroArchive.style.setProperty('--archive-tint', data.tint);
+            stage?.classList.add('is-changing');
+            selectors.forEach((selector) => {
+                const active = selector.dataset.heroArchiveSelect === heroId;
+                selector.classList.toggle('is-active', active);
+                selector.setAttribute('aria-pressed', String(active));
+            });
+            chapters.forEach((chapter) => chapter.classList.toggle('is-active', chapter.dataset.heroArchiveChapter === heroId));
+
+            if (stageImage) {
+                stageImage.src = data.image;
+                stageImage.alt = `${data.name}, ${data.role.toLowerCase()}`;
+            }
+            if (stageIndex) stageIndex.textContent = `${String(order).padStart(2, '0')} / 04`;
+            if (stageName) stageName.textContent = data.name;
+            if (stageRole) stageRole.textContent = data.role;
+            if (stageTitle) stageTitle.textContent = data.title;
+
+            if (stageVideo && stageVideo.dataset.source !== data.video) {
+                stageVideo.classList.remove('is-visible');
+                stageVideo.pause();
+                stageVideo.src = data.video;
+                stageVideo.dataset.source = data.video;
+                stageVideo.load();
+                stageVideo.addEventListener('loadeddata', () => {
+                    if (activeHeroId === heroId) {
+                        stageVideo.classList.add('is-visible');
+                        playArchiveVideo();
+                    }
+                }, { once: true });
+            } else {
+                stageVideo?.classList.add('is-visible');
+                playArchiveVideo();
+            }
+
+            window.setTimeout(() => stage?.classList.remove('is-changing'), 260);
+        };
+
+        selectors.forEach((selector, index) => {
+            const heroId = selector.dataset.heroArchiveSelect;
+            selector.addEventListener('pointerenter', () => activateArchiveHero(heroId));
+            selector.addEventListener('focus', () => activateArchiveHero(heroId));
+            selector.addEventListener('click', () => {
+                activateArchiveHero(heroId);
+                chapters[index]?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
+            });
+            selector.addEventListener('keydown', (event) => {
+                if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+                event.preventDefault();
+                const nextIndex = event.key === 'ArrowDown' ? (index + 1) % selectors.length : (index - 1 + selectors.length) % selectors.length;
+                selectors[nextIndex].focus();
+                activateArchiveHero(selectors[nextIndex].dataset.heroArchiveSelect);
+            });
+        });
+
+        const archiveObserver = new IntersectionObserver((entries) => {
+            const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+            if (visible) activateArchiveHero(visible.target.dataset.heroArchiveChapter);
+        }, { threshold: [0.35, 0.6], rootMargin: '-18% 0px -24% 0px' });
+
+        chapters.forEach((chapter) => archiveObserver.observe(chapter));
+        activateArchiveHero('osa');
+    }
+
     const journey = document.querySelector('.scroll-journey');
     const journeyVideos = [...document.querySelectorAll('[data-journey-video]')];
     const journeySteps = [...document.querySelectorAll('[data-journey-step]')];
