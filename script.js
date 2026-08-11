@@ -278,7 +278,7 @@
 
         const guardianData = {
             amokye: { name: 'Amokye', role: 'THE BONE WARDEN', title: 'The dead answer when she calls.', image: 'images/guardians/amokye.png', tint: '#b8a2e7' },
-            bida: { name: 'Bida', role: 'THE THREEFOLD COIL', title: 'Three heads. One will. No safe angle.', image: 'images/guardians/bida.png', tint: '#e28d68' },
+            bida: { name: 'Bida', role: 'THE THREEFOLD COIL', title: 'Three heads. One will. No safe angle.', image: 'images/guardians/bida.png?v=bida-flux-1', tint: '#e28d68' },
             aker: { name: 'Aker', role: 'THE SEAL WARDEN', title: 'The seal breaks in patterns before it breaks open.', image: 'images/guardians/aker.png', tint: '#78c9e2' },
             sasabonsam: { name: 'Sasabonsam', role: 'THE ROOTBOUND', title: 'Speed turns the canopy into a trap.', image: 'images/guardians/sasabonsam.png', tint: '#83bd6b' },
             sobekus: { name: 'Sobekus', role: 'THE DROWNED GATE', title: 'The arena floods when he decides it should.', image: 'images/guardians/sobekus.png', tint: '#5fc3be' }
