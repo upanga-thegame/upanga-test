@@ -118,7 +118,13 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 .journey-counter strong { color: var(--acid); font-size: 17px; font-weight: 400; }
 .signal-section { padding: 72px 0; background: #0e1411; color: var(--paper); isolation: isolate; }
 .signal-section::before { content: ""; position: absolute; inset: 0; z-index: 0; background: radial-gradient(circle at 70% 42%, rgba(198,244,96,.07), transparent 34%), linear-gradient(115deg, rgba(255,255,255,.018), transparent 42%); pointer-events: none; }
-.signal-section-label { margin-bottom: 38px; }
+.signal-section-label { margin-bottom: 24px; }
+.signal-platform-bar { display: grid; grid-template-columns: repeat(3, minmax(0, 190px)); justify-content: center; gap: 10px; width: 100%; margin: 0 auto 42px; }
+.signal-platform { min-height: 64px; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 11px 18px; color: var(--paper); border: 1px solid rgba(238,240,232,.22); background: linear-gradient(135deg, rgba(238,240,232,.08), rgba(238,240,232,.025)); box-shadow: inset 0 1px 0 rgba(255,255,255,.06); }
+.signal-platform img { width: 27px; height: 27px; flex: 0 0 27px; object-fit: contain; filter: brightness(0) invert(1); }
+.signal-platform:first-child img { filter: none; }
+.signal-platform span { display: grid; gap: 2px; color: var(--paper); font: 600 13px/1.1 var(--sans); letter-spacing: .015em; }
+.signal-platform small { color: rgba(238,240,232,.54); font: 8px/1 var(--mono); letter-spacing: .11em; text-transform: uppercase; }
 .signal-layout { display: grid; grid-template-columns: minmax(310px, .72fr) minmax(0, 1.4fr); gap: clamp(42px, 6vw, 88px); align-items: center; }
 .section-label { display: flex; gap: 16px; color: var(--muted); }
 .section-label span:first-child { color: var(--acid); }
@@ -385,6 +391,12 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
     .section-pad { padding: 90px 0; }
     .trailer-section { padding-bottom: 48px; }
     .signal-section { padding: 48px 0; }
+    .signal-section-label { margin-bottom: 18px; }
+    .signal-platform-bar { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-bottom: 30px; }
+    .signal-platform { min-height: 68px; flex-direction: column; gap: 7px; padding: 9px 5px; text-align: center; }
+    .signal-platform img { width: 23px; height: 23px; flex-basis: 23px; }
+    .signal-platform span { font-size: 10px; }
+    .signal-platform small { font-size: 6px; }
     .blade-section { padding-top: 48px; }
     .hero-section { min-height: 730px; }
     .hero-media video { opacity: .72; filter: saturate(1.05) contrast(1.08) brightness(.9); }
