@@ -64,14 +64,14 @@
         const statNames = ['force', 'guard', 'range', 'focus'];
         let activeHeroId = '';
 
-        const playHeroVideo = () => {
-            if (!heroStageVideo || prefersReducedMotion) return;
+        const playHeroVideo = (userInitiated = false) => {
+            if (!heroStageVideo || (prefersReducedMotion && !userInitiated)) return;
             heroStageVideo.muted = true;
             heroStageVideo.play().catch(() => {});
         };
 
-        const setHeroProfile = (button) => {
-            if (!button || button.dataset.heroId === activeHeroId) return;
+        const setHeroProfile = (button, userInitiated = false) => {
+            if (!button || (button.dataset.heroId === activeHeroId && !userInitiated)) return;
             activeHeroId = button.dataset.heroId;
             heroButtons.forEach((item) => {
                 const active = item === button;
@@ -96,7 +96,8 @@
             if (profileRole) profileRole.textContent = role;
             if (profileFaction) profileFaction.textContent = faction;
             if (profileBio) profileBio.textContent = button.dataset.heroBio || '';
-            if (profileStatus) profileStatus.textContent = video && !prefersReducedMotion ? 'Motion study' : 'Portrait still';
+            const motionEnabled = video && (!prefersReducedMotion || userInitiated);
+            if (profileStatus) profileStatus.textContent = motionEnabled ? 'Motion study' : 'Portrait still';
 
             statNames.forEach((stat) => {
                 const value = Number(button.dataset[`stat${stat[0].toUpperCase()}${stat.slice(1)}`] || 0);
@@ -117,7 +118,7 @@
             if (!heroStageVideo) return;
             heroStageVideo.classList.remove('is-visible');
             heroStageVideo.pause();
-            if (!video || prefersReducedMotion) {
+            if (!video || !motionEnabled) {
                 if (!video) {
                     heroStageVideo.removeAttribute('src');
                     heroStageVideo.dataset.source = '';
@@ -139,19 +140,19 @@
             heroStageVideo.addEventListener('loadeddata', () => {
                 if (activeHeroId === button.dataset.heroId) {
                     heroStageVideo.classList.add('is-visible');
-                    playHeroVideo();
+                    playHeroVideo(userInitiated);
                 }
             }, { once: true });
             if (heroStageVideo.readyState >= 2) {
                 heroStageVideo.classList.add('is-visible');
-                playHeroVideo();
+                playHeroVideo(userInitiated);
             }
         };
 
         heroButtons.forEach((button) => {
-            button.addEventListener('mouseenter', () => setHeroProfile(button));
-            button.addEventListener('focus', () => setHeroProfile(button));
-            button.addEventListener('click', () => setHeroProfile(button));
+            button.addEventListener('mouseenter', () => setHeroProfile(button, true));
+            button.addEventListener('focus', () => setHeroProfile(button, true));
+            button.addEventListener('click', () => setHeroProfile(button, true));
         });
         setHeroProfile(heroButtons[0]);
     }
