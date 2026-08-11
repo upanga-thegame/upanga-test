@@ -265,11 +265,12 @@
 
     const journey = document.querySelector('.scroll-journey');
     const journeyVideos = [...document.querySelectorAll('[data-journey-video]')];
+    const journeyPosters = [...document.querySelectorAll('[data-journey-poster]')];
     const journeySteps = [...document.querySelectorAll('[data-journey-step]')];
     const journeyProgress = document.querySelector('.journey-progress span');
     const journeyCounter = document.querySelector('.journey-counter strong');
     const mobileJourney = window.matchMedia('(max-width: 560px)').matches;
-    const journeyVideoOpacity = mobileJourney ? .96 : .82;
+    const journeyVideoOpacity = mobileJourney ? .78 : .82;
     let activeJourneyStep = -1;
 
     const playJourneyVideo = (video) => {
@@ -291,6 +292,7 @@
                 video.style.opacity = active ? String(journeyVideoOpacity) : '0';
             }
         });
+        journeyPosters.forEach((poster, posterIndex) => poster.classList.toggle('is-active', posterIndex === index));
         journeySteps.forEach((step, stepIndex) => step.classList.toggle('is-active', stepIndex === index));
         if (journeyCounter) journeyCounter.textContent = String(index + 1).padStart(2, '0');
     };
