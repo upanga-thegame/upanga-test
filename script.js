@@ -391,6 +391,163 @@
         }, { passive: true });
     }
 
+    const regionsAtlas = document.querySelector('[data-regions-atlas]');
+    const regionBackdrop = regionsAtlas?.querySelector('.regions-atlas-backdrop');
+    const regionBackdropNext = regionsAtlas?.querySelector('.regions-atlas-backdrop-next');
+    const regionCards = regionsAtlas ? [...regionsAtlas.querySelectorAll('[data-region-card]')] : [];
+    const regionVideos = regionsAtlas ? [...regionsAtlas.querySelectorAll('[data-region-video]')] : [];
+    const regionSteps = regionsAtlas ? [...regionsAtlas.querySelectorAll('[data-region-step]')] : [];
+    const regionStops = regionsAtlas ? [...regionsAtlas.querySelectorAll('[data-region-stop]')] : [];
+    const regionProgress = regionsAtlas?.querySelector('.regions-atlas-progress span');
+    const regionCounter = regionsAtlas?.querySelector('.regions-atlas-counter strong');
+    const mobileRegion = window.matchMedia('(max-width: 560px)').matches;
+    const regionVideoOpacity = mobileRegion ? .8 : .9;
+    let regionMotionActivated = !prefersReducedMotion;
+    let activeRegionStep = -1;
+
+    const regionLerp = (from, to, amount) => from + ((to - from) * amount);
+
+    const playRegionVideo = (video) => {
+        if (!video || (prefersReducedMotion && !regionMotionActivated)) return;
+        video.muted = true;
+        video.play().catch(() => {});
+    };
+
+    const setRegionStep = (index) => {
+        activeRegionStep = index;
+        const activeCard = regionCards[index];
+        regionVideos.forEach((video, videoIndex) => {
+            const active = videoIndex === index;
+            if (active) playRegionVideo(video);
+            else video.pause();
+            video.style.opacity = active ? String(regionVideoOpacity) : '0';
+        });
+        regionCards.forEach((card, cardIndex) => card.classList.toggle('is-active', cardIndex === index));
+        if (regionBackdrop && activeCard?.dataset.backdrop) {
+            const nextBackdrop = index % 2 === 0 ? regionBackdrop : regionBackdropNext;
+            const currentBackdrop = index % 2 === 0 ? regionBackdropNext : regionBackdrop;
+            if (nextBackdrop && currentBackdrop) {
+                nextBackdrop.style.backgroundImage = `url("${activeCard.dataset.backdrop}")`;
+                nextBackdrop.style.opacity = '.3';
+                currentBackdrop.style.opacity = '0';
+            } else {
+                regionBackdrop.style.backgroundImage = `url("${activeCard.dataset.backdrop}")`;
+            }
+        }
+        regionSteps.forEach((step, stepIndex) => step.classList.toggle('is-active', stepIndex === index));
+        regionStops.forEach((stop, stopIndex) => {
+            const active = stopIndex === index;
+            stop.classList.toggle('is-active', active);
+            stop.setAttribute('aria-current', active ? 'step' : 'false');
+        });
+        if (regionCounter) regionCounter.textContent = String(index + 1).padStart(2, '0');
+    };
+
+    const updateRegionCards = (activeIndex, localProgress, progress) => {
+        regionCards.forEach((card, cardIndex) => {
+            let x = 0;
+            let y = 0;
+            let scale = .56;
+            let rotate = 0;
+            let opacity = 0;
+            let zIndex = 1;
+
+            if (cardIndex === activeIndex) {
+                x = regionLerp(0, 28, localProgress);
+                y = regionLerp(3, -17, localProgress);
+                scale = regionLerp(1, .7, localProgress);
+                rotate = regionLerp(-2, 5, localProgress);
+                opacity = regionLerp(1, .16, localProgress);
+                zIndex = 20;
+            } else if (cardIndex === activeIndex + 1) {
+                x = regionLerp(34, 0, localProgress);
+                y = regionLerp(-25, 3, localProgress);
+                scale = regionLerp(.62, 1, localProgress);
+                rotate = regionLerp(7, -2, localProgress);
+                opacity = regionLerp(.18, 1, localProgress);
+                zIndex = 21;
+            } else if (cardIndex === activeIndex - 1) {
+                x = 30;
+                y = -17;
+                scale = .7;
+                rotate = 5;
+                opacity = .16;
+                zIndex = 10;
+            } else if (cardIndex > activeIndex + 1) {
+                x = 48;
+                y = -27;
+                rotate = 10;
+            } else {
+                x = -45;
+                y = 25;
+                rotate = -8;
+            }
+
+            card.style.opacity = String(opacity);
+            card.style.zIndex = String(zIndex);
+            card.style.transform = `translate3d(${x}vw, ${y}vh, 0) translate(-50%, -50%) scale(${scale}) rotate(${rotate}deg)`;
+        });
+
+        if (regionBackdrop) {
+            const backdropScale = 1.06 + (progress * .07);
+            const backdropY = progress * -9;
+            const backdropTransform = `translate3d(0, ${backdropY}vh, 0) scale(${backdropScale})`;
+            regionBackdrop.style.transform = backdropTransform;
+            if (regionBackdropNext) regionBackdropNext.style.transform = backdropTransform;
+        }
+    };
+
+    const updateRegionsFromProgress = (rawProgress) => {
+        if (!regionsAtlas || !regionCards.length || !regionSteps.length) return;
+        const progress = Math.min(.9999, Math.max(0, rawProgress));
+        const stepPosition = progress * (regionSteps.length - 1);
+        const nextStep = Math.min(regionSteps.length - 1, Math.floor(stepPosition));
+        const localProgress = stepPosition - nextStep;
+        if (nextStep !== activeRegionStep) setRegionStep(nextStep);
+        updateRegionCards(nextStep, localProgress, progress);
+        if (regionProgress) regionProgress.style.transform = `scaleX(${Math.max(.02, progress)})`;
+    };
+
+    const updateNativeRegions = () => {
+        if (!regionsAtlas || !regionCards.length || !regionSteps.length) return;
+        const start = regionsAtlas.offsetTop;
+        const end = start + regionsAtlas.offsetHeight - window.innerHeight;
+        const progress = (window.scrollY - start) / Math.max(1, end - start);
+        updateRegionsFromProgress(progress);
+    };
+
+    const scrollToRegion = (index) => {
+        if (!regionsAtlas || regionSteps.length < 2) return;
+        const start = regionsAtlas.offsetTop;
+        const end = start + regionsAtlas.offsetHeight - window.innerHeight;
+        const target = start + ((end - start) * (index / (regionSteps.length - 1)));
+        window.scrollTo({ top: target, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    };
+
+    if (regionsAtlas && regionCards.length && regionSteps.length) {
+        setRegionStep(0);
+        updateRegionsFromProgress(0);
+        regionStops.forEach((stop, index) => {
+            stop.addEventListener('click', () => {
+                if (prefersReducedMotion) regionMotionActivated = true;
+                scrollToRegion(index);
+            });
+            stop.addEventListener('keydown', (event) => {
+                if (!['ArrowDown', 'ArrowUp', 'ArrowRight', 'ArrowLeft'].includes(event.key)) return;
+                event.preventDefault();
+                const direction = event.key === 'ArrowDown' || event.key === 'ArrowRight' ? 1 : -1;
+                const nextIndex = Math.min(regionStops.length - 1, Math.max(0, index + direction));
+                regionStops[nextIndex].focus();
+                if (prefersReducedMotion) regionMotionActivated = true;
+                scrollToRegion(nextIndex);
+            });
+        });
+        window.addEventListener('scroll', () => {
+            if (prefersReducedMotion) regionMotionActivated = true;
+            playRegionVideo(regionVideos[activeRegionStep] || regionVideos[0]);
+        }, { passive: true });
+    }
+
     if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
         window.gsap.registerPlugin(window.ScrollTrigger);
         window.gsap.utils.toArray('[data-speed]').forEach((node) => {
@@ -427,10 +584,28 @@
                 }
             });
         }
-    } else if (journey && journeyCards.length && journeySteps.length) {
-        updateNativeJourney();
-        window.addEventListener('resize', updateNativeJourney);
-        window.addEventListener('scroll', updateNativeJourney, { passive: true });
+        if (regionsAtlas && regionCards.length && regionSteps.length) {
+            window.ScrollTrigger.create({
+                trigger: regionsAtlas,
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: true,
+                onUpdate: (trigger) => {
+                    updateRegionsFromProgress(trigger.progress);
+                }
+            });
+        }
+    } else {
+        if (journey && journeyCards.length && journeySteps.length) {
+            updateNativeJourney();
+            window.addEventListener('resize', updateNativeJourney);
+            window.addEventListener('scroll', updateNativeJourney, { passive: true });
+        }
+        if (regionsAtlas && regionCards.length && regionSteps.length) {
+            updateNativeRegions();
+            window.addEventListener('resize', updateNativeRegions);
+            window.addEventListener('scroll', updateNativeRegions, { passive: true });
+        }
     }
 
     const renderChangelog = (data) => {

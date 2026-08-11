@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=scroll-cards-2">
+    <link rel="stylesheet" href="styles.css?v=regions-atlas-1">
 </head>
 <body class="home-page">
     <div class="site-grain" aria-hidden="true"></div>
@@ -107,21 +107,78 @@
 
         <section class="blade-section section-pad section-dark"><div class="section-frame blade-grid"><div class="blade-art reveal" data-speed="0.06"><div class="blade-aura"></div><img src="images/soul-blade.png" alt="The restored Soul Blade"><span class="blade-coordinate">04° / 13° / 26°</span></div><div class="blade-copy reveal"><div class="section-label"><span>02</span><span>The relic</span></div><h2>It was never meant to belong to one ruler.</h2><p>The Soul Blade was forged by the kingdoms together, then broken under the force of imprisoning Bida. Its four pieces are guarded across the Crypt, Swamp, Kwae, and Pyramid.</p><a class="text-link" href="#gallery">See the regions <span>↓</span></a></div></div></section>
 
-        <section class="media-section section-pad section-dark" id="gallery">
-            <div class="section-frame">
-                <div class="section-heading reveal">
-                    <div class="section-label"><span>03</span><span>The regions</span></div>
-                    <h2>Four roads. Four pieces.</h2>
+        <section class="regions-atlas section-dark" id="gallery" data-regions-atlas>
+            <div class="regions-atlas-sticky">
+                <div class="regions-atlas-scene" aria-hidden="true">
+                    <div class="regions-atlas-backdrop"></div>
+                    <div class="regions-atlas-backdrop regions-atlas-backdrop-next"></div>
+                    <div class="regions-atlas-wash"></div>
+                    <div class="regions-atlas-grid"></div>
+                    <div class="regions-atlas-media">
+                        <article class="regions-atlas-card is-active" data-region-card="0" data-backdrop="images/swamp-poster.png">
+                            <img src="images/swamp-poster.png" alt="">
+                            <video data-region-video="0" muted loop playsinline preload="metadata" poster="images/swamp-poster.png"><source src="media/swamp-select.mp4" type="video/mp4"></video>
+                            <span class="regions-atlas-card-index">01 / 05</span>
+                        </article>
+                        <article class="regions-atlas-card" data-region-card="1" data-backdrop="images/crypt-poster.png">
+                            <img src="images/crypt-poster.png" alt="">
+                            <video data-region-video="1" muted loop playsinline preload="metadata" poster="images/crypt-poster.png"><source src="media/crypt-select.mp4" type="video/mp4"></video>
+                            <span class="regions-atlas-card-index">02 / 05</span>
+                        </article>
+                        <article class="regions-atlas-card" data-region-card="2" data-backdrop="images/jungle-poster.png">
+                            <img src="images/jungle-poster.png" alt="">
+                            <video data-region-video="2" muted loop playsinline preload="metadata" poster="images/jungle-poster.png"><source src="media/jungle-select.mp4" type="video/mp4"></video>
+                            <span class="regions-atlas-card-index">03 / 05</span>
+                        </article>
+                        <article class="regions-atlas-card" data-region-card="3" data-backdrop="images/pyramid-poster.png">
+                            <img src="images/pyramid-poster.png" alt="">
+                            <video data-region-video="3" muted loop playsinline preload="metadata" poster="images/pyramid-poster.png"><source src="media/pyramid-select.mp4" type="video/mp4"></video>
+                            <span class="regions-atlas-card-index">04 / 05</span>
+                        </article>
+                        <article class="regions-atlas-card" data-region-card="4" data-backdrop="images/fortress-poster.png">
+                            <img src="images/fortress-poster.png" alt="">
+                            <video data-region-video="4" muted loop playsinline preload="metadata" poster="images/fortress-poster.png"><source src="media/fortress-select.mp4" type="video/mp4"></video>
+                            <span class="regions-atlas-card-index">05 / 05</span>
+                        </article>
+                    </div>
                 </div>
-                <div class="media-grid">
-                    <article class="media-card media-card-wide reveal">
-                        <video controls preload="metadata" poster="images/swamp-poster.png"><source src="media/swamp-select.mp4" type="video/mp4"></video>
-                        <div class="media-meta"><span>01 / The Swamp</span><strong>The Water Road</strong><p>Recover the lower blade from Sobekus and reopen the route used by food, people, and trade.</p></div>
-                    </article>
-                    <article class="media-card reveal"><img src="images/crypt-poster.png" alt="The Crypt of Echoes"><div class="media-meta"><span>02 / The Crypt</span><strong>The Ancestral Road</strong><p>Amokye guards the hilt beneath a city of restless ancestors.</p></div></article>
-                    <article class="media-card reveal"><img src="images/jungle-poster.png" alt="The Jungle of Kwae"><div class="media-meta"><span>03 / The Kwae</span><strong>The Forest Road</strong><p>Medicine, timber, and old grievances wait beneath the canopy.</p></div></article>
-                    <article class="media-card reveal"><img src="images/pyramid-poster.png" alt="The Pyramid"><div class="media-meta"><span>04 / The Pyramid</span><strong>The Royal Road</strong><p>The Soul Core and the original record of the old agreement are sealed inside.</p></div></article>
-                    <article class="media-card reveal"><img src="images/fortress-poster.png" alt="Bida's fortress"><div class="media-meta"><span>05 / The Fortress</span><strong>Bida's Lair</strong><p>When the blade is reforged, the road leads to the barrier's other side.</p></div></article>
+
+                <div class="section-frame regions-atlas-frame">
+                    <div class="regions-atlas-topline"><span>03 / The regions</span><span>Scroll the route</span></div>
+                    <div class="regions-atlas-intro">
+                        <p class="eyebrow">Bomende / the route map</p>
+                        <h2>Four roads.<br><span>One way through.</span></h2>
+                        <p class="regions-atlas-intro-copy">Follow the broken path from the first blade fragment to the barrier's other side.</p>
+                    </div>
+
+                    <nav class="regions-atlas-route" aria-label="Choose a region">
+                        <span class="regions-atlas-route-line" aria-hidden="true"></span>
+                        <button class="regions-atlas-stop is-active" type="button" data-region-stop="0" aria-current="step">
+                            <span class="regions-atlas-stop-number">01</span><span class="regions-atlas-stop-copy"><strong>The Swamp</strong><small>The Water Road</small></span><i></i>
+                        </button>
+                        <button class="regions-atlas-stop" type="button" data-region-stop="1" aria-current="false">
+                            <span class="regions-atlas-stop-number">02</span><span class="regions-atlas-stop-copy"><strong>The Crypt</strong><small>The Ancestral Road</small></span><i></i>
+                        </button>
+                        <button class="regions-atlas-stop" type="button" data-region-stop="2" aria-current="false">
+                            <span class="regions-atlas-stop-number">03</span><span class="regions-atlas-stop-copy"><strong>The Kwae</strong><small>The Forest Road</small></span><i></i>
+                        </button>
+                        <button class="regions-atlas-stop" type="button" data-region-stop="3" aria-current="false">
+                            <span class="regions-atlas-stop-number">04</span><span class="regions-atlas-stop-copy"><strong>The Pyramid</strong><small>The Royal Road</small></span><i></i>
+                        </button>
+                        <button class="regions-atlas-stop" type="button" data-region-stop="4" aria-current="false">
+                            <span class="regions-atlas-stop-number">05</span><span class="regions-atlas-stop-copy"><strong>Bida's Lair</strong><small>The End of the Road</small></span><i></i>
+                        </button>
+                    </nav>
+
+                    <div class="regions-atlas-copy" aria-live="polite">
+                        <article class="regions-atlas-step is-active" data-region-step="0"><span>01 / The Swamp</span><h3>The Water Road</h3><p>Recover the lower blade from Sobekus and reopen the route used by food, people, and trade.</p><div><small>Guardian</small><strong>Sobekus</strong><small>Fragment</small><strong>Lower blade</strong></div></article>
+                        <article class="regions-atlas-step" data-region-step="1"><span>02 / The Crypt</span><h3>The Ancestral Road</h3><p>Amokye guards the hilt beneath a city of restless ancestors.</p><div><small>Guardian</small><strong>Amokye</strong><small>Fragment</small><strong>The hilt</strong></div></article>
+                        <article class="regions-atlas-step" data-region-step="2"><span>03 / The Kwae</span><h3>The Forest Road</h3><p>Medicine, timber, and old grievances wait beneath the canopy.</p><div><small>Guardian</small><strong>The canopy</strong><small>Fragment</small><strong>Upper blade</strong></div></article>
+                        <article class="regions-atlas-step" data-region-step="3"><span>04 / The Pyramid</span><h3>The Royal Road</h3><p>The Soul Core and the original record of the old agreement are sealed inside.</p><div><small>Guardian</small><strong>The old agreement</strong><small>Fragment</small><strong>Soul Core</strong></div></article>
+                        <article class="regions-atlas-step" data-region-step="4"><span>05 / The Fortress</span><h3>The End of the Road</h3><p>When the blade is reforged, the road leads to the barrier's other side.</p><div><small>Guardian</small><strong>Bida</strong><small>Destination</small><strong>The barrier</strong></div></article>
+                    </div>
+
+                    <div class="regions-atlas-footer"><div class="regions-atlas-progress"><span></span></div><div class="regions-atlas-counter"><strong>01</strong><span>/ 05</span></div><span class="regions-atlas-note">Motion preview / muted</span></div>
                 </div>
             </div>
         </section>
@@ -203,6 +260,6 @@
     </main>
 
     <footer class="site-footer"><div class="section-frame footer-grid"><a class="brand-lockup" href="index.html"><span class="brand-mark">U</span><span class="brand-name">UPANGA</span></a><p>© <span data-year></span> Upanga: The Soul Blade</p><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="data-deletion.html">Data deletion</a></div><a class="footer-social" href="mailto:upangadev@zohomail.com">upangadev@zohomail.com <span>↗</span></a></div></footer>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script><script src="script.js?v=scroll-cards-2"></script><script type="module" src="scripts/scene.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script><script src="script.js?v=regions-atlas-1"></script><script type="module" src="scripts/scene.js"></script>
 </body>
 </html>
