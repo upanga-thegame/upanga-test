@@ -578,6 +578,9 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 }
 
 .hero-archive-section .section-heading { grid-template-columns: .65fr 1.2fr 1fr; margin-bottom: 64px; }
+.hero-archive-section .hero-section-heading { display: flex; width: 100%; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+.hero-section-heading .section-label { justify-content: center; }
+.hero-section-heading h2 { margin: 0; }
 .hero-archive-section .section-heading .section-label, .hero-archive-section .section-heading h2 { color: var(--paper); }
 .hero-archive-section .section-heading .section-label span:first-child, .hero-archive-section .section-heading .section-label span:last-child { color: var(--archive-tint); }
 .hero-archive-intro { max-width: 340px; margin: 0; color: rgba(238,240,232,.64); font-size: 14px; line-height: 1.65; }
