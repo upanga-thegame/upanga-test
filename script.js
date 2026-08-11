@@ -395,33 +395,17 @@
     const regionBackdrop = regionsAtlas?.querySelector('.regions-atlas-backdrop');
     const regionBackdropNext = regionsAtlas?.querySelector('.regions-atlas-backdrop-next');
     const regionCards = regionsAtlas ? [...regionsAtlas.querySelectorAll('[data-region-card]')] : [];
-    const regionVideos = regionsAtlas ? [...regionsAtlas.querySelectorAll('[data-region-video]')] : [];
     const regionSteps = regionsAtlas ? [...regionsAtlas.querySelectorAll('[data-region-step]')] : [];
     const regionStops = regionsAtlas ? [...regionsAtlas.querySelectorAll('[data-region-stop]')] : [];
     const regionProgress = regionsAtlas?.querySelector('.regions-atlas-progress span');
     const regionCounter = regionsAtlas?.querySelector('.regions-atlas-counter strong');
-    const mobileRegion = window.matchMedia('(max-width: 560px)').matches;
-    const regionVideoOpacity = mobileRegion ? .8 : .9;
-    let regionMotionActivated = !prefersReducedMotion;
     let activeRegionStep = -1;
 
     const regionLerp = (from, to, amount) => from + ((to - from) * amount);
 
-    const playRegionVideo = (video) => {
-        if (!video || (prefersReducedMotion && !regionMotionActivated)) return;
-        video.muted = true;
-        video.play().catch(() => {});
-    };
-
     const setRegionStep = (index) => {
         activeRegionStep = index;
         const activeCard = regionCards[index];
-        regionVideos.forEach((video, videoIndex) => {
-            const active = videoIndex === index;
-            if (active) playRegionVideo(video);
-            else video.pause();
-            video.style.opacity = active ? String(regionVideoOpacity) : '0';
-        });
         regionCards.forEach((card, cardIndex) => card.classList.toggle('is-active', cardIndex === index));
         if (regionBackdrop && activeCard?.dataset.backdrop) {
             const nextBackdrop = index % 2 === 0 ? regionBackdrop : regionBackdropNext;
@@ -529,7 +513,6 @@
         updateRegionsFromProgress(0);
         regionStops.forEach((stop, index) => {
             stop.addEventListener('click', () => {
-                if (prefersReducedMotion) regionMotionActivated = true;
                 scrollToRegion(index);
             });
             stop.addEventListener('keydown', (event) => {
@@ -538,14 +521,9 @@
                 const direction = event.key === 'ArrowDown' || event.key === 'ArrowRight' ? 1 : -1;
                 const nextIndex = Math.min(regionStops.length - 1, Math.max(0, index + direction));
                 regionStops[nextIndex].focus();
-                if (prefersReducedMotion) regionMotionActivated = true;
                 scrollToRegion(nextIndex);
             });
         });
-        window.addEventListener('scroll', () => {
-            if (prefersReducedMotion) regionMotionActivated = true;
-            playRegionVideo(regionVideos[activeRegionStep] || regionVideos[0]);
-        }, { passive: true });
     }
 
     if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {

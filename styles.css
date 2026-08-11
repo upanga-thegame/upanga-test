@@ -274,18 +274,16 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 .regions-atlas-card::before { content: ""; position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(4,8,6,.04), transparent 47%, rgba(4,8,6,.82)); pointer-events: none; }
 .regions-atlas-card::after { content: ""; position: absolute; top: 16px; left: 16px; z-index: 4; width: 22px; height: 22px; border: 1px solid var(--acid); border-width: 1px 0 0 1px; opacity: .82; pointer-events: none; }
 .regions-atlas-card.is-active { border-color: rgba(201,243,106,.78); box-shadow: 0 38px 120px rgba(0,0,0,.6), 0 0 0 1px rgba(201,243,106,.14); }
-.regions-atlas-card > img, .regions-atlas-card > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.regions-atlas-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .regions-atlas-card > img { z-index: 0; filter: saturate(.86) contrast(1.08); }
-.regions-atlas-card > video { z-index: 1; opacity: 0; filter: saturate(.92) contrast(1.08) brightness(.88); transition: opacity .45s ease; }
 .regions-atlas-card-index { position: absolute; z-index: 5; top: 18px; left: 20px; color: var(--acid); font: 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .regions-atlas-card-index::after { content: ""; position: absolute; left: 0; top: 22px; width: 36px; height: 1px; background: rgba(201,243,106,.6); }
 .regions-atlas-frame { height: 100%; min-height: 680px; z-index: 10; }
 .regions-atlas-topline { position: absolute; top: 108px; left: 0; right: 0; display: flex; justify-content: space-between; color: rgba(238,240,232,.72); font: 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .regions-atlas-topline span:first-child { color: var(--acid); }
-.regions-atlas-intro { position: absolute; top: 18%; left: 0; width: min(34%, 450px); }
-.regions-atlas-intro h2 { margin: 0 0 18px; font-size: clamp(58px, 7vw, 112px); }
+.regions-atlas-intro { position: absolute; top: 18%; left: 0; width: min(29%, 370px); }
+.regions-atlas-intro h2 { margin: 0 0 18px; font-size: clamp(48px, 4.8vw, 80px); }
 .regions-atlas-intro h2 span { color: var(--acid); }
-.regions-atlas-intro-copy { max-width: 280px; color: rgba(238,240,232,.64); font-size: 13px; line-height: 1.6; }
 .regions-atlas-route { position: absolute; top: 23%; right: 0; width: min(26%, 330px); display: grid; gap: 8px; }
 .regions-atlas-route-line { position: absolute; top: 16px; bottom: 16px; left: 14px; width: 1px; background: linear-gradient(180deg, rgba(201,243,106,.85), rgba(238,240,232,.16) 70%, transparent); }
 .regions-atlas-stop { position: relative; z-index: 1; display: grid; grid-template-columns: 30px minmax(0, 1fr); align-items: center; min-height: 55px; gap: 13px; padding: 8px 0; color: rgba(238,240,232,.5); background: transparent; border: 0; text-align: left; cursor: pointer; transition: color .35s ease, transform .35s ease; }
@@ -298,7 +296,7 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 .regions-atlas-stop.is-active .regions-atlas-stop-copy small { color: rgba(238,240,232,.76); }
 .regions-atlas-stop i { position: absolute; top: 50%; left: 10px; width: 9px; height: 9px; border: 1px solid rgba(238,240,232,.48); border-radius: 50%; background: #07100c; transform: translateY(-50%); }
 .regions-atlas-stop.is-active i { border-color: var(--acid); background: var(--acid); box-shadow: 0 0 0 5px rgba(201,243,106,.12), 0 0 20px rgba(201,243,106,.65); }
-.regions-atlas-copy { position: absolute; left: 0; bottom: 17%; width: min(33%, 420px); min-height: 245px; }
+.regions-atlas-copy { position: absolute; left: 0; bottom: 14%; width: min(29%, 370px); min-height: 245px; }
 .regions-atlas-step { position: absolute; inset: 0; opacity: 0; transform: translate3d(0, 28px, 0); transition: opacity .6s ease, transform .8s cubic-bezier(.16,1,.3,1); }
 .regions-atlas-step.is-active { opacity: 1; transform: none; }
 .regions-atlas-step > span { display: block; margin-bottom: 13px; color: var(--acid); font: 10px var(--mono); letter-spacing: .11em; text-transform: uppercase; }
@@ -423,10 +421,10 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
     .regions-atlas-card { width: min(48vw, 500px); }
     .regions-atlas-topline { top: 96px; }
     .regions-atlas-topline span:last-child { display: none; }
-    .regions-atlas-intro { top: 14%; width: min(58%, 390px); }
+    .regions-atlas-intro { top: 14%; width: min(56%, 370px); }
     .regions-atlas-intro h2 { font-size: 66px; }
     .regions-atlas-route { top: 23%; width: min(34%, 270px); }
-    .regions-atlas-copy { bottom: 13%; width: min(48%, 360px); min-height: 220px; }
+    .regions-atlas-copy { bottom: 13%; width: min(46%, 360px); min-height: 220px; }
     .regions-atlas-footer { bottom: 30px; }
 }
 
@@ -448,10 +446,9 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
     .regions-atlas-wash { background: linear-gradient(180deg, rgba(4,9,6,.34) 0%, rgba(4,9,6,.08) 45%, rgba(4,9,6,.82) 100%); }
     .regions-atlas-card { width: min(78vw, 360px); aspect-ratio: 16 / 10; }
     .regions-atlas-card-index { top: 13px; left: 14px; }
-    .regions-atlas-intro { top: 11%; left: 0; width: 100%; }
-    .regions-atlas-intro h2 { margin-bottom: 10px; font-size: 52px; }
-    .regions-atlas-intro-copy { max-width: 250px; font-size: 12px; }
-    .regions-atlas-route { top: 28%; left: 0; right: 0; width: calc(100% + 32px); margin-left: -16px; display: flex; gap: 6px; padding: 0 16px 8px; overflow-x: auto; scrollbar-width: none; }
+    .regions-atlas-intro { top: 15%; left: 0; width: 100%; }
+    .regions-atlas-intro h2 { margin-bottom: 10px; font-size: 46px; }
+    .regions-atlas-route { top: 31%; left: 0; right: 0; width: calc(100% + 32px); margin-left: -16px; display: flex; gap: 6px; padding: 0 16px 8px; overflow-x: auto; scrollbar-width: none; }
     .regions-atlas-route::-webkit-scrollbar { display: none; }
     .regions-atlas-route-line { display: none; }
     .regions-atlas-stop, .regions-atlas-stop:hover, .regions-atlas-stop:focus-visible, .regions-atlas-stop.is-active { min-width: 92px; min-height: 43px; display: block; padding: 8px 9px; background: rgba(7,16,12,.58); border: 1px solid rgba(238,240,232,.16); transform: none; }
