@@ -310,6 +310,8 @@
         };
 
         npcCards.forEach((card, index) => {
+            const cardIndex = card.querySelector('.npc-card-index');
+            if (cardIndex) cardIndex.textContent = `${String(index + 1).padStart(2, '0')} / ${String(npcTotal).padStart(2, '0')}`;
             card.setAttribute('aria-pressed', 'false');
             card.addEventListener('pointerenter', () => setNpc(card));
             card.addEventListener('focus', () => setNpc(card));
