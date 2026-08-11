@@ -56,62 +56,6 @@
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const relicSection = document.querySelector('[data-relic-section]');
-    const relicArt = relicSection?.querySelector('[data-relic-art]');
-    const relicWeapon = relicSection?.querySelector('[data-relic-weapon]');
-    const relicAura = relicSection?.querySelector('.blade-aura');
-    const relicOuterOrbit = relicSection?.querySelector('.blade-orbit-outer');
-    const relicInnerOrbit = relicSection?.querySelector('.blade-orbit-inner');
-    const relicLight = relicSection?.querySelector('.blade-light');
-    const forceRelicMotion = new URLSearchParams(window.location.search).get('motion') === 'force';
-
-    if (relicSection && relicArt && relicWeapon && relicAura && relicOuterOrbit && relicInnerOrbit && relicLight) {
-        const clamp = (value, minimum = 0, maximum = 1) => Math.min(maximum, Math.max(minimum, value));
-        const rangeProgress = (value, start, end) => clamp((value - start) / (end - start));
-        let relicFrame = 0;
-
-        const renderRelic = () => {
-            relicFrame = 0;
-            const bounds = relicSection.getBoundingClientRect();
-            const startLine = window.innerHeight * 0.9;
-            const endLine = window.innerHeight * 0.32;
-            const progress = clamp((startLine - bounds.top) / Math.max(1, startLine - endLine));
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const spatialScale = prefersReducedMotion && !forceRelicMotion ? 0 : 1;
-            const remaining = 1 - eased;
-            const auraProgress = rangeProgress(progress, 0.06, 0.78);
-            const outerProgress = rangeProgress(progress, 0.12, 0.82);
-            const innerProgress = rangeProgress(progress, 0.18, 0.86);
-            const lightProgress = rangeProgress(progress, 0.48, 0.88);
-            const lightOpacity = Math.sin(lightProgress * Math.PI) * (spatialScale ? 0.92 : 0.38);
-            const lightPosition = spatialScale ? -165 + (330 * lightProgress) : 0;
-            const weaponScale = spatialScale ? 0.9 + (0.1 * eased) : 1;
-
-            relicArt.style.transform = `translate3d(0, ${remaining * 52 * spatialScale}px, 0) rotate(${remaining * -2.5 * spatialScale}deg)`;
-            relicArt.style.opacity = String(0.42 + (0.58 * eased));
-            relicWeapon.style.transform = `translate3d(0, ${remaining * 42 * spatialScale}px, 0) rotate(${remaining * -7 * spatialScale}deg) scale(${weaponScale})`;
-            relicWeapon.style.filter = `brightness(${0.5 + (0.5 * eased)}) saturate(${0.65 + (0.35 * eased)})`;
-            relicAura.style.transform = `scale(${0.42 + (0.58 * auraProgress)})`;
-            relicAura.style.opacity = String(auraProgress);
-            relicOuterOrbit.style.transform = `rotate(${4 + (20 * outerProgress)}deg) scale(${0.72 + (0.28 * outerProgress)})`;
-            relicOuterOrbit.style.opacity = String(outerProgress);
-            relicInnerOrbit.style.transform = `rotate(${-16 - (22 * innerProgress)}deg) scale(${0.7 + (0.3 * innerProgress)})`;
-            relicInnerOrbit.style.opacity = String(innerProgress);
-            relicLight.style.transform = `translate3d(${lightPosition}%, 0, 0)`;
-            relicLight.style.opacity = String(Math.max(0, lightOpacity));
-            relicSection.dataset.relicProgress = progress.toFixed(3);
-        };
-
-        const requestRelicRender = () => {
-            if (relicFrame) return;
-            relicFrame = window.requestAnimationFrame(renderRelic);
-        };
-
-        renderRelic();
-        window.addEventListener('scroll', requestRelicRender, { passive: true });
-        window.addEventListener('resize', requestRelicRender);
-    }
-
     const heroDossier = document.querySelector('[data-hero-dossier]');
     if (heroDossier) {
         const heroButtons = [...heroDossier.querySelectorAll('[data-hero-id]')];
