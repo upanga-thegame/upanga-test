@@ -146,12 +146,14 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 .blade-section { padding-top: 72px; position: relative; }
 .blade-section::before { content: ""; position: absolute; inset: 0; opacity: .13; background-image: linear-gradient(rgba(238,240,232,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(238,240,232,.13) 1px, transparent 1px); background-size: 90px 90px; mask-image: linear-gradient(90deg, transparent, black 23%, black 78%, transparent); }
 .blade-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(60px, 12vw, 180px); align-items: center; }
-.blade-art { min-height: 540px; display: grid; place-items: center; position: relative; }
-.blade-art img { position: relative; z-index: 2; width: min(52%, 260px); filter: drop-shadow(0 0 25px rgba(201,243,106,.5)); animation: blade-float 9s cubic-bezier(.37,0,.63,1) infinite; will-change: transform; }
-.blade-aura { position: absolute; width: 48%; aspect-ratio: 1; background: radial-gradient(circle, rgba(201,243,106,.36), rgba(124,226,206,.13) 35%, transparent 68%); filter: blur(12px); animation: aura-breathe 9s ease-in-out infinite; will-change: transform, opacity; }
-.blade-art::before, .blade-art::after { content: ""; position: absolute; border: 1px solid rgba(201,243,106,.4); border-radius: 50%; transform: rotate(24deg); }
-.blade-art::before { width: 72%; height: 30%; }
-.blade-art::after { width: 58%; height: 22%; transform: rotate(-38deg); }
+.blade-art { min-height: 540px; display: grid; place-items: center; position: relative; isolation: isolate; }
+.blade-weapon { position: relative; z-index: 3; width: min(52%, 260px); transform-origin: 50% 58%; will-change: transform, filter; }
+.blade-weapon img { position: relative; z-index: 1; display: block; width: 100%; filter: drop-shadow(0 0 25px rgba(201,243,106,.5)); }
+.blade-aura { position: absolute; z-index: 0; width: 54%; aspect-ratio: 1; opacity: 1; background: radial-gradient(circle, rgba(201,243,106,.4), rgba(124,226,206,.14) 36%, transparent 70%); filter: blur(14px); will-change: transform, opacity; }
+.blade-orbit { position: absolute; z-index: 1; border: 1px solid rgba(201,243,106,.42); border-radius: 50%; pointer-events: none; will-change: transform, opacity; }
+.blade-orbit-outer { width: 72%; height: 30%; transform: rotate(24deg); }
+.blade-orbit-inner { width: 58%; height: 22%; transform: rotate(-38deg); border-color: rgba(124,226,206,.38); }
+.blade-light { position: absolute; z-index: 2; inset: -4%; opacity: 0; pointer-events: none; background: linear-gradient(100deg, transparent 34%, rgba(238,240,232,.18) 43%, rgba(255,255,255,.95) 50%, rgba(201,243,106,.35) 56%, transparent 66%); -webkit-mask: url("images/soul-blade.png") center / contain no-repeat; mask: url("images/soul-blade.png") center / contain no-repeat; mix-blend-mode: screen; will-change: transform, opacity; }
 .blade-coordinate { position: absolute; bottom: 14px; left: 0; color: var(--acid); }
 .blade-copy .section-label { margin-bottom: 50px; }
 .blade-copy h2 { max-width: 560px; }
@@ -350,9 +352,6 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 .reveal { opacity: 0; transform: translateY(18px); }
 .is-ready .reveal { transition: opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1); }
 .is-ready .reveal.is-visible { opacity: 1; transform: none; }
-@keyframes blade-float { 0%,100% { transform: translate3d(0,0,0) rotate(-.6deg); } 50% { transform: translate3d(0,-7px,0) rotate(.6deg); } }
-@keyframes aura-breathe { 0%,100% { transform: scale(.96); opacity: .72; } 50% { transform: scale(1.04); opacity: 1; } }
-
 @media (max-width: 900px) {
     .section-frame { width: min(100% - 40px, 680px); }
     .site-header { padding: 0 20px; }
@@ -422,7 +421,8 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-    .blade-art img, .blade-aura { animation: none !important; will-change: auto; }
+    .blade-art, .blade-weapon, .blade-aura, .blade-orbit, .blade-light { will-change: auto; }
+    .blade-light { opacity: 0; }
     .reveal { opacity: 1; transform: none; }
 }
 

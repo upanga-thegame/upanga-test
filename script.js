@@ -674,6 +674,35 @@
             window.gsap.to(node, { yPercent: Number(node.dataset.speed) * -100, ease: 'none', scrollTrigger: { trigger: node, scrub: true } });
         });
 
+        const relicSection = document.querySelector('[data-relic-section]');
+        const relicArt = relicSection?.querySelector('[data-relic-art]');
+        const relicWeapon = relicSection?.querySelector('[data-relic-weapon]');
+        const relicAura = relicSection?.querySelector('.blade-aura');
+        const relicOuterOrbit = relicSection?.querySelector('.blade-orbit-outer');
+        const relicInnerOrbit = relicSection?.querySelector('.blade-orbit-inner');
+        const relicLight = relicSection?.querySelector('.blade-light');
+
+        if (relicSection && relicArt && relicWeapon && relicAura && relicOuterOrbit && relicInnerOrbit && relicLight) {
+            const relicTimeline = window.gsap.timeline({
+                defaults: { ease: 'none' },
+                scrollTrigger: {
+                    trigger: relicSection,
+                    start: 'top 88%',
+                    end: 'center 48%',
+                    scrub: 0.7
+                }
+            });
+
+            relicTimeline
+                .fromTo(relicArt, { y: 52, rotation: -2.5, opacity: 0.42 }, { y: 0, rotation: 0, opacity: 1, duration: 1 }, 0)
+                .fromTo(relicWeapon, { y: 42, rotation: -7, scale: 0.9, filter: 'brightness(.5) saturate(.65)' }, { y: 0, rotation: 0, scale: 1, filter: 'brightness(1) saturate(1)', duration: 1 }, 0)
+                .fromTo(relicAura, { scale: 0.42, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.82 }, 0.08)
+                .fromTo(relicOuterOrbit, { scale: 0.72, rotation: 4, opacity: 0 }, { scale: 1, rotation: 24, opacity: 1, duration: 0.76 }, 0.14)
+                .fromTo(relicInnerOrbit, { scale: 0.7, rotation: -16, opacity: 0 }, { scale: 1, rotation: -38, opacity: 1, duration: 0.76 }, 0.2)
+                .fromTo(relicLight, { xPercent: -165, opacity: 0 }, { xPercent: -5, opacity: 0.92, duration: 0.18 }, 0.5)
+                .to(relicLight, { xPercent: 165, opacity: 0, duration: 0.22 }, 0.68);
+        }
+
         const hero = document.querySelector('.hero-section');
         const heroVideo = hero?.querySelector('.hero-media video');
         if (hero && heroVideo) {
