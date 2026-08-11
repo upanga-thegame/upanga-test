@@ -684,15 +684,17 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 .npc-card:hover, .npc-card:focus-visible, .npc-card.is-active { border-color: rgba(201,243,106,.78); outline: none; box-shadow: 0 22px 50px rgba(0,0,0,.3), 0 0 0 1px rgba(201,243,106,.14); transform: translateY(8px); }
 .npc-card:hover img, .npc-card:focus-visible img, .npc-card.is-active img { filter: saturate(.95) contrast(1.1) brightness(.9); transform: scale(1.05) translateY(-5px); }
 .npc-card:hover .npc-card-copy em, .npc-card:focus-visible .npc-card-copy em, .npc-card.is-active .npc-card-copy em { max-height: 52px; opacity: 1; }
-.npc-guide-detail { min-height: 150px; padding: 20px 0 0; border-top: 1px solid rgba(238,240,232,.18); }
+.npc-guide-detail { min-height: 124px; padding: 16px 0 0; border-top: 1px solid rgba(238,240,232,.18); }
 .npc-guide-detail-index { display: flex; justify-content: space-between; gap: 20px; color: rgba(238,240,232,.44); font: 10px var(--mono); letter-spacing: .11em; text-transform: uppercase; }
 .npc-guide-detail-index span:first-child { color: var(--npc-tint); }
 .npc-guide-detail-index span:last-child { display: inline-flex; align-items: center; gap: 8px; }
 .npc-guide-detail-index i { width: 6px; height: 6px; border-radius: 50%; background: var(--npc-tint); box-shadow: 0 0 0 3px rgba(201,243,106,.12); }
-.npc-guide-detail-copy { display: grid; grid-template-columns: minmax(170px,.7fr) minmax(120px,.3fr) minmax(260px,1.5fr); gap: 22px; align-items: end; padding: 26px 0 0; }
+.npc-guide-detail-copy { display: grid; grid-template-columns: minmax(220px,.72fr) minmax(0,1.28fr); gap: 18px 30px; align-items: center; padding: 18px 0 0; }
 .npc-guide-detail-copy p { margin: 0; color: rgba(238,240,232,.7); font-size: 13px; line-height: 1.55; }
-.npc-guide-detail-copy p:first-child { color: var(--npc-tint); font: 10px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
-.npc-guide-detail-copy h3 { margin: 0; color: var(--paper); font: 500 clamp(38px,4vw,58px)/.88 var(--display); letter-spacing: -.07em; }
+.npc-guide-detail-identity { display: grid; gap: 8px; min-width: 0; }
+.npc-guide-detail-identity p { color: var(--npc-tint); font: 10px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.npc-guide-detail-copy h3 { min-width: 0; margin: 0; color: var(--paper); font: 500 clamp(36px,4vw,54px)/.88 var(--display); letter-spacing: -.07em; overflow-wrap: anywhere; }
+.npc-guide-detail-copy > p:last-child { max-width: 48ch; }
 
 @media (max-width: 900px) {
     .npc-guide-heading { grid-template-columns: 1fr 1.5fr; gap: 20px; }
@@ -710,8 +712,9 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
     .npc-guide-rail { grid-auto-columns: calc((100% - 12px) / 2); gap: 12px; padding-top: 12px; }
     .npc-card { height: 226px; }
     .npc-card-copy strong { font-size: 21px; }
-    .npc-guide-detail-copy { grid-template-columns: 1fr 1fr; gap: 13px 18px; padding-top: 20px; }
-    .npc-guide-detail-copy p:last-child { grid-column: 1 / -1; }
+    .npc-guide-detail { min-height: 150px; }
+    .npc-guide-detail-copy { grid-template-columns: 1fr; gap: 14px; padding-top: 20px; }
+    .npc-guide-detail-copy > p:last-child { grid-column: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
