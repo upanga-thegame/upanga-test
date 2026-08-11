@@ -67,13 +67,10 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 .status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 16px var(--acid); }
 .platforms, .release-platforms { display: flex; gap: 9px; flex-wrap: wrap; }
 .platform-chip { display: inline-flex; align-items: center; gap: 9px; padding: 9px 12px; border: 1px solid rgba(238,240,232,.25); color: var(--paper); }
-.platform-mark { position: relative; display: inline-block; width: 16px; height: 16px; flex: 0 0 16px; }
-.platform-mark-android::before { content: ""; position: absolute; inset: 5px 1px 0; border: 1.5px solid currentColor; border-radius: 3px 3px 4px 4px; }
-.platform-mark-android::after { content: "••"; position: absolute; left: 3px; top: -2px; font: 700 10px/1 Arial; letter-spacing: 3px; }
-.platform-mark-apple::before { content: ""; position: absolute; left: 3px; top: 4px; width: 10px; height: 11px; border-radius: 48% 48% 50% 50%; background: currentColor; transform: rotate(-8deg); }
-.platform-mark-apple::after { content: ""; position: absolute; top: 0; left: 10px; width: 5px; height: 4px; border-radius: 100% 0; background: currentColor; transform: rotate(-28deg); }
-.platform-mark-steam::before { content: ""; position: absolute; left: 0; bottom: 1px; width: 8px; height: 8px; border: 1.5px solid currentColor; border-radius: 50%; }
-.platform-mark-steam::after { content: ""; position: absolute; right: 0; top: 0; width: 8px; height: 8px; border: 1.5px solid currentColor; border-radius: 50%; box-shadow: -6px 8px 0 -4px var(--ink); transform: rotate(32deg); }
+.platform-mark { display: inline-block; width: 16px; height: 16px; flex: 0 0 16px; overflow: visible; vertical-align: middle; }
+.platform-mark path { fill: currentColor; }
+.platform-mark-steam circle { fill: none; stroke: currentColor; stroke-width: 1.7; }
+.platform-mark-steam path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
 .scroll-cue { position: absolute; right: 32px; bottom: 42px; writing-mode: vertical-rl; display: flex; gap: 12px; align-items: center; color: rgba(238,240,232,.7); font: 10px var(--mono); text-transform: uppercase; letter-spacing: .1em; }
 .scroll-cue i { display: block; height: 42px; width: 1px; background: linear-gradient(var(--acid), transparent); }
 .scroll-journey { height: 520vh; position: relative; background: #070b09; }
