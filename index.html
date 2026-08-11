@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=npc-guide-2">
+    <link rel="stylesheet" href="styles.css?v=guardian-1">
 </head>
 <body class="home-page">
     <div class="site-grain" aria-hidden="true"></div>
@@ -298,11 +298,77 @@
             </div>
         </section>
 
+        <section class="guardian-archive-section hero-archive-section section-pad section-dark" id="guardians" aria-labelledby="guardians-heading">
+            <div class="section-frame">
+                <div class="section-heading reveal">
+                    <div class="section-label"><span>06</span><span>The guardians / boss archive</span></div>
+                    <h2 id="guardians-heading">Five guardians. One gate.</h2>
+                    <p class="hero-archive-intro">The bosses who hold the Soul Blade fragments and the routes between them. Scroll their dossiers into focus to read the abilities that shape each encounter.</p>
+                </div>
+                <div class="hero-archive guardian-archive reveal" data-guardian-archive>
+                    <nav class="hero-archive-rail" aria-label="Choose a Guardian">
+                        <p class="hero-archive-rail-label">The guardians</p>
+                        <button class="hero-archive-select is-active" type="button" data-guardian-select="amokye" aria-pressed="true"><span class="hero-archive-number">01</span><span class="hero-archive-thumb"><img src="images/guardians/amokye.png" alt=""></span><span class="hero-archive-select-copy"><strong>Amokye</strong><small>Bone Warden</small></span></button>
+                        <button class="hero-archive-select" type="button" data-guardian-select="bida" aria-pressed="false"><span class="hero-archive-number">02</span><span class="hero-archive-thumb"><img src="images/guardians/bida.png" alt=""></span><span class="hero-archive-select-copy"><strong>Bida</strong><small>Threefold Coil</small></span></button>
+                        <button class="hero-archive-select" type="button" data-guardian-select="aker" aria-pressed="false"><span class="hero-archive-number">03</span><span class="hero-archive-thumb"><img src="images/guardians/aker.png" alt=""></span><span class="hero-archive-select-copy"><strong>Aker</strong><small>Seal Warden</small></span></button>
+                        <button class="hero-archive-select" type="button" data-guardian-select="sasabonsam" aria-pressed="false"><span class="hero-archive-number">04</span><span class="hero-archive-thumb"><img src="images/guardians/sasabonsam.png" alt=""></span><span class="hero-archive-select-copy"><strong>Sasabonsam</strong><small>Rootbound</small></span></button>
+                        <button class="hero-archive-select" type="button" data-guardian-select="sobekus" aria-pressed="false"><span class="hero-archive-number">05</span><span class="hero-archive-thumb"><img src="images/guardians/sobekus.png" alt=""></span><span class="hero-archive-select-copy"><strong>Sobekus</strong><small>Drowned Gate</small></span></button>
+                    </nav>
+                    <div class="hero-archive-stage-wrap">
+                        <div class="hero-archive-stage" data-guardian-stage aria-live="polite">
+                            <img class="hero-archive-image" data-guardian-image src="images/guardians/amokye.png" alt="Amokye, the Bone Warden">
+                            <div class="hero-archive-grain" aria-hidden="true"></div><div class="hero-archive-vignette" aria-hidden="true"></div>
+                            <div class="hero-archive-topline"><span data-guardian-index>01 / 05</span><span><i></i> Active guardian</span></div>
+                            <div class="hero-archive-bottom"><div><p data-guardian-role>THE BONE WARDEN</p><h3 data-guardian-name>Amokye</h3><span data-guardian-title>The dead answer when she calls.</span></div><span class="hero-archive-coordinate">BOMENDE / 01</span></div>
+                        </div>
+                        <p class="hero-archive-hint"><span>Scroll</span> to move through the guardians <b>↓</b></p>
+                    </div>
+                    <div class="hero-archive-track" aria-label="Guardian dossiers">
+                        <article class="hero-archive-chapter is-active" data-guardian-chapter="amokye">
+                            <p class="hero-archive-chapter-index">01 / 05</p><p class="hero-archive-chapter-role">The Bone Warden</p><h3>Amokye</h3>
+                            <p class="hero-archive-copy">The crypt answers when Amokye calls. Her encounter alternates between direct pressure, summons, a chamber-wide pulse, and escalating bone fury.</p>
+                            <div class="hero-archive-specs"><span>Melee</span><span>Summoner</span><span>Phase boss</span></div>
+                            <div class="hero-archive-stats"><span>Vitality <b>32</b></span><i style="--stat:58%"></i><span>Enrage <b>25%</b></span><i style="--stat:25%"></i></div>
+                            <div class="hero-archive-abilities guardian-abilities"><small>Special abilities</small><div class="guardian-ability"><strong>Bone Call</strong><span>Opens by summoning Obambo Hunters; at half health, calls an Obambo Guard. The encounter caps active summons at two.</span></div><div class="guardian-ability"><strong>Crypt Pulse</strong><span>Every third turn, the crypt shakes for 3 damage to every living hero. It can also answer incoming damage.</span></div><div class="guardian-ability"><strong>Damage Interrupt</strong><span>After taking damage, Amokye can answer with a melee strike, pulse, summon, or reposition.</span></div><div class="guardian-ability"><strong>Bone Fury</strong><span>At 25% health, her basic attack rises from 2 to 3 damage.</span></div></div>
+                        </article>
+                        <article class="hero-archive-chapter" data-guardian-chapter="bida">
+                            <p class="hero-archive-chapter-index">02 / 05</p><p class="hero-archive-chapter-role">The Threefold Coil</p><h3>Bida</h3>
+                            <p class="hero-archive-copy">One coiled body, three independently targetable heads. The head anchors are part of one Guardian encounter, so Bida appears here as a single entry rather than a duplicate head card.</p>
+                            <div class="hero-archive-specs"><span>Melee / ranged</span><span>3 head anchors</span><span>Phase boss</span></div>
+                            <div class="hero-archive-stats"><span>Vitality <b>88</b></span><i style="--stat:100%"></i><span>Heads <b>3</b></span><i style="--stat:75%"></i></div>
+                            <div class="hero-archive-abilities guardian-abilities"><small>Special abilities</small><div class="guardian-ability"><strong>Threefold Vitality</strong><span>Three head anchors can be targeted independently; the protected center anchor controls the group’s movement.</span></div><div class="guardian-ability"><strong>Group Slither</strong><span>The body stays rooted while the three-head group repositions as a unit to close angles and pressure the party.</span></div><div class="guardian-ability"><strong>Venom Bite</strong><span>Heads can attack with a close bite or switch to a ranged venom projectile when distance calls for it.</span></div><div class="guardian-ability"><strong>Hoard Echoes</strong><span>Each outer-head defeat advances the phase and summons a Hoard Echo, up to two phase transitions.</span></div></div>
+                        </article>
+                        <article class="hero-archive-chapter" data-guardian-chapter="aker">
+                            <p class="hero-archive-chapter-index">03 / 05</p><p class="hero-archive-chapter-role">The Seal Warden</p><h3>Aker</h3>
+                            <p class="hero-archive-copy">Aker’s defense is a living puzzle. Two cleanseable seal anchors absorb part of incoming damage while priests can restore the Warden or charge the seal.</p>
+                            <div class="hero-archive-specs"><span>Melee / pulse</span><span>2 seal anchors</span><span>Half-health phase</span></div>
+                            <div class="hero-archive-stats"><span>Vitality <b>52</b></span><i style="--stat:72%"></i><span>Anchors <b>2</b></span><i style="--stat:50%"></i></div>
+                            <div class="hero-archive-abilities guardian-abilities"><small>Special abilities</small><div class="guardian-ability"><strong>Seal Anchors</strong><span>Two active anchors reduce incoming damage. Cleanse them to weaken Aker’s armor; priests can rebuild the seal charge.</span></div><div class="guardian-ability"><strong>Seal Eruption</strong><span>Marks tiles before they erupt, damaging heroes who remain on the warning pattern. Below half health, the pattern expands.</span></div><div class="guardian-ability"><strong>Soul Lance</strong><span>A targeted seal cast that consumes 1 AP and strikes a hero for 4 base damage, increasing with seal charge.</span></div><div class="guardian-ability"><strong>Fractured Burst</strong><span>After the seal fractures, Aker can burst around a clustered hero group; higher seal charge increases its reach and damage.</span></div></div>
+                        </article>
+                        <article class="hero-archive-chapter" data-guardian-chapter="sasabonsam">
+                            <p class="hero-archive-chapter-index">04 / 05</p><p class="hero-archive-chapter-role">The Rootbound</p><h3>Sasabonsam</h3>
+                            <p class="hero-archive-copy">Sasabonsam turns speed into pressure. His opening howl establishes the fight, then health thresholds unlock roots and a sudden charge into the frontline.</p>
+                            <div class="hero-archive-specs"><span>Melee</span><span>Fast turns</span><span>Phase boss</span></div>
+                            <div class="hero-archive-stats"><span>Vitality <b>52</b></span><i style="--stat:72%"></i><span>Speed <b>16</b></span><i style="--stat:100%"></i></div>
+                            <div class="hero-archive-abilities guardian-abilities"><small>Special abilities</small><div class="guardian-ability"><strong>Howl of the Deep Kwae</strong><span>Opens the battle, then returns every other turn; recurring howls leave every living hero Snared.</span></div><div class="guardian-ability"><strong>Rootbound Call</strong><span>At 50% health, targets the weakest living hero for 5 damage and Jungle Snare, costing that hero 1 AP on their turn.</span></div><div class="guardian-ability"><strong>Treefall Lunge</strong><span>At 25% health, charges beside a nearby hero and crashes down for 8 damage before continuing the pressure.</span></div><div class="guardian-ability"><strong>Rapid Cadence</strong><span>Speed 16 gives Sasabonsam roughly twice the normal turn frequency.</span></div></div>
+                        </article>
+                        <article class="hero-archive-chapter" data-guardian-chapter="sobekus">
+                            <p class="hero-archive-chapter-index">05 / 05</p><p class="hero-archive-chapter-role">The Drowned Gate</p><h3>Sobekus</h3>
+                            <p class="hero-archive-copy">Sobekus makes the arena itself hostile. Cracks warn where the water will rise, while the crocodile’s control tools punish anyone who loses an escape route.</p>
+                            <div class="hero-archive-specs"><span>Melee</span><span>Flood hazards</span><span>Final phase</span></div>
+                            <div class="hero-archive-stats"><span>Vitality <b>48</b></span><i style="--stat:68%"></i><span>Flood tiles <b>2 → 3</b></span><i style="--stat:78%"></i></div>
+                            <div class="hero-archive-abilities guardian-abilities"><small>Special abilities</small><div class="guardian-ability"><strong>Drowned Gate</strong><span>Telegraphs cracked tiles one turn before they flood; standing water deals 2 damage at turn end and lasts for two boss turns.</span></div><div class="guardian-ability"><strong>Death Roll</strong><span>In the Keeper phase, seizes an adjacent hero, deals repeated 2-damage hits, and drags them into nearby flooded ground when possible.</span></div><div class="guardian-ability"><strong>Tail Whip</strong><span>Deals 5 damage and knocks an adjacent hero away. It can also retaliate immediately after a melee hit, with a higher chance on harder difficulties.</span></div><div class="guardian-ability"><strong>Keeper’s Roar</strong><span>In the final phase, Sobekus becomes more aggressive and floods three tiles instead of two; the mire can restore his health when he moves through it.</span></div></div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="release-section section-pad section-accent"><div class="section-frame release-grid"><div class="section-label reveal"><span>06</span><span>The horizon</span></div><div class="release-copy reveal"><p class="eyebrow">The first road opens in</p><h2>Fall<br><span>2026</span></h2><p>Upanga: The Soul Blade is planned for Android, Apple, and Steam. Follow along for new captures, world notes, and release news.</p><div class="release-platforms"><span class="release-platform"><svg class="platform-mark platform-mark-android" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9.5a5 5 0 0 1 10 0v6.2a1 1 0 0 1-1 1h-1.1v3a1 1 0 0 1-2 0v-3h-1.8v3a1 1 0 0 1-2 0V16.7H8a1 1 0 0 1-1-1V9.5Zm1.2-1.9h7.6a3.9 3.9 0 0 0-1.7-2.4l.9-1.6-.8-.4-.9 1.6a5 5 0 0 0-2.4 0L10 3.2l-.8.4.9 1.6a3.9 3.9 0 0 0-1.9 2.4ZM5 9.5a1 1 0 0 1 1 1v4.7a1 1 0 0 1-2 0v-4.7a1 1 0 0 1 1-1Zm14 0a1 1 0 0 1 1 1v4.7a1 1 0 0 1-2 0v-4.7a1 1 0 0 1 1-1Z"/></svg>Android</span><span class="release-platform"><svg class="platform-mark platform-mark-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.33 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.46 4.09ZM12.03 7.25C11.88 5.02 13.69 3.18 15.82 3c.29 2.58-2.32 4.5-3.79 4.25Z"/></svg>Apple</span><span class="release-platform"><svg class="platform-mark platform-mark-steam" viewBox="0 0 24 24" aria-hidden="true"><circle cx="17.1" cy="7.2" r="3.2"/><circle cx="7.1" cy="16.3" r="2.7"/><path d="m9.4 14.9 4.8-4.1m-11 4.2 4.2 1.3"/></svg>Steam</span></div><a class="button button-dark" href="https://x.com/upangadev" target="_blank" rel="noreferrer">Follow @upangadev <span>↗</span></a></div></div></section>
 
     </main>
 
     <footer class="site-footer"><div class="section-frame footer-grid"><a class="brand-lockup" href="index.html"><span class="brand-mark">U</span><span class="brand-name">UPANGA</span></a><p>© <span data-year></span> Upanga: The Soul Blade</p><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="data-deletion.html">Data deletion</a></div><a class="footer-social" href="mailto:upangadev@zohomail.com">upangadev@zohomail.com <span>↗</span></a></div></footer>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script><script src="script.js?v=npc-guide-1"></script><script type="module" src="scripts/scene.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script><script src="script.js?v=guardian-1"></script><script type="module" src="scripts/scene.js"></script>
 </body>
 </html>

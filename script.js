@@ -263,6 +263,78 @@
         activateArchiveHero('osa');
     }
 
+    const guardianArchive = document.querySelector('[data-guardian-archive]');
+    if (guardianArchive) {
+        const selectors = [...guardianArchive.querySelectorAll('[data-guardian-select]')];
+        const chapters = [...guardianArchive.querySelectorAll('[data-guardian-chapter]')];
+        const stage = guardianArchive.querySelector('[data-guardian-stage]');
+        const stageImage = guardianArchive.querySelector('[data-guardian-image]');
+        const stageIndex = guardianArchive.querySelector('[data-guardian-index]');
+        const stageName = guardianArchive.querySelector('[data-guardian-name]');
+        const stageRole = guardianArchive.querySelector('[data-guardian-role]');
+        const stageTitle = guardianArchive.querySelector('[data-guardian-title]');
+        const stageCoordinate = guardianArchive.querySelector('.hero-archive-coordinate');
+        let activeGuardianId = '';
+
+        const guardianData = {
+            amokye: { name: 'Amokye', role: 'THE BONE WARDEN', title: 'The dead answer when she calls.', image: 'images/guardians/amokye.png', tint: '#b8a2e7' },
+            bida: { name: 'Bida', role: 'THE THREEFOLD COIL', title: 'Three heads. One will. No safe angle.', image: 'images/guardians/bida.png', tint: '#e28d68' },
+            aker: { name: 'Aker', role: 'THE SEAL WARDEN', title: 'The seal breaks in patterns before it breaks open.', image: 'images/guardians/aker.png', tint: '#78c9e2' },
+            sasabonsam: { name: 'Sasabonsam', role: 'THE ROOTBOUND', title: 'Speed turns the canopy into a trap.', image: 'images/guardians/sasabonsam.png', tint: '#83bd6b' },
+            sobekus: { name: 'Sobekus', role: 'THE DROWNED GATE', title: 'The arena floods when he decides it should.', image: 'images/guardians/sobekus.png', tint: '#5fc3be' }
+        };
+
+        const activateGuardian = (guardianId) => {
+            const data = guardianData[guardianId];
+            if (!data || activeGuardianId === guardianId) return;
+            activeGuardianId = guardianId;
+            const order = selectors.findIndex((selector) => selector.dataset.guardianSelect === guardianId) + 1;
+            guardianArchive.style.setProperty('--archive-tint', data.tint);
+            stage?.classList.add('is-changing');
+            selectors.forEach((selector) => {
+                const active = selector.dataset.guardianSelect === guardianId;
+                selector.classList.toggle('is-active', active);
+                selector.setAttribute('aria-pressed', String(active));
+            });
+            chapters.forEach((chapter) => chapter.classList.toggle('is-active', chapter.dataset.guardianChapter === guardianId));
+            if (stageImage) {
+                stageImage.src = data.image;
+                stageImage.alt = `${data.name}, ${data.role.toLowerCase()}`;
+            }
+            if (stageIndex) stageIndex.textContent = `${String(order).padStart(2, '0')} / 05`;
+            if (stageName) stageName.textContent = data.name;
+            if (stageRole) stageRole.textContent = data.role;
+            if (stageTitle) stageTitle.textContent = data.title;
+            if (stageCoordinate) stageCoordinate.textContent = `BOMENDE / ${String(order).padStart(2, '0')}`;
+            window.setTimeout(() => stage?.classList.remove('is-changing'), 260);
+        };
+
+        selectors.forEach((selector, index) => {
+            const guardianId = selector.dataset.guardianSelect;
+            selector.addEventListener('pointerenter', () => activateGuardian(guardianId));
+            selector.addEventListener('focus', () => activateGuardian(guardianId));
+            selector.addEventListener('click', () => {
+                activateGuardian(guardianId);
+                chapters[index]?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
+            });
+            selector.addEventListener('keydown', (event) => {
+                if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+                event.preventDefault();
+                const nextIndex = event.key === 'ArrowDown' ? (index + 1) % selectors.length : (index - 1 + selectors.length) % selectors.length;
+                selectors[nextIndex].focus();
+                activateGuardian(selectors[nextIndex].dataset.guardianSelect);
+            });
+        });
+
+        const guardianObserver = new IntersectionObserver((entries) => {
+            const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+            if (visible) activateGuardian(visible.target.dataset.guardianChapter);
+        }, { threshold: [0.35, 0.6], rootMargin: '-18% 0px -24% 0px' });
+
+        chapters.forEach((chapter) => guardianObserver.observe(chapter));
+        activateGuardian('amokye');
+    }
+
     const npcGuide = document.querySelector('[data-npc-guide]');
     if (npcGuide) {
         const npcCards = [...npcGuide.querySelectorAll('[data-npc-id]')];
