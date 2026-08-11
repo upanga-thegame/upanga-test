@@ -99,7 +99,7 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 .journey-progress span { display: block; width: 100%; height: 100%; background: var(--acid); transform: scaleX(.02); transform-origin: left center; }
 .journey-counter { display: flex; align-items: baseline; gap: 5px; color: rgba(238,240,232,.5); font: 11px var(--mono); }
 .journey-counter strong { color: var(--acid); font-size: 17px; font-weight: 400; }
-.signal-section { background: var(--paper); color: var(--ink); }
+.signal-section { background: #0e1411; color: var(--paper); }
 .signal-grid { display: grid; grid-template-columns: 1fr 1.55fr 1fr; gap: 42px; align-items: start; }
 .section-label { display: flex; gap: 16px; color: var(--muted); }
 .section-label span:first-child { color: var(--acid); }
@@ -112,6 +112,9 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 .signal-art img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 50%; filter: saturate(.8) contrast(1.05); }
 .signal-art::after { content: ""; position: absolute; inset: 15px -15px -15px 15px; border: 1px solid rgba(10,13,12,.28); z-index: -1; }
 .map-caption { display: block; margin-top: 15px; color: #7b827b; }
+.signal-section .section-label { color: var(--muted); }
+.signal-section .map-caption { color: var(--muted); }
+.signal-section .signal-art::after { border-color: rgba(238,240,232,.28); }
 .blade-section { position: relative; }
 .blade-section::before { content: ""; position: absolute; inset: 0; opacity: .13; background-image: linear-gradient(rgba(238,240,232,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(238,240,232,.13) 1px, transparent 1px); background-size: 90px 90px; mask-image: linear-gradient(90deg, transparent, black 23%, black 78%, transparent); }
 .blade-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(60px, 12vw, 180px); align-items: center; }
@@ -410,8 +413,8 @@ h1 em, h2 em { color: var(--acid); font-style: normal; }
 }
 
 .home-page .signal-copy h2 span { color: var(--acid); }
-.home-page .signal-section .eyebrow { color: #667331; }
-.home-page .signal-section .muted-copy { color: #667067; }
+.home-page .signal-section .eyebrow { color: var(--acid); }
+.home-page .signal-section .muted-copy { color: rgba(238,240,232,.58); }
 
 /* Cinematic hero archive */
 .hero-archive-section {
