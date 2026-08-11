@@ -46,6 +46,116 @@
     }
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const heroDossier = document.querySelector('[data-hero-dossier]');
+    if (heroDossier) {
+        const heroButtons = [...heroDossier.querySelectorAll('[data-hero-id]')];
+        const heroStageImage = heroDossier.querySelector('[data-hero-stage-image]');
+        const heroStageVideo = heroDossier.querySelector('[data-hero-stage-video]');
+        const heroStageIndex = heroDossier.querySelector('[data-hero-stage-index]');
+        const heroStageName = heroDossier.querySelector('[data-hero-stage-name]');
+        const heroStageRole = heroDossier.querySelector('[data-hero-stage-role]');
+        const profileName = heroDossier.querySelector('[data-hero-profile-name]');
+        const profileRole = heroDossier.querySelector('[data-hero-profile-role]');
+        const profileFaction = heroDossier.querySelector('[data-hero-profile-faction]');
+        const profileBio = heroDossier.querySelector('[data-hero-profile-bio]');
+        const profileStatus = heroDossier.querySelector('[data-hero-profile-status]');
+        const abilitiesRoot = heroDossier.querySelector('[data-hero-abilities]');
+        const statNames = ['force', 'guard', 'range', 'focus'];
+        let activeHeroId = '';
+
+        const playHeroVideo = () => {
+            if (!heroStageVideo || prefersReducedMotion) return;
+            heroStageVideo.muted = true;
+            heroStageVideo.play().catch(() => {});
+        };
+
+        const setHeroProfile = (button) => {
+            if (!button || button.dataset.heroId === activeHeroId) return;
+            activeHeroId = button.dataset.heroId;
+            heroButtons.forEach((item) => {
+                const active = item === button;
+                item.classList.toggle('is-active', active);
+                item.setAttribute('aria-pressed', String(active));
+            });
+
+            const name = button.dataset.heroName || '';
+            const role = button.dataset.heroRole || '';
+            const faction = button.dataset.heroFaction || '';
+            const image = button.dataset.heroImage || '';
+            const video = button.dataset.heroVideo || '';
+            const fallbackVideo = button.dataset.heroVideoFallback || '';
+            if (heroStageImage) {
+                heroStageImage.src = image;
+                heroStageImage.alt = `${name}, ${role}`;
+            }
+            if (heroStageIndex) heroStageIndex.textContent = button.querySelector('.hero-roster-index')?.textContent || '';
+            if (heroStageName) heroStageName.textContent = name;
+            if (heroStageRole) heroStageRole.textContent = role;
+            if (profileName) profileName.textContent = name;
+            if (profileRole) profileRole.textContent = role;
+            if (profileFaction) profileFaction.textContent = faction;
+            if (profileBio) profileBio.textContent = button.dataset.heroBio || '';
+            if (profileStatus) profileStatus.textContent = video && !prefersReducedMotion ? 'Motion study' : 'Portrait still';
+
+            statNames.forEach((stat) => {
+                const value = Number(button.dataset[`stat${stat[0].toUpperCase()}${stat.slice(1)}`] || 0);
+                const bar = heroDossier.querySelector(`[data-hero-stat="${stat}"]`);
+                const valueNode = heroDossier.querySelector(`[data-hero-stat-value="${stat}"]`);
+                if (bar) bar.style.setProperty('--value', `${value}%`);
+                if (valueNode) valueNode.textContent = String(value).padStart(2, '0');
+            });
+
+            if (abilitiesRoot) {
+                abilitiesRoot.replaceChildren(...(button.dataset.heroAbilities || '').split('|').filter(Boolean).map((ability, index) => {
+                    const node = document.createElement('span');
+                    node.textContent = `${String(index + 1).padStart(2, '0')} / ${ability}`;
+                    return node;
+                }));
+            }
+
+            if (!heroStageVideo) return;
+            heroStageVideo.classList.remove('is-visible');
+            heroStageVideo.pause();
+            if (!video || prefersReducedMotion) {
+                if (!video) {
+                    heroStageVideo.removeAttribute('src');
+                    heroStageVideo.dataset.source = '';
+                    heroStageVideo.load();
+                }
+                return;
+            }
+            if (heroStageVideo.dataset.source !== video) {
+                heroStageVideo.src = video;
+                heroStageVideo.dataset.source = video;
+                heroStageVideo.addEventListener('error', () => {
+                    if (activeHeroId !== button.dataset.heroId || !fallbackVideo || heroStageVideo.dataset.source !== video) return;
+                    heroStageVideo.src = fallbackVideo;
+                    heroStageVideo.dataset.source = fallbackVideo;
+                    heroStageVideo.load();
+                }, { once: true });
+                heroStageVideo.load();
+            }
+            heroStageVideo.addEventListener('loadeddata', () => {
+                if (activeHeroId === button.dataset.heroId) {
+                    heroStageVideo.classList.add('is-visible');
+                    playHeroVideo();
+                }
+            }, { once: true });
+            if (heroStageVideo.readyState >= 2) {
+                heroStageVideo.classList.add('is-visible');
+                playHeroVideo();
+            }
+        };
+
+        heroButtons.forEach((button) => {
+            button.addEventListener('mouseenter', () => setHeroProfile(button));
+            button.addEventListener('focus', () => setHeroProfile(button));
+            button.addEventListener('click', () => setHeroProfile(button));
+        });
+        setHeroProfile(heroButtons[0]);
+    }
+
     const journey = document.querySelector('.scroll-journey');
     const journeyVideos = [...document.querySelectorAll('[data-journey-video]')];
     const journeySteps = [...document.querySelectorAll('[data-journey-step]')];
