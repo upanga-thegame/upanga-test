@@ -273,12 +273,13 @@
     const journeyCounter = document.querySelector('.journey-counter strong');
     const mobileJourney = window.matchMedia('(max-width: 560px)').matches;
     const journeyVideoOpacity = mobileJourney ? .78 : .9;
+    let journeyMotionActivated = !prefersReducedMotion;
     let activeJourneyStep = -1;
 
     const lerp = (from, to, amount) => from + ((to - from) * amount);
 
     const playJourneyVideo = (video) => {
-        if (!video || prefersReducedMotion) return;
+        if (!video || (prefersReducedMotion && !journeyMotionActivated)) return;
         video.muted = true;
         video.play().catch(() => {});
     };
@@ -350,7 +351,7 @@
 
             card.style.opacity = String(opacity);
             card.style.zIndex = String(zIndex);
-            card.style.transform = `translate3d(calc(-50% + ${x}vw), calc(-50% + ${y}vh), 0) scale(${scale}) rotate(${rotate}deg)`;
+            card.style.transform = `translate3d(${x}vw, ${y}vh, 0) translate(-50%, -50%) scale(${scale}) rotate(${rotate}deg)`;
         });
 
         if (journeyBackdrop) {
@@ -384,9 +385,10 @@
     if (journey && journeyCards.length && journeySteps.length) {
         setJourneyStep(0);
         updateJourneyFromProgress(0);
-        if (!prefersReducedMotion) {
-            window.addEventListener('scroll', () => playJourneyVideo(journeyVideos[activeJourneyStep] || journeyVideos[0]), { passive: true });
-        }
+        window.addEventListener('scroll', () => {
+            if (prefersReducedMotion) journeyMotionActivated = true;
+            playJourneyVideo(journeyVideos[activeJourneyStep] || journeyVideos[0]);
+        }, { passive: true });
     }
 
     if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
@@ -425,7 +427,7 @@
                 }
             });
         }
-    } else if (journey && journeyCards.length && journeySteps.length && !prefersReducedMotion) {
+    } else if (journey && journeyCards.length && journeySteps.length) {
         updateNativeJourney();
         window.addEventListener('resize', updateNativeJourney);
         window.addEventListener('scroll', updateNativeJourney, { passive: true });
